@@ -10,7 +10,7 @@
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [PurchaseRequestPropertiesOrReservationOrderProperties](#purchaserequestpropertiesorreservationorderproperties): Properties of reservation purchase request
 * **sku**: [SkuName](#skuname) (WriteOnly): The name of sku
-* **systemData**: [SystemData](#systemdata) (ReadOnly): Metadata pertaining to creation and last modification of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Capacity/reservationOrders' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Capacity/reservationOrders/reservations@2022-11-01 (ReadOnly)
@@ -72,7 +72,7 @@
 * **quantity**: int: Quantity of the skus that are part of the reservation.
 * **renew**: bool: Setting this to true will automatically purchase a new reservation on the expiration date time.
 * **reservedResourceProperties**: [PurchaseRequestPropertiesReservedResourceProperties](#purchaserequestpropertiesreservedresourceproperties): Properties specific to each reserved resource type. Not required if not applicable.
-* **reservedResourceType**: 'AVS' | 'AppService' | 'AzureDataExplorer' | 'AzureFiles' | 'BlockBlob' | 'CosmosDb' | 'DataFactory' | 'Databricks' | 'DedicatedHost' | 'ManagedDisk' | 'MariaDb' | 'MySql' | 'NetAppStorage' | 'PostgreSql' | 'RedHat' | 'RedHatOsa' | 'RedisCache' | 'SapHana' | 'SqlAzureHybridBenefit' | 'SqlDataWarehouse' | 'SqlDatabases' | 'SqlEdge' | 'SuseLinux' | 'VMwareCloudSimple' | 'VirtualMachineSoftware' | 'VirtualMachines' | string: The type of the resource that is being reserved.
+* **reservedResourceType**: 'AVS' | 'AppService' | 'AzureDataExplorer' | 'AzureFiles' | 'BlockBlob' | 'CosmosDb' | 'DataFactory' | 'Databricks' | 'DedicatedHost' | 'ManagedDisk' | 'MariaDb' | 'MySql' | 'NetAppStorage' | 'PostgreSql' | 'RedHat' | 'RedHatOsa' | 'RedisCache' | 'SapHana' | 'SqlAzureHybridBenefit' | 'SqlDataWarehouse' | 'SqlDatabases' | 'SqlEdge' | 'SuseLinux' | 'VMwareCloudSimple' | 'VirtualMachineSoftware' | 'VirtualMachines' | string: The type of the resource that is being reserved. In addition to below types we have also added the following: OpenAIPTU, MDC, Sentinel.
 * **reviewDateTime**: string: This is the date-time when the Azure hybrid benefit needs to be reviewed.
 * **term**: 'P1Y' | 'P3Y' | 'P5Y' | string: Represent the term of reservation.
 
@@ -96,7 +96,7 @@
 * **requestDateTime**: string (ReadOnly): This is the DateTime when the reservation was initially requested for purchase.
 * **reservations**: [ReservationResponse](#reservationresponse)[] (ReadOnly)
 * **reservedResourceProperties**: [PurchaseRequestPropertiesReservedResourceProperties](#purchaserequestpropertiesreservedresourceproperties) (WriteOnly): Properties specific to each reserved resource type. Not required if not applicable.
-* **reservedResourceType**: 'AVS' | 'AppService' | 'AzureDataExplorer' | 'AzureFiles' | 'BlockBlob' | 'CosmosDb' | 'DataFactory' | 'Databricks' | 'DedicatedHost' | 'ManagedDisk' | 'MariaDb' | 'MySql' | 'NetAppStorage' | 'PostgreSql' | 'RedHat' | 'RedHatOsa' | 'RedisCache' | 'SapHana' | 'SqlAzureHybridBenefit' | 'SqlDataWarehouse' | 'SqlDatabases' | 'SqlEdge' | 'SuseLinux' | 'VMwareCloudSimple' | 'VirtualMachineSoftware' | 'VirtualMachines' | string (WriteOnly): The type of the resource that is being reserved.
+* **reservedResourceType**: 'AVS' | 'AppService' | 'AzureDataExplorer' | 'AzureFiles' | 'BlockBlob' | 'CosmosDb' | 'DataFactory' | 'Databricks' | 'DedicatedHost' | 'ManagedDisk' | 'MariaDb' | 'MySql' | 'NetAppStorage' | 'PostgreSql' | 'RedHat' | 'RedHatOsa' | 'RedisCache' | 'SapHana' | 'SqlAzureHybridBenefit' | 'SqlDataWarehouse' | 'SqlDatabases' | 'SqlEdge' | 'SuseLinux' | 'VMwareCloudSimple' | 'VirtualMachineSoftware' | 'VirtualMachines' | string (WriteOnly): The type of the resource that is being reserved. In addition to below types we have also added the following: OpenAIPTU, MDC, Sentinel.
 * **reviewDateTime**: string: This is the date-time when the Azure hybrid benefit needs to be reviewed.
 * **term**: 'P1Y' | 'P3Y' | 'P5Y' | string: Represent the term of reservation.
 
@@ -172,7 +172,7 @@
 * **provisioningSubState**: string (ReadOnly): The provisioning sub-state of the reservation, e.g. Succeeded
 * **purchaseDate**: string: This is the date when the reservation was purchased.
 * **purchaseDateTime**: string: This is the date-time when the reservation was purchased.
-* **quantity**: int: Quantity of the skus that are part of the reservation.
+* **quantity**: int: Quantity of the skus that are part of the reservation. Must be greater than zero.
 * **renew**: bool: Setting this to true will automatically purchase a new reservation on the expiration date time.
 * **renewDestination**: string: Reservation Id of the reservation which is purchased because of renew. Format of the resource Id is /providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}.
 * **renewProperties**: [RenewPropertiesResponse](#renewpropertiesresponse): The renew properties for a reservation.
