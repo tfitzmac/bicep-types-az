@@ -592,7 +592,6 @@
 ## AcrDetails
 ### Properties
 * **systemCreatedAcrAccount**: [SystemCreatedAcrAccount](#systemcreatedacraccount): Details of system created ACR account to be used for the Registry
-* **userCreatedAcrAccount**: [UserCreatedAcrAccount](#usercreatedacraccount): Details of user created ACR account to be used for the Registry
 
 ## AksNetworkingConfiguration
 ### Properties
@@ -2573,38 +2572,56 @@ This is optional value to provide, if not provided, AutoML will default this to 
 
 ### CustomModelJobOutput
 #### Properties
+* **assetName**: string: Output Asset Name.
+* **assetVersion**: string: Output Asset Version.
 * **jobOutputType**: 'custom_model' (Required): [Required] Specifies the type of job.
 * **mode**: 'Direct' | 'ReadWriteMount' | 'Upload' | string: Output Asset Delivery Mode.
+* **pathOnCompute**: string: Output Asset Delivery Path.
 * **uri**: string: Output Asset URI.
 
 ### MLFlowModelJobOutput
 #### Properties
+* **assetName**: string: Output Asset Name.
+* **assetVersion**: string: Output Asset Version.
 * **jobOutputType**: 'mlflow_model' (Required): [Required] Specifies the type of job.
 * **mode**: 'Direct' | 'ReadWriteMount' | 'Upload' | string: Output Asset Delivery Mode.
+* **pathOnCompute**: string: Output Asset Delivery Path.
 * **uri**: string: Output Asset URI.
 
 ### MLTableJobOutput
 #### Properties
+* **assetName**: string: Output Asset Name.
+* **assetVersion**: string: Output Asset Version.
 * **jobOutputType**: 'mltable' (Required): [Required] Specifies the type of job.
 * **mode**: 'Direct' | 'ReadWriteMount' | 'Upload' | string: Output Asset Delivery Mode.
+* **pathOnCompute**: string: Output Asset Delivery Path.
 * **uri**: string: Output Asset URI.
 
 ### TritonModelJobOutput
 #### Properties
+* **assetName**: string: Output Asset Name.
+* **assetVersion**: string: Output Asset Version.
 * **jobOutputType**: 'triton_model' (Required): [Required] Specifies the type of job.
 * **mode**: 'Direct' | 'ReadWriteMount' | 'Upload' | string: Output Asset Delivery Mode.
+* **pathOnCompute**: string: Output Asset Delivery Path.
 * **uri**: string: Output Asset URI.
 
 ### UriFileJobOutput
 #### Properties
+* **assetName**: string: Output Asset Name.
+* **assetVersion**: string: Output Asset Version.
 * **jobOutputType**: 'uri_file' (Required): [Required] Specifies the type of job.
 * **mode**: 'Direct' | 'ReadWriteMount' | 'Upload' | string: Output Asset Delivery Mode.
+* **pathOnCompute**: string: Output Asset Delivery Path.
 * **uri**: string: Output Asset URI.
 
 ### UriFolderJobOutput
 #### Properties
+* **assetName**: string: Output Asset Name.
+* **assetVersion**: string: Output Asset Version.
 * **jobOutputType**: 'uri_folder' (Required): [Required] Specifies the type of job.
 * **mode**: 'Direct' | 'ReadWriteMount' | 'Upload' | string: Output Asset Delivery Mode.
+* **pathOnCompute**: string: Output Asset Delivery Path.
 * **uri**: string: Output Asset URI.
 
 
@@ -3390,13 +3407,20 @@ Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Micro
 * **publicNetworkAccess**: string: Is the Registry accessible from the internet?
 Possible values: "Enabled" or "Disabled"
 * **regionDetails**: [RegistryRegionArmDetails](#registryregionarmdetails)[]: Details of each region the registry is in
+* **registryId**: string: RegistryId for this registry
 * **registryPrivateEndpointConnections**: [RegistryPrivateEndpointConnection](#registryprivateendpointconnection)[]: Private endpoint connections info used for pending connections in private link portal
+* **syndicatedRegistries**: [RegistrySyndicatedRegistries](#registrysyndicatedregistries): Dictionary of syndicated/destination registries for this source registry. For each destination registry, the Key is the RegistryId Guid and the value is a SyndicatedRegistry object
 
 ## RegistryRegionArmDetails
 ### Properties
 * **acrDetails**: [AcrDetails](#acrdetails)[]: List of ACR accounts
 * **location**: string: The location where the registry exists
 * **storageAccountDetails**: [StorageAccountDetails](#storageaccountdetails)[]: List of storage accounts
+
+## RegistrySyndicatedRegistries
+### Properties
+### Additional Properties
+* **Additional Properties Type**: [SyndicatedRegistry](#syndicatedregistry)
 
 ## RegressionTrainingSettings
 ### Properties
@@ -3869,7 +3893,6 @@ Configure this parameter with a higher value than 300 secs, if more time is need
 ## StorageAccountDetails
 ### Properties
 * **systemCreatedStorageAccount**: [SystemCreatedStorageAccount](#systemcreatedstorageaccount): Details of system created storage account to be used for the registry
-* **userCreatedStorageAccount**: [UserCreatedStorageAccount](#usercreatedstorageaccount): Details of user created storage account to be used for the registry
 
 ## SweepJobInputs
 ### Properties
@@ -3901,6 +3924,10 @@ Configure this parameter with a higher value than 300 secs, if more time is need
 * **sparkVersion**: string: Spark version.
 * **subscriptionId**: string: Azure subscription identifier.
 * **workspaceName**: string: Name of Azure Machine Learning workspace.
+
+## SyndicatedRegistry
+### Properties
+* **registryId**: string: The Registry Id Guid of the syndicated Registry
 
 ## SystemCreatedAcrAccount
 ### Properties
@@ -4088,14 +4115,6 @@ The expression should follow NCronTab format.
 ### Properties
 * **clientId**: string {minLength: 36, maxLength: 36, pattern: "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"} (ReadOnly): The client ID of the assigned identity.
 * **principalId**: string {minLength: 36, maxLength: 36, pattern: "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"} (ReadOnly): The principal ID of the assigned identity.
-
-## UserCreatedAcrAccount
-### Properties
-* **armResourceId**: [ArmResourceId](#armresourceid): ARM ResourceId of a resource
-
-## UserCreatedStorageAccount
-### Properties
-* **armResourceId**: [ArmResourceId](#armresourceid): ARM ResourceId of a resource
 
 ## VirtualMachineImage
 ### Properties

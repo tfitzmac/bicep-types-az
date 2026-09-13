@@ -1,10 +1,15 @@
 [
   {
-    "$type": "StringType"
+    "$type": "StringType",
+    "minLength": 3,
+    "maxLength": 64
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.AzureStackHCI/clusters/arcSettings"
+    "value": "Microsoft.AzureStackHCI/galleryimages"
+  },
+  {
+    "$type": "StringType"
   },
   {
     "$type": "StringLiteralType",
@@ -12,11 +17,11 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.AzureStackHCI/clusters/arcSettings",
+    "name": "Microsoft.AzureStackHCI/galleryimages",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
@@ -37,26 +42,467 @@
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/3"
         },
         "flags": 10,
         "description": "The resource api version"
       },
+      "properties": {
+        "type": {
+          "$ref": "#/5"
+        },
+        "flags": 0,
+        "description": "Properties of a gallery image resource"
+      },
+      "extendedLocation": {
+        "type": {
+          "$ref": "#/36"
+        },
+        "flags": 0,
+        "description": "The extendedLocation of the resource."
+      },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
-        "description": "System data of ArcSetting resource"
+        "description": "Metadata pertaining to creation and last modification of the resource."
       },
-      "properties": {
+      "tags": {
+        "type": {
+          "$ref": "#/50"
+        },
+        "flags": 0,
+        "description": "Resource tags."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 1,
+        "description": "The geo-location where the resource lives"
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryimagesProperties",
+    "properties": {
+      "containerName": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Container Name for storage container"
+      },
+      "imagePath": {
+        "type": {
+          "$ref": "#/6"
+        },
+        "flags": 0,
+        "description": "location of the image the gallery image should be created from"
+      },
+      "osType": {
+        "type": {
+          "$ref": "#/9"
+        },
+        "flags": 0,
+        "description": "operating system type that the gallery image uses. Expected to be linux or windows"
+      },
+      "cloudInitDataSource": {
+        "type": {
+          "$ref": "#/12"
+        },
+        "flags": 0,
+        "description": "Datasource for the gallery image when provisioning with cloud-init (Azure or NoCloud)"
+      },
+      "hyperVGeneration": {
         "type": {
           "$ref": "#/15"
         },
         "flags": 0,
-        "description": "ArcSetting properties."
+        "description": "The hypervisor generation of the Virtual Machine [V1, V2]"
+      },
+      "identifier": {
+        "type": {
+          "$ref": "#/16"
+        },
+        "flags": 0,
+        "description": "This is the gallery image definition identifier."
+      },
+      "version": {
+        "type": {
+          "$ref": "#/17"
+        },
+        "flags": 0,
+        "description": "Specifies information about the gallery image version that you want to create or update."
+      },
+      "provisioningState": {
+        "type": {
+          "$ref": "#/28"
+        },
+        "flags": 2,
+        "description": "Provisioning state of the gallery image."
+      },
+      "resourceName": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "name of the object to be used in moc"
+      },
+      "status": {
+        "type": {
+          "$ref": "#/29"
+        },
+        "flags": 2,
+        "description": "GalleryImageStatus defines the observed state of galleryimages"
       }
     }
+  },
+  {
+    "$type": "StringType",
+    "sensitive": true
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Windows"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Linux"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/7"
+      },
+      {
+        "$ref": "#/8"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "NoCloud"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Azure"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/10"
+      },
+      {
+        "$ref": "#/11"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "V1"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "V2"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/13"
+      },
+      {
+        "$ref": "#/14"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryImageIdentifier",
+    "properties": {
+      "publisher": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 1,
+        "description": "The name of the gallery image definition publisher."
+      },
+      "offer": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 1,
+        "description": "The name of the gallery image definition offer."
+      },
+      "sku": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 1,
+        "description": "The name of the gallery image definition SKU."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryImageVersion",
+    "properties": {
+      "name": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "This is the version of the gallery image."
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/18"
+        },
+        "flags": 0,
+        "description": "Describes the properties of a gallery image version."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryImageVersionProperties",
+    "properties": {
+      "storageProfile": {
+        "type": {
+          "$ref": "#/19"
+        },
+        "flags": 1,
+        "description": "This is the storage profile of a Gallery Image Version."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryImageVersionStorageProfile",
+    "properties": {
+      "osDiskImage": {
+        "type": {
+          "$ref": "#/20"
+        },
+        "flags": 0,
+        "description": "This is the OS disk image."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryOSDiskImage",
+    "properties": {
+      "sizeInMB": {
+        "type": {
+          "$ref": "#/21"
+        },
+        "flags": 2,
+        "description": "This property indicates the size of the VHD to be created."
+      }
+    }
+  },
+  {
+    "$type": "IntegerType"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Succeeded"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Failed"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "InProgress"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Accepted"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Deleting"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Canceled"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/22"
+      },
+      {
+        "$ref": "#/23"
+      },
+      {
+        "$ref": "#/24"
+      },
+      {
+        "$ref": "#/25"
+      },
+      {
+        "$ref": "#/26"
+      },
+      {
+        "$ref": "#/27"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryImageStatus",
+    "properties": {
+      "errorCode": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Gallery image provisioning error code"
+      },
+      "errorMessage": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Descriptive error message"
+      },
+      "provisioningStatus": {
+        "type": {
+          "$ref": "#/30"
+        },
+        "flags": 0,
+        "description": "The provisioning status of the gallery image"
+      },
+      "downloadStatus": {
+        "type": {
+          "$ref": "#/35"
+        },
+        "flags": 0,
+        "description": "The download status of the gallery image"
+      },
+      "progressPercentage": {
+        "type": {
+          "$ref": "#/21"
+        },
+        "flags": 0,
+        "description": "The progress of the operation in percentage"
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryImageStatusProvisioningStatus",
+    "properties": {
+      "operationId": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "The ID of the operation performed on the gallery image"
+      },
+      "status": {
+        "type": {
+          "$ref": "#/34"
+        },
+        "flags": 0,
+        "description": "The status of the operation performed on the gallery image [Succeeded, Failed, InProgress]"
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Succeeded"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Failed"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "InProgress"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/31"
+      },
+      {
+        "$ref": "#/32"
+      },
+      {
+        "$ref": "#/33"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GalleryImageStatusDownloadStatus",
+    "properties": {
+      "downloadSizeInMB": {
+        "type": {
+          "$ref": "#/21"
+        },
+        "flags": 0,
+        "description": "The downloaded sized of the image in MB"
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "ExtendedLocation",
+    "properties": {
+      "name": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "The name of the extended location."
+      },
+      "type": {
+        "type": {
+          "$ref": "#/38"
+        },
+        "flags": 0,
+        "description": "The type of the extended location."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "CustomLocation"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/37"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
   },
   {
     "$type": "ObjectType",
@@ -64,42 +510,42 @@
     "properties": {
       "createdBy": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The identity that created the resource."
       },
       "createdByType": {
         "type": {
-          "$ref": "#/9"
+          "$ref": "#/44"
         },
         "flags": 0,
         "description": "The type of identity that created the resource."
       },
       "createdAt": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The timestamp of resource creation (UTC)."
       },
       "lastModifiedBy": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The identity that last modified the resource."
       },
       "lastModifiedByType": {
         "type": {
-          "$ref": "#/14"
+          "$ref": "#/49"
         },
         "flags": 0,
         "description": "The type of identity that last modified the resource."
       },
       "lastModifiedAt": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The timestamp of resource last modification (UTC)"
@@ -126,19 +572,19 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/5"
+        "$ref": "#/40"
       },
       {
-        "$ref": "#/6"
+        "$ref": "#/41"
       },
       {
-        "$ref": "#/7"
+        "$ref": "#/42"
       },
       {
-        "$ref": "#/8"
+        "$ref": "#/43"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -162,309 +608,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/10"
-      },
-      {
-        "$ref": "#/11"
-      },
-      {
-        "$ref": "#/12"
-      },
-      {
-        "$ref": "#/13"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ArcSettingProperties",
-    "properties": {
-      "provisioningState": {
-        "type": {
-          "$ref": "#/21"
-        },
-        "flags": 2,
-        "description": "Provisioning state of the ArcSetting proxy resource."
-      },
-      "arcInstanceResourceGroup": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources."
-      },
-      "aggregateState": {
-        "type": {
-          "$ref": "#/37"
-        },
-        "flags": 2,
-        "description": "Aggregate state of Arc agent across the nodes in this HCI cluster."
-      },
-      "perNodeDetails": {
-        "type": {
-          "$ref": "#/52"
-        },
-        "flags": 2,
-        "description": "State of Arc agent in each of the nodes."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Accepted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Provisioning"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/16"
-      },
-      {
-        "$ref": "#/17"
-      },
-      {
-        "$ref": "#/18"
-      },
-      {
-        "$ref": "#/19"
-      },
-      {
-        "$ref": "#/20"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "NotSpecified"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Error"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Connected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disconnected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Creating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Updating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleting"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Moving"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "PartiallySucceeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "PartiallyConnected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "InProgress"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/22"
-      },
-      {
-        "$ref": "#/23"
-      },
-      {
-        "$ref": "#/24"
-      },
-      {
-        "$ref": "#/25"
-      },
-      {
-        "$ref": "#/26"
-      },
-      {
-        "$ref": "#/27"
-      },
-      {
-        "$ref": "#/28"
-      },
-      {
-        "$ref": "#/29"
-      },
-      {
-        "$ref": "#/30"
-      },
-      {
-        "$ref": "#/31"
-      },
-      {
-        "$ref": "#/32"
-      },
-      {
-        "$ref": "#/33"
-      },
-      {
-        "$ref": "#/34"
-      },
-      {
-        "$ref": "#/35"
-      },
-      {
-        "$ref": "#/36"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "PerNodeState",
-    "properties": {
-      "name": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Name of the Node in HCI Cluster"
-      },
-      "arcInstance": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Fully qualified resource ID for the Arc agent of this node."
-      },
-      "state": {
-        "type": {
-          "$ref": "#/51"
-        },
-        "flags": 2,
-        "description": "State of Arc agent in this node."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "NotSpecified"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Error"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Connected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disconnected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Creating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Updating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleting"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Moving"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/39"
-      },
-      {
-        "$ref": "#/40"
-      },
-      {
-        "$ref": "#/41"
-      },
-      {
-        "$ref": "#/42"
-      },
-      {
-        "$ref": "#/43"
-      },
-      {
-        "$ref": "#/44"
-      },
-      {
         "$ref": "#/45"
       },
       {
@@ -477,565 +620,7 @@
         "$ref": "#/48"
       },
       {
-        "$ref": "#/49"
-      },
-      {
-        "$ref": "#/50"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ArrayType",
-    "itemType": {
-      "$ref": "#/38"
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.AzureStackHCI/clusters/arcSettings@2021-09-01-preview",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/3"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.AzureStackHCI/clusters"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2021-09-01-preview"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.AzureStackHCI/clusters",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/54"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/55"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "systemData": {
-        "type": {
-          "$ref": "#/4"
-        },
-        "flags": 2,
-        "description": "System data of Cluster resource"
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/57"
-        },
-        "flags": 0,
-        "description": "Cluster properties."
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/92"
-        },
-        "flags": 0,
-        "description": "Resource tags."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "The geo-location where the resource lives"
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ClusterProperties",
-    "properties": {
-      "provisioningState": {
-        "type": {
-          "$ref": "#/63"
-        },
-        "flags": 2,
-        "description": "Provisioning state."
-      },
-      "status": {
-        "type": {
-          "$ref": "#/69"
-        },
-        "flags": 2,
-        "description": "Status of the cluster agent."
-      },
-      "cloudId": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Unique, immutable resource id."
-      },
-      "cloudManagementEndpoint": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "Endpoint configured for management from the Azure portal."
-      },
-      "aadClientId": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "App id of cluster AAD identity."
-      },
-      "aadTenantId": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "Tenant id of cluster AAD identity."
-      },
-      "desiredProperties": {
-        "type": {
-          "$ref": "#/70"
-        },
-        "flags": 0,
-        "description": "Desired properties of the cluster."
-      },
-      "reportedProperties": {
-        "type": {
-          "$ref": "#/78"
-        },
-        "flags": 2,
-        "description": "Properties reported by cluster agent."
-      },
-      "trialDaysRemaining": {
-        "type": {
-          "$ref": "#/80"
-        },
-        "flags": 2,
-        "description": "Number of days remaining in the trial period."
-      },
-      "billingModel": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Type of billing applied to the resource."
-      },
-      "registrationTimestamp": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "First cluster sync timestamp."
-      },
-      "lastSyncTimestamp": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Most recent cluster sync timestamp."
-      },
-      "lastBillingTimestamp": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Most recent billing meter timestamp."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Accepted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Provisioning"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/58"
-      },
-      {
-        "$ref": "#/59"
-      },
-      {
-        "$ref": "#/60"
-      },
-      {
-        "$ref": "#/61"
-      },
-      {
-        "$ref": "#/62"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "NotYetRegistered"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "ConnectedRecently"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "NotConnectedRecently"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disconnected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Error"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/64"
-      },
-      {
-        "$ref": "#/65"
-      },
-      {
-        "$ref": "#/66"
-      },
-      {
-        "$ref": "#/67"
-      },
-      {
-        "$ref": "#/68"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ClusterDesiredProperties",
-    "properties": {
-      "windowsServerSubscription": {
-        "type": {
-          "$ref": "#/73"
-        },
-        "flags": 0,
-        "description": "Desired state of Windows Server Subscription."
-      },
-      "diagnosticLevel": {
-        "type": {
-          "$ref": "#/77"
-        },
-        "flags": 0,
-        "description": "Desired level of diagnostic data emitted by the cluster."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/71"
-      },
-      {
-        "$ref": "#/72"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Off"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Basic"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enhanced"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/74"
-      },
-      {
-        "$ref": "#/75"
-      },
-      {
-        "$ref": "#/76"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ClusterReportedProperties",
-    "properties": {
-      "clusterName": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Name of the on-prem cluster connected to this resource."
-      },
-      "clusterId": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Unique id generated by the on-prem cluster."
-      },
-      "clusterVersion": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Version of the cluster software."
-      },
-      "nodes": {
-        "type": {
-          "$ref": "#/84"
-        },
-        "flags": 2,
-        "description": "List of nodes reported by the cluster."
-      },
-      "lastUpdated": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Last time the cluster reported the data."
-      },
-      "imdsAttestation": {
-        "type": {
-          "$ref": "#/87"
-        },
-        "flags": 2,
-        "description": "IMDS attestation status of the cluster."
-      },
-      "diagnosticLevel": {
-        "type": {
-          "$ref": "#/91"
-        },
-        "flags": 0,
-        "description": "Level of diagnostic data emitted by the cluster."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ClusterNode",
-    "properties": {
-      "name": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Name of the cluster node."
-      },
-      "id": {
-        "type": {
-          "$ref": "#/80"
-        },
-        "flags": 2,
-        "description": "Id of the node in the cluster."
-      },
-      "windowsServerSubscription": {
-        "type": {
-          "$ref": "#/83"
-        },
-        "flags": 2,
-        "description": "State of Windows Server Subscription."
-      },
-      "manufacturer": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Manufacturer of the cluster node hardware."
-      },
-      "model": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Model name of the cluster node hardware."
-      },
-      "osName": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Operating system running on the cluster node."
-      },
-      "osVersion": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Version of the operating system running on the cluster node."
-      },
-      "serialNumber": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Immutable id of the cluster node."
-      },
-      "coreCount": {
-        "type": {
-          "$ref": "#/80"
-        },
-        "flags": 2,
-        "description": "Number of physical cores on the cluster node."
-      },
-      "memoryInGiB": {
-        "type": {
-          "$ref": "#/80"
-        },
-        "flags": 2,
-        "description": "Total available memory on the cluster node (in GiB)."
-      }
-    }
-  },
-  {
-    "$type": "IntegerType"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/81"
-      },
-      {
-        "$ref": "#/82"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ArrayType",
-    "itemType": {
-      "$ref": "#/79"
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/85"
-      },
-      {
-        "$ref": "#/86"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Off"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Basic"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enhanced"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/88"
-      },
-      {
-        "$ref": "#/89"
-      },
-      {
-        "$ref": "#/90"
-      },
-      {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -1044,964 +629,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.AzureStackHCI/clusters@2021-09-01-preview",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/56"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.AzureStackHCI/clusters/arcSettings/extensions"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2021-09-01-preview"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.AzureStackHCI/clusters/arcSettings/extensions",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/94"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/95"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "systemData": {
-        "type": {
-          "$ref": "#/4"
-        },
-        "flags": 2,
-        "description": "System data of Extension resource."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/97"
-        },
-        "flags": 0,
-        "description": "Describes Machine Extension Properties."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ExtensionProperties",
-    "properties": {
-      "provisioningState": {
-        "type": {
-          "$ref": "#/103"
-        },
-        "flags": 2,
-        "description": "Provisioning state of the Extension proxy resource."
-      },
-      "extensionParameters": {
-        "type": {
-          "$ref": "#/104"
-        },
-        "flags": 0,
-        "description": "Parameters specific to this extension type."
-      },
-      "aggregateState": {
-        "type": {
-          "$ref": "#/122"
-        },
-        "flags": 2,
-        "description": "Aggregate state of Arc Extensions across the nodes in this HCI cluster."
-      },
-      "perNodeExtensionDetails": {
-        "type": {
-          "$ref": "#/137"
-        },
-        "flags": 2,
-        "description": "State of Arc Extension in each of the nodes."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Accepted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Provisioning"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/98"
-      },
-      {
-        "$ref": "#/99"
-      },
-      {
-        "$ref": "#/100"
-      },
-      {
-        "$ref": "#/101"
-      },
-      {
-        "$ref": "#/102"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ExtensionParameters",
-    "properties": {
-      "forceUpdateTag": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "How the extension handler should be forced to update even if the extension configuration has not changed."
-      },
-      "publisher": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "The name of the extension handler publisher."
-      },
-      "type": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\"."
-      },
-      "typeHandlerVersion": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "Specifies the version of the script handler."
-      },
-      "autoUpgradeMinorVersion": {
-        "type": {
-          "$ref": "#/105"
-        },
-        "flags": 0,
-        "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true."
-      },
-      "settings": {
-        "type": {
-          "$ref": "#/106"
-        },
-        "flags": 0,
-        "description": "Json formatted public settings for the extension."
-      },
-      "protectedSettings": {
-        "type": {
-          "$ref": "#/106"
-        },
-        "flags": 0,
-        "description": "Protected settings (may contain secrets)."
-      }
-    }
-  },
-  {
-    "$type": "BooleanType"
-  },
-  {
-    "$type": "AnyType"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "NotSpecified"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Error"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Connected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disconnected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Creating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Updating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleting"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Moving"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "PartiallySucceeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "PartiallyConnected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "InProgress"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/107"
-      },
-      {
-        "$ref": "#/108"
-      },
-      {
-        "$ref": "#/109"
-      },
-      {
-        "$ref": "#/110"
-      },
-      {
-        "$ref": "#/111"
-      },
-      {
-        "$ref": "#/112"
-      },
-      {
-        "$ref": "#/113"
-      },
-      {
-        "$ref": "#/114"
-      },
-      {
-        "$ref": "#/115"
-      },
-      {
-        "$ref": "#/116"
-      },
-      {
-        "$ref": "#/117"
-      },
-      {
-        "$ref": "#/118"
-      },
-      {
-        "$ref": "#/119"
-      },
-      {
-        "$ref": "#/120"
-      },
-      {
-        "$ref": "#/121"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "PerNodeExtensionState",
-    "properties": {
-      "name": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Name of the node in HCI Cluster."
-      },
-      "extension": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 2,
-        "description": "Fully qualified resource ID for the particular Arc Extension on this node."
-      },
-      "state": {
-        "type": {
-          "$ref": "#/136"
-        },
-        "flags": 2,
-        "description": "State of Arc Extension in this node."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "NotSpecified"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Error"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Connected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disconnected"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Creating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Updating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleting"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Moving"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/124"
-      },
-      {
-        "$ref": "#/125"
-      },
-      {
-        "$ref": "#/126"
-      },
-      {
-        "$ref": "#/127"
-      },
-      {
-        "$ref": "#/128"
-      },
-      {
-        "$ref": "#/129"
-      },
-      {
-        "$ref": "#/130"
-      },
-      {
-        "$ref": "#/131"
-      },
-      {
-        "$ref": "#/132"
-      },
-      {
-        "$ref": "#/133"
-      },
-      {
-        "$ref": "#/134"
-      },
-      {
-        "$ref": "#/135"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ArrayType",
-    "itemType": {
-      "$ref": "#/123"
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.AzureStackHCI/clusters/arcSettings/extensions@2021-09-01-preview",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/96"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringType",
-    "minLength": 3,
-    "maxLength": 64
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.AzureStackHCI/galleryimages"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2021-09-01-preview"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.AzureStackHCI/galleryimages",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/139"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/140"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/141"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/143"
-        },
-        "flags": 0,
-        "description": "Properties of a gallery image resource"
-      },
-      "extendedLocation": {
-        "type": {
-          "$ref": "#/173"
-        },
-        "flags": 0,
-        "description": "The extendedLocation of the resource."
-      },
-      "systemData": {
-        "type": {
-          "$ref": "#/4"
-        },
-        "flags": 2,
-        "description": "Metadata pertaining to creation and last modification of the resource."
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/176"
-        },
-        "flags": 0,
-        "description": "Resource tags."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "The geo-location where the resource lives"
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryimagesProperties",
-    "properties": {
-      "containerName": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "Container Name for storage container"
-      },
-      "imagePath": {
-        "type": {
-          "$ref": "#/144"
-        },
-        "flags": 0,
-        "description": "location of the image the gallery image should be created from"
-      },
-      "osType": {
-        "type": {
-          "$ref": "#/147"
-        },
-        "flags": 0,
-        "description": "operating system type that the gallery image uses. Expected to be linux or windows"
-      },
-      "cloudInitDataSource": {
-        "type": {
-          "$ref": "#/150"
-        },
-        "flags": 0,
-        "description": "Datasource for the gallery image when provisioning with cloud-init (Azure or NoCloud)"
-      },
-      "hyperVGeneration": {
-        "type": {
-          "$ref": "#/153"
-        },
-        "flags": 0,
-        "description": "The hypervisor generation of the Virtual Machine [V1, V2]"
-      },
-      "identifier": {
-        "type": {
-          "$ref": "#/154"
-        },
-        "flags": 0,
-        "description": "This is the gallery image definition identifier."
-      },
-      "version": {
-        "type": {
-          "$ref": "#/155"
-        },
-        "flags": 0,
-        "description": "Specifies information about the gallery image version that you want to create or update."
-      },
-      "provisioningState": {
-        "type": {
-          "$ref": "#/165"
-        },
-        "flags": 2,
-        "description": "Provisioning state of the gallery image."
-      },
-      "resourceName": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "name of the object to be used in moc"
-      },
-      "status": {
-        "type": {
-          "$ref": "#/166"
-        },
-        "flags": 2,
-        "description": "GalleryImageStatus defines the observed state of galleryimages"
-      }
-    }
-  },
-  {
-    "$type": "StringType",
-    "sensitive": true
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Windows"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Linux"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/145"
-      },
-      {
-        "$ref": "#/146"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "NoCloud"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Azure"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/148"
-      },
-      {
-        "$ref": "#/149"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "V1"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "V2"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/151"
-      },
-      {
-        "$ref": "#/152"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryImageIdentifier",
-    "properties": {
-      "publisher": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "The name of the gallery image definition publisher."
-      },
-      "offer": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "The name of the gallery image definition offer."
-      },
-      "sku": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "The name of the gallery image definition SKU."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryImageVersion",
-    "properties": {
-      "name": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "This is the version of the gallery image."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/156"
-        },
-        "flags": 0,
-        "description": "Describes the properties of a gallery image version."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryImageVersionProperties",
-    "properties": {
-      "storageProfile": {
-        "type": {
-          "$ref": "#/157"
-        },
-        "flags": 1,
-        "description": "This is the storage profile of a Gallery Image Version."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryImageVersionStorageProfile",
-    "properties": {
-      "osDiskImage": {
-        "type": {
-          "$ref": "#/158"
-        },
-        "flags": 0,
-        "description": "This is the OS disk image."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryOSDiskImage",
-    "properties": {
-      "sizeInMB": {
-        "type": {
-          "$ref": "#/80"
-        },
-        "flags": 2,
-        "description": "This property indicates the size of the VHD to be created."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "InProgress"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Accepted"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Deleting"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Canceled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/159"
-      },
-      {
-        "$ref": "#/160"
-      },
-      {
-        "$ref": "#/161"
-      },
-      {
-        "$ref": "#/162"
-      },
-      {
-        "$ref": "#/163"
-      },
-      {
-        "$ref": "#/164"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryImageStatus",
-    "properties": {
-      "errorCode": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "Gallery image provisioning error code"
-      },
-      "errorMessage": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "Descriptive error message"
-      },
-      "provisioningStatus": {
-        "type": {
-          "$ref": "#/167"
-        },
-        "flags": 0,
-        "description": "The provisioning status of the gallery image"
-      },
-      "downloadStatus": {
-        "type": {
-          "$ref": "#/172"
-        },
-        "flags": 0,
-        "description": "The download status of the gallery image"
-      },
-      "progressPercentage": {
-        "type": {
-          "$ref": "#/80"
-        },
-        "flags": 0,
-        "description": "The progress of the operation in percentage"
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryImageStatusProvisioningStatus",
-    "properties": {
-      "operationId": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "The ID of the operation performed on the gallery image"
-      },
-      "status": {
-        "type": {
-          "$ref": "#/171"
-        },
-        "flags": 0,
-        "description": "The status of the operation performed on the gallery image [Succeeded, Failed, InProgress]"
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Succeeded"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Failed"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "InProgress"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/168"
-      },
-      {
-        "$ref": "#/169"
-      },
-      {
-        "$ref": "#/170"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "GalleryImageStatusDownloadStatus",
-    "properties": {
-      "downloadSizeInMB": {
-        "type": {
-          "$ref": "#/80"
-        },
-        "flags": 0,
-        "description": "The downloaded sized of the image in MB"
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ExtendedLocation",
-    "properties": {
-      "name": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 0,
-        "description": "The name of the extended location."
-      },
-      "type": {
-        "type": {
-          "$ref": "#/175"
-        },
-        "flags": 0,
-        "description": "The type of the extended location."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "CustomLocation"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/174"
-      },
-      {
-        "$ref": "#/0"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "TrackedResourceTags",
-    "properties": {},
-    "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -2009,7 +637,7 @@
     "name": "Microsoft.AzureStackHCI/galleryimages@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/142"
+      "$ref": "#/4"
     },
     "flags": 0
   },
@@ -2027,63 +655,63 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/178"
+          "$ref": "#/52"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/179"
+          "$ref": "#/53"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/181"
+          "$ref": "#/55"
         },
         "flags": 0,
         "description": "Properties of a marketplace gallery image resource"
       },
       "extendedLocation": {
         "type": {
-          "$ref": "#/173"
+          "$ref": "#/36"
         },
         "flags": 0,
         "description": "The extendedLocation of the resource."
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "Metadata pertaining to creation and last modification of the resource."
       },
       "tags": {
         "type": {
-          "$ref": "#/205"
+          "$ref": "#/79"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "location": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 1,
         "description": "The geo-location where the resource lives"
@@ -2096,63 +724,63 @@
     "properties": {
       "containerName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Container Name for storage container"
       },
       "osType": {
         "type": {
-          "$ref": "#/184"
+          "$ref": "#/58"
         },
         "flags": 0,
         "description": "operating system type that the gallery image uses. Expected to be linux or windows"
       },
       "cloudInitDataSource": {
         "type": {
-          "$ref": "#/187"
+          "$ref": "#/61"
         },
         "flags": 0,
         "description": "Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]"
       },
       "hyperVGeneration": {
         "type": {
-          "$ref": "#/190"
+          "$ref": "#/64"
         },
         "flags": 0,
         "description": "The hypervisor generation of the Virtual Machine [V1, V2]"
       },
       "identifier": {
         "type": {
-          "$ref": "#/154"
+          "$ref": "#/16"
         },
         "flags": 0,
         "description": "This is the gallery image definition identifier."
       },
       "version": {
         "type": {
-          "$ref": "#/155"
+          "$ref": "#/17"
         },
         "flags": 0,
         "description": "Specifies information about the gallery image version that you want to create or update."
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/197"
+          "$ref": "#/71"
         },
         "flags": 2,
         "description": "Provisioning state of the gallery image."
       },
       "resourceName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "name of the object to be used in moc"
       },
       "status": {
         "type": {
-          "$ref": "#/198"
+          "$ref": "#/72"
         },
         "flags": 2,
         "description": "MarketplaceGalleryImageStatus defines the observed state of marketplacegalleryimages"
@@ -2171,10 +799,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/182"
+        "$ref": "#/56"
       },
       {
-        "$ref": "#/183"
+        "$ref": "#/57"
       }
     ]
   },
@@ -2190,13 +818,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/185"
+        "$ref": "#/59"
       },
       {
-        "$ref": "#/186"
+        "$ref": "#/60"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2212,13 +840,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/188"
+        "$ref": "#/62"
       },
       {
-        "$ref": "#/189"
+        "$ref": "#/63"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2250,25 +878,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/191"
+        "$ref": "#/65"
       },
       {
-        "$ref": "#/192"
+        "$ref": "#/66"
       },
       {
-        "$ref": "#/193"
+        "$ref": "#/67"
       },
       {
-        "$ref": "#/194"
+        "$ref": "#/68"
       },
       {
-        "$ref": "#/195"
+        "$ref": "#/69"
       },
       {
-        "$ref": "#/196"
+        "$ref": "#/70"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2278,35 +906,35 @@
     "properties": {
       "errorCode": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Marketplace gallery image provisioning error code"
       },
       "errorMessage": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Descriptive error message"
       },
       "provisioningStatus": {
         "type": {
-          "$ref": "#/199"
+          "$ref": "#/73"
         },
         "flags": 0,
         "description": "The provisioning status of the marketplace gallery image"
       },
       "downloadStatus": {
         "type": {
-          "$ref": "#/204"
+          "$ref": "#/78"
         },
         "flags": 0,
         "description": "The download status of the marketplace gallery image"
       },
       "progressPercentage": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "The progress of the operation in percentage"
@@ -2319,14 +947,14 @@
     "properties": {
       "operationId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The ID of the operation performed on the marketplace gallery image"
       },
       "status": {
         "type": {
-          "$ref": "#/203"
+          "$ref": "#/77"
         },
         "flags": 0,
         "description": "The status of the operation performed on the marketplace gallery image [Succeeded, Failed, InProgress]"
@@ -2349,16 +977,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/200"
+        "$ref": "#/74"
       },
       {
-        "$ref": "#/201"
+        "$ref": "#/75"
       },
       {
-        "$ref": "#/202"
+        "$ref": "#/76"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2368,7 +996,7 @@
     "properties": {
       "downloadSizeInMB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "The downloaded sized of the image in MB"
@@ -2380,7 +1008,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -2388,7 +1016,7 @@
     "name": "Microsoft.AzureStackHCI/marketplacegalleryimages@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/180"
+      "$ref": "#/54"
     },
     "flags": 0
   },
@@ -2406,63 +1034,63 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/207"
+          "$ref": "#/81"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/208"
+          "$ref": "#/82"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/210"
+          "$ref": "#/84"
         },
         "flags": 0,
         "description": "Properties of a network interface resource"
       },
       "extendedLocation": {
         "type": {
-          "$ref": "#/173"
+          "$ref": "#/36"
         },
         "flags": 0,
         "description": "The extendedLocation of the resource."
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "Metadata pertaining to creation and last modification of the resource."
       },
       "tags": {
         "type": {
-          "$ref": "#/233"
+          "$ref": "#/107"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "location": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 1,
         "description": "The geo-location where the resource lives"
@@ -2475,42 +1103,42 @@
     "properties": {
       "ipConfigurations": {
         "type": {
-          "$ref": "#/217"
+          "$ref": "#/91"
         },
         "flags": 0,
         "description": "IPConfigurations - A list of IPConfigurations of the network interface."
       },
       "macAddress": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "MacAddress - The MAC address of the network interface."
       },
       "dnsSettings": {
         "type": {
-          "$ref": "#/218"
+          "$ref": "#/92"
         },
         "flags": 0,
         "description": "DNS Settings for the interface"
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/226"
+          "$ref": "#/100"
         },
         "flags": 2,
         "description": "Provisioning state of the gallery image."
       },
       "resourceName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "name of the object to be used in moc"
       },
       "status": {
         "type": {
-          "$ref": "#/227"
+          "$ref": "#/101"
         },
         "flags": 2,
         "description": "NetworkInterfaceStatus defines the observed state of network interfaces"
@@ -2523,14 +1151,14 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Name - The name of the resource that is unique within a resource group. This name can be used to access the resource."
       },
       "properties": {
         "type": {
-          "$ref": "#/212"
+          "$ref": "#/86"
         },
         "flags": 0,
         "description": "InterfaceIPConfigurationPropertiesFormat properties of IP configuration."
@@ -2543,35 +1171,35 @@
     "properties": {
       "gateway": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Gateway for network interface"
       },
       "prefixLength": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "prefixLength for network interface"
       },
       "privateIPAddress": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "PrivateIPAddress - Private IP address of the IP configuration."
       },
       "privateIPAllocationMethod": {
         "type": {
-          "$ref": "#/215"
+          "$ref": "#/89"
         },
         "flags": 0,
         "description": "PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'"
       },
       "subnet": {
         "type": {
-          "$ref": "#/216"
+          "$ref": "#/90"
         },
         "flags": 0,
         "description": "Subnet - Name of Subnet bound to the IP configuration."
@@ -2590,13 +1218,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/213"
+        "$ref": "#/87"
       },
       {
-        "$ref": "#/214"
+        "$ref": "#/88"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2606,7 +1234,7 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/..."
@@ -2616,7 +1244,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/211"
+      "$ref": "#/85"
     }
   },
   {
@@ -2625,7 +1253,7 @@
     "properties": {
       "dnsServers": {
         "type": {
-          "$ref": "#/219"
+          "$ref": "#/93"
         },
         "flags": 0,
         "description": "List of DNS server IP Addresses for the interface"
@@ -2635,7 +1263,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -2666,25 +1294,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/220"
+        "$ref": "#/94"
       },
       {
-        "$ref": "#/221"
+        "$ref": "#/95"
       },
       {
-        "$ref": "#/222"
+        "$ref": "#/96"
       },
       {
-        "$ref": "#/223"
+        "$ref": "#/97"
       },
       {
-        "$ref": "#/224"
+        "$ref": "#/98"
       },
       {
-        "$ref": "#/225"
+        "$ref": "#/99"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2694,21 +1322,21 @@
     "properties": {
       "errorCode": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "NetworkInterface provisioning error code"
       },
       "errorMessage": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Descriptive error message"
       },
       "provisioningStatus": {
         "type": {
-          "$ref": "#/228"
+          "$ref": "#/102"
         },
         "flags": 0,
         "description": "The provisioning status of the network interface"
@@ -2721,14 +1349,14 @@
     "properties": {
       "operationId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The ID of the operation performed on the network interface"
       },
       "status": {
         "type": {
-          "$ref": "#/232"
+          "$ref": "#/106"
         },
         "flags": 0,
         "description": "The status of the operation performed on the network interface [Succeeded, Failed, InProgress]"
@@ -2751,16 +1379,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/229"
+        "$ref": "#/103"
       },
       {
-        "$ref": "#/230"
+        "$ref": "#/104"
       },
       {
-        "$ref": "#/231"
+        "$ref": "#/105"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2769,7 +1397,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -2777,7 +1405,7 @@
     "name": "Microsoft.AzureStackHCI/networkinterfaces@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/209"
+      "$ref": "#/83"
     },
     "flags": 0
   },
@@ -2795,63 +1423,63 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/235"
+          "$ref": "#/109"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/236"
+          "$ref": "#/110"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/238"
+          "$ref": "#/112"
         },
         "flags": 0,
         "description": "Properties of a storage container resource"
       },
       "location": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 1,
         "description": "The resource location"
       },
       "tags": {
         "type": {
-          "$ref": "#/245"
+          "$ref": "#/119"
         },
         "flags": 0,
         "description": "Resource tags"
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "Metadata pertaining to creation and last modification of the resource."
       },
       "extendedLocation": {
         "type": {
-          "$ref": "#/246"
+          "$ref": "#/120"
         },
         "flags": 0
       }
@@ -2863,41 +1491,41 @@
     "properties": {
       "path": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Path of the storage container on the disk"
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0
       },
       "resourceName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "name of the object to be used in moc"
       },
       "availableSizeMB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 2,
         "description": "Amount of space available on the disk in MB"
       },
       "containerSizeMB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 2,
         "description": "Total size of the disk in MB"
       },
       "status": {
         "type": {
-          "$ref": "#/239"
+          "$ref": "#/113"
         },
         "flags": 2,
         "description": "storageContainerStatus defines the observed state of storagecontainers"
@@ -2910,35 +1538,35 @@
     "properties": {
       "errorCode": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "StorageContainer provisioning error code"
       },
       "errorMessage": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Descriptive error message"
       },
       "availableSizeMB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "Amount of space available on the disk in MB"
       },
       "containerSizeMB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "Total size of the disk in MB"
       },
       "provisioningStatus": {
         "type": {
-          "$ref": "#/240"
+          "$ref": "#/114"
         },
         "flags": 0,
         "description": "The provisioning status of the storage container"
@@ -2951,14 +1579,14 @@
     "properties": {
       "operationId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The ID of the operation performed on the storage container"
       },
       "status": {
         "type": {
-          "$ref": "#/244"
+          "$ref": "#/118"
         },
         "flags": 0,
         "description": "The status of the operation performed on the storage container [Succeeded, Failed, InProgress]"
@@ -2981,16 +1609,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/241"
+        "$ref": "#/115"
       },
       {
-        "$ref": "#/242"
+        "$ref": "#/116"
       },
       {
-        "$ref": "#/243"
+        "$ref": "#/117"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -2999,7 +1627,7 @@
     "name": "StoragecontainersTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -3008,14 +1636,14 @@
     "properties": {
       "type": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The extended location type."
       },
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The extended location name."
@@ -3027,7 +1655,7 @@
     "name": "Microsoft.AzureStackHCI/storagecontainers@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/237"
+      "$ref": "#/111"
     },
     "flags": 0
   },
@@ -3045,63 +1673,63 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/248"
+          "$ref": "#/122"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/249"
+          "$ref": "#/123"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/251"
+          "$ref": "#/125"
         },
         "flags": 0,
         "description": "Properties of a virtual hard disk resource"
       },
       "extendedLocation": {
         "type": {
-          "$ref": "#/173"
+          "$ref": "#/36"
         },
         "flags": 0,
         "description": "The extendedLocation of the resource."
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "Metadata pertaining to creation and last modification of the resource."
       },
       "tags": {
         "type": {
-          "$ref": "#/271"
+          "$ref": "#/146"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "location": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 1,
         "description": "The geo-location where the resource lives"
@@ -3114,79 +1742,82 @@
     "properties": {
       "blockSizeBytes": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0
       },
       "diskSizeBytes": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "diskSizeBytes - size of the disk in GB"
       },
       "dynamic": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "Boolean for enabling dynamic sizing on the virtual hard disk"
       },
       "logicalSectorBytes": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0
       },
       "physicalSectorBytes": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0
       },
       "hyperVGeneration": {
         "type": {
-          "$ref": "#/254"
+          "$ref": "#/129"
         },
         "flags": 0,
         "description": "The hypervisor generation of the Virtual Machine [V1, V2]"
       },
       "diskFileFormat": {
         "type": {
-          "$ref": "#/257"
+          "$ref": "#/132"
         },
         "flags": 0,
         "description": "The format of the actual VHD file [vhd, vhdx]"
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/264"
+          "$ref": "#/139"
         },
         "flags": 2,
         "description": "Provisioning state of the gallery image."
       },
       "containerId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Storage ContainerID of the storage container to be used for VHD"
       },
       "resourceName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "name of the object to be used in moc"
       },
       "status": {
         "type": {
-          "$ref": "#/265"
+          "$ref": "#/140"
         },
         "flags": 2,
         "description": "VirtualHardDiskStatus defines the observed state of virtualharddisks"
       }
     }
+  },
+  {
+    "$type": "BooleanType"
   },
   {
     "$type": "StringLiteralType",
@@ -3200,13 +1831,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/252"
+        "$ref": "#/127"
       },
       {
-        "$ref": "#/253"
+        "$ref": "#/128"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -3222,13 +1853,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/255"
+        "$ref": "#/130"
       },
       {
-        "$ref": "#/256"
+        "$ref": "#/131"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -3260,25 +1891,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/258"
+        "$ref": "#/133"
       },
       {
-        "$ref": "#/259"
+        "$ref": "#/134"
       },
       {
-        "$ref": "#/260"
+        "$ref": "#/135"
       },
       {
-        "$ref": "#/261"
+        "$ref": "#/136"
       },
       {
-        "$ref": "#/262"
+        "$ref": "#/137"
       },
       {
-        "$ref": "#/263"
+        "$ref": "#/138"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -3288,21 +1919,21 @@
     "properties": {
       "errorCode": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "VirtualHardDisk provisioning error code"
       },
       "errorMessage": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Descriptive error message"
       },
       "provisioningStatus": {
         "type": {
-          "$ref": "#/266"
+          "$ref": "#/141"
         },
         "flags": 0,
         "description": "The provisioning status of the virtual hard disk"
@@ -3315,14 +1946,14 @@
     "properties": {
       "operationId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The ID of the operation performed on the virtual hard disk"
       },
       "status": {
         "type": {
-          "$ref": "#/270"
+          "$ref": "#/145"
         },
         "flags": 0,
         "description": "The status of the operation performed on the virtual hard disk [Succeeded, Failed, InProgress]"
@@ -3345,16 +1976,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/267"
+        "$ref": "#/142"
       },
       {
-        "$ref": "#/268"
+        "$ref": "#/143"
       },
       {
-        "$ref": "#/269"
+        "$ref": "#/144"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -3363,7 +1994,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -3371,7 +2002,7 @@
     "name": "Microsoft.AzureStackHCI/virtualharddisks@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/250"
+      "$ref": "#/124"
     },
     "flags": 0
   },
@@ -3389,70 +2020,70 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/273"
+          "$ref": "#/148"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/274"
+          "$ref": "#/149"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/276"
+          "$ref": "#/151"
         },
         "flags": 0,
         "description": "Properties of a virtual machine resource"
       },
       "extendedLocation": {
         "type": {
-          "$ref": "#/173"
+          "$ref": "#/36"
         },
         "flags": 0,
         "description": "The extendedLocation of the resource."
       },
       "identity": {
         "type": {
-          "$ref": "#/332"
+          "$ref": "#/208"
         },
         "flags": 0,
         "description": "Identity for the resource."
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "Metadata pertaining to creation and last modification of the resource."
       },
       "tags": {
         "type": {
-          "$ref": "#/334"
+          "$ref": "#/210"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "location": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 1,
         "description": "The geo-location where the resource lives"
@@ -3465,70 +2096,70 @@
     "properties": {
       "hardwareProfile": {
         "type": {
-          "$ref": "#/277"
+          "$ref": "#/152"
         },
         "flags": 0,
         "description": "HardwareProfile - Specifies the hardware settings for the virtual machine."
       },
       "networkProfile": {
         "type": {
-          "$ref": "#/279"
+          "$ref": "#/154"
         },
         "flags": 0,
         "description": "NetworkProfile - describes the network configuration the virtual machine"
       },
       "osProfile": {
         "type": {
-          "$ref": "#/282"
+          "$ref": "#/157"
         },
         "flags": 0,
         "description": "OsProfile - describes the configuration of the operating system and sets login data"
       },
       "resourceName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "name of the object to be used in moc"
       },
       "securityProfile": {
         "type": {
-          "$ref": "#/294"
+          "$ref": "#/169"
         },
         "flags": 0,
         "description": "SecurityProfile - Specifies the security settings for the virtual machine."
       },
       "storageProfile": {
         "type": {
-          "$ref": "#/296"
+          "$ref": "#/171"
         },
         "flags": 0,
         "description": "StorageProfile - contains information about the disks and storage information for the virtual machine"
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/307"
+          "$ref": "#/182"
         },
         "flags": 2,
         "description": "Provisioning state of the gallery image."
       },
       "status": {
         "type": {
-          "$ref": "#/308"
+          "$ref": "#/183"
         },
         "flags": 2,
         "description": "VirtualMachineStatus defines the observed state of virtualmachines"
       },
       "guestAgentProfile": {
         "type": {
-          "$ref": "#/322"
+          "$ref": "#/197"
         },
         "flags": 0,
         "description": "Guest agent status properties."
       },
       "vmId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "Unique identifier for the vm resource."
@@ -3541,27 +2172,27 @@
     "properties": {
       "vmSize": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0
       },
       "processors": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "number of processors for the virtual machine"
       },
       "memoryGB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "RAM in gb for the virtual machine"
       },
       "dynamicMemoryConfig": {
         "type": {
-          "$ref": "#/278"
+          "$ref": "#/153"
         },
         "flags": 0
       }
@@ -3573,19 +2204,19 @@
     "properties": {
       "maximumMemoryGB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0
       },
       "minimumMemoryGB": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0
       },
       "targetMemoryBuffer": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0
       }
@@ -3597,7 +2228,7 @@
     "properties": {
       "networkInterfaces": {
         "type": {
-          "$ref": "#/281"
+          "$ref": "#/156"
         },
         "flags": 0,
         "description": "NetworkInterfaces - list of network interfaces to be attached to the virtual machine"
@@ -3610,7 +2241,7 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "ID - Resource Id of the network interface"
@@ -3620,7 +2251,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/280"
+      "$ref": "#/155"
     }
   },
   {
@@ -3629,42 +2260,42 @@
     "properties": {
       "adminPassword": {
         "type": {
-          "$ref": "#/144"
+          "$ref": "#/6"
         },
         "flags": 4,
         "description": "AdminPassword - admin password"
       },
       "adminUsername": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "AdminUsername - admin username"
       },
       "computerName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "ComputerName - name of the compute"
       },
       "linuxConfiguration": {
         "type": {
-          "$ref": "#/283"
+          "$ref": "#/158"
         },
         "flags": 0,
         "description": "LinuxConfiguration - linux specific configuration values for the virtual machine"
       },
       "osType": {
         "type": {
-          "$ref": "#/289"
+          "$ref": "#/164"
         },
         "flags": 0,
         "description": "OsType - string specifying whether the OS is Linux or Windows"
       },
       "windowsConfiguration": {
         "type": {
-          "$ref": "#/290"
+          "$ref": "#/165"
         },
         "flags": 0,
         "description": "Windows Configuration for the virtual machine"
@@ -3677,21 +2308,21 @@
     "properties": {
       "disablePasswordAuthentication": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "DisablePasswordAuthentication - whether password authentication should be disabled"
       },
       "ssh": {
         "type": {
-          "$ref": "#/284"
+          "$ref": "#/159"
         },
         "flags": 0,
         "description": "SSH - contains settings related to ssh configuration"
       },
       "provisionVMAgent": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process."
@@ -3704,7 +2335,7 @@
     "properties": {
       "publicKeys": {
         "type": {
-          "$ref": "#/286"
+          "$ref": "#/161"
         },
         "flags": 0,
         "description": "PublicKeys - The list of SSH public keys used to authenticate with linux based VMs."
@@ -3717,14 +2348,14 @@
     "properties": {
       "keyData": {
         "type": {
-          "$ref": "#/144"
+          "$ref": "#/6"
         },
         "flags": 0,
         "description": "KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)."
       },
       "path": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys"
@@ -3734,7 +2365,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/285"
+      "$ref": "#/160"
     }
   },
   {
@@ -3749,13 +2380,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/287"
+        "$ref": "#/162"
       },
       {
-        "$ref": "#/288"
+        "$ref": "#/163"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -3765,28 +2396,28 @@
     "properties": {
       "enableAutomaticUpdates": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "Whether to EnableAutomaticUpdates on the machine"
       },
       "ssh": {
         "type": {
-          "$ref": "#/291"
+          "$ref": "#/166"
         },
         "flags": 0,
         "description": "SSH Configuration"
       },
       "timeZone": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "TimeZone for the virtual machine"
       },
       "provisionVMAgent": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process."
@@ -3799,7 +2430,7 @@
     "properties": {
       "publicKeys": {
         "type": {
-          "$ref": "#/293"
+          "$ref": "#/168"
         },
         "flags": 0,
         "description": "PublicKeys - The list of SSH public keys used to authenticate with linux based VMs."
@@ -3812,14 +2443,14 @@
     "properties": {
       "keyData": {
         "type": {
-          "$ref": "#/144"
+          "$ref": "#/6"
         },
         "flags": 0,
         "description": "KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)."
       },
       "path": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys"
@@ -3829,7 +2460,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/292"
+      "$ref": "#/167"
     }
   },
   {
@@ -3838,13 +2469,13 @@
     "properties": {
       "enableTPM": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0
       },
       "uefiSettings": {
         "type": {
-          "$ref": "#/295"
+          "$ref": "#/170"
         },
         "flags": 0
       }
@@ -3856,7 +2487,7 @@
     "properties": {
       "secureBootEnabled": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "Specifies whether secure boot should be enabled on the virtual machine."
@@ -3869,28 +2500,28 @@
     "properties": {
       "dataDisks": {
         "type": {
-          "$ref": "#/298"
+          "$ref": "#/173"
         },
         "flags": 0,
         "description": "adds data disks to the virtual machine"
       },
       "imageReference": {
         "type": {
-          "$ref": "#/299"
+          "$ref": "#/174"
         },
         "flags": 0,
         "description": "Which Image to use for the virtual machine"
       },
       "osDisk": {
         "type": {
-          "$ref": "#/300"
+          "$ref": "#/175"
         },
         "flags": 0,
         "description": "VHD to attach as OS disk"
       },
       "vmConfigContainerName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Name of the storage container that hosts the VM configuration file"
@@ -3903,7 +2534,7 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0
       }
@@ -3912,7 +2543,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/297"
+      "$ref": "#/172"
     }
   },
   {
@@ -3921,7 +2552,7 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Name - Name of the image"
@@ -3934,7 +2565,7 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Specifies the virtual hard disk's ID"
@@ -3969,25 +2600,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/301"
+        "$ref": "#/176"
       },
       {
-        "$ref": "#/302"
+        "$ref": "#/177"
       },
       {
-        "$ref": "#/303"
+        "$ref": "#/178"
       },
       {
-        "$ref": "#/304"
+        "$ref": "#/179"
       },
       {
-        "$ref": "#/305"
+        "$ref": "#/180"
       },
       {
-        "$ref": "#/306"
+        "$ref": "#/181"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -3997,28 +2628,28 @@
     "properties": {
       "errorCode": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "VirtualMachine provisioning error code"
       },
       "errorMessage": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Descriptive error message"
       },
       "powerState": {
         "type": {
-          "$ref": "#/316"
+          "$ref": "#/191"
         },
         "flags": 0,
         "description": "The power state of the virtual machine"
       },
       "provisioningStatus": {
         "type": {
-          "$ref": "#/317"
+          "$ref": "#/192"
         },
         "flags": 0,
         "description": "The provisioning status of the virtual machine"
@@ -4057,28 +2688,28 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/309"
+        "$ref": "#/184"
       },
       {
-        "$ref": "#/310"
+        "$ref": "#/185"
       },
       {
-        "$ref": "#/311"
+        "$ref": "#/186"
       },
       {
-        "$ref": "#/312"
+        "$ref": "#/187"
       },
       {
-        "$ref": "#/313"
+        "$ref": "#/188"
       },
       {
-        "$ref": "#/314"
+        "$ref": "#/189"
       },
       {
-        "$ref": "#/315"
+        "$ref": "#/190"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -4088,14 +2719,14 @@
     "properties": {
       "operationId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The ID of the operation performed on the virtual machine"
       },
       "status": {
         "type": {
-          "$ref": "#/321"
+          "$ref": "#/196"
         },
         "flags": 0,
         "description": "The status of the operation performed on the virtual machine [Succeeded, Failed, InProgress]"
@@ -4118,16 +2749,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/318"
+        "$ref": "#/193"
       },
       {
-        "$ref": "#/319"
+        "$ref": "#/194"
       },
       {
-        "$ref": "#/320"
+        "$ref": "#/195"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -4137,35 +2768,35 @@
     "properties": {
       "vmUuid": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "Specifies the VM's unique SMBIOS ID."
       },
       "status": {
         "type": {
-          "$ref": "#/326"
+          "$ref": "#/201"
         },
         "flags": 2,
         "description": "The status of the hybrid machine agent."
       },
       "lastStatusChange": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The time of the last status change."
       },
       "agentVersion": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The hybrid machine agent full version."
       },
       "errorDetails": {
         "type": {
-          "$ref": "#/331"
+          "$ref": "#/207"
         },
         "flags": 2,
         "description": "Details about the error state."
@@ -4188,16 +2819,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/323"
+        "$ref": "#/198"
       },
       {
-        "$ref": "#/324"
+        "$ref": "#/199"
       },
       {
-        "$ref": "#/325"
+        "$ref": "#/200"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -4207,35 +2838,35 @@
     "properties": {
       "code": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The error code."
       },
       "message": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The error message."
       },
       "target": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The error target."
       },
       "details": {
         "type": {
-          "$ref": "#/328"
+          "$ref": "#/203"
         },
         "flags": 2,
         "description": "The error details."
       },
       "additionalInfo": {
         "type": {
-          "$ref": "#/330"
+          "$ref": "#/206"
         },
         "flags": 2,
         "description": "The error additional info."
@@ -4245,7 +2876,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/327"
+      "$ref": "#/202"
     }
   },
   {
@@ -4254,14 +2885,14 @@
     "properties": {
       "type": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The additional info type."
       },
       "info": {
         "type": {
-          "$ref": "#/106"
+          "$ref": "#/205"
         },
         "flags": 2,
         "description": "The additional info."
@@ -4269,15 +2900,18 @@
     }
   },
   {
+    "$type": "AnyType"
+  },
+  {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/329"
+      "$ref": "#/204"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/327"
+      "$ref": "#/202"
     }
   },
   {
@@ -4286,21 +2920,21 @@
     "properties": {
       "principalId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The principal ID of resource identity."
       },
       "tenantId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The tenant ID of resource."
       },
       "type": {
         "type": {
-          "$ref": "#/333"
+          "$ref": "#/209"
         },
         "flags": 0,
         "description": "The identity type."
@@ -4316,7 +2950,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -4324,7 +2958,7 @@
     "name": "Microsoft.AzureStackHCI/virtualmachines@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/275"
+      "$ref": "#/150"
     },
     "flags": 0
   },
@@ -4342,42 +2976,42 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/336"
+          "$ref": "#/212"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/337"
+          "$ref": "#/213"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/339"
+          "$ref": "#/215"
         },
         "flags": 1,
         "description": "Resource properties."
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "The system data."
@@ -4390,28 +3024,28 @@
     "properties": {
       "resourceUid": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The unique identifier for the resource."
       },
       "publicKey": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The Public Key."
       },
       "identity": {
         "type": {
-          "$ref": "#/332"
+          "$ref": "#/208"
         },
         "flags": 2,
         "description": "Identity for the resource."
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The provisioning state."
@@ -4423,7 +3057,7 @@
     "name": "Microsoft.AzureStackHCI/virtualMachines/hybridIdentityMetadata@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/338"
+      "$ref": "#/214"
     },
     "flags": 0
   },
@@ -4441,56 +3075,56 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/341"
+          "$ref": "#/217"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/342"
+          "$ref": "#/218"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/344"
+          "$ref": "#/220"
         },
         "flags": 0,
         "description": "Describes Machine Extension Properties."
       },
       "location": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The geo-location where the resource lives"
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "The system data."
       },
       "tags": {
         "type": {
-          "$ref": "#/351"
+          "$ref": "#/227"
         },
         "flags": 0,
         "description": "Resource tags."
@@ -4503,63 +3137,63 @@
     "properties": {
       "forceUpdateTag": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "How the extension handler should be forced to update even if the extension configuration has not changed."
       },
       "publisher": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The name of the extension handler publisher."
       },
       "type": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\"."
       },
       "typeHandlerVersion": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Specifies the version of the script handler."
       },
       "autoUpgradeMinorVersion": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true."
       },
       "settings": {
         "type": {
-          "$ref": "#/106"
+          "$ref": "#/205"
         },
         "flags": 0,
         "description": "Json formatted public settings for the extension."
       },
       "protectedSettings": {
         "type": {
-          "$ref": "#/106"
+          "$ref": "#/205"
         },
         "flags": 0,
         "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all."
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The provisioning state, which only appears in the response."
       },
       "instanceView": {
         "type": {
-          "$ref": "#/345"
+          "$ref": "#/221"
         },
         "flags": 0,
         "description": "The machine extension instance view."
@@ -4572,28 +3206,28 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The machine extension name."
       },
       "type": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\"."
       },
       "typeHandlerVersion": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "Specifies the version of the script handler."
       },
       "status": {
         "type": {
-          "$ref": "#/346"
+          "$ref": "#/222"
         },
         "flags": 0,
         "description": "Instance view status."
@@ -4606,35 +3240,35 @@
     "properties": {
       "code": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The status code."
       },
       "level": {
         "type": {
-          "$ref": "#/350"
+          "$ref": "#/226"
         },
         "flags": 2,
         "description": "The level code."
       },
       "displayStatus": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The short localizable label for the status."
       },
       "message": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The detailed status message, including for alerts and error messages."
       },
       "time": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The time of the status."
@@ -4657,16 +3291,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/347"
+        "$ref": "#/223"
       },
       {
-        "$ref": "#/348"
+        "$ref": "#/224"
       },
       {
-        "$ref": "#/349"
+        "$ref": "#/225"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -4675,7 +3309,7 @@
     "name": "MachineExtensionTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -4683,7 +3317,7 @@
     "name": "Microsoft.AzureStackHCI/virtualMachines/extensions@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/343"
+      "$ref": "#/219"
     },
     "flags": 0
   },
@@ -4701,42 +3335,42 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/353"
+          "$ref": "#/229"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/354"
+          "$ref": "#/230"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/356"
+          "$ref": "#/232"
         },
         "flags": 1,
         "description": "Resource properties."
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "The system data."
@@ -4749,35 +3383,35 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/357"
+          "$ref": "#/233"
         },
         "flags": 0,
         "description": "Username / Password Credentials to provision guest agent."
       },
       "httpProxyConfig": {
         "type": {
-          "$ref": "#/358"
+          "$ref": "#/234"
         },
         "flags": 0,
         "description": "HTTP Proxy configuration for the VM."
       },
       "provisioningAction": {
         "type": {
-          "$ref": "#/362"
+          "$ref": "#/238"
         },
         "flags": 0,
         "description": "The guest agent provisioning action."
       },
       "status": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The guest agent status."
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "The provisioning state."
@@ -4790,14 +3424,14 @@
     "properties": {
       "username": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The username to connect with the guest."
       },
       "password": {
         "type": {
-          "$ref": "#/144"
+          "$ref": "#/6"
         },
         "flags": 4,
         "description": "The password to connect with the guest."
@@ -4810,7 +3444,7 @@
     "properties": {
       "httpsProxy": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The httpsProxy url."
@@ -4833,16 +3467,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/359"
+        "$ref": "#/235"
       },
       {
-        "$ref": "#/360"
+        "$ref": "#/236"
       },
       {
-        "$ref": "#/361"
+        "$ref": "#/237"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -4851,7 +3485,7 @@
     "name": "Microsoft.AzureStackHCI/virtualMachines/guestAgents@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/355"
+      "$ref": "#/231"
     },
     "flags": 0
   },
@@ -4869,63 +3503,63 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/364"
+          "$ref": "#/240"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/365"
+          "$ref": "#/241"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/367"
+          "$ref": "#/243"
         },
         "flags": 0,
         "description": "Properties of a virtual network resource"
       },
       "extendedLocation": {
         "type": {
-          "$ref": "#/173"
+          "$ref": "#/36"
         },
         "flags": 0,
         "description": "The extendedLocation of the resource."
       },
       "systemData": {
         "type": {
-          "$ref": "#/4"
+          "$ref": "#/39"
         },
         "flags": 2,
         "description": "Metadata pertaining to creation and last modification of the resource."
       },
       "tags": {
         "type": {
-          "$ref": "#/411"
+          "$ref": "#/287"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "location": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 1,
         "description": "The geo-location where the resource lives"
@@ -4938,35 +3572,35 @@
     "properties": {
       "networkType": {
         "type": {
-          "$ref": "#/377"
+          "$ref": "#/253"
         },
         "flags": 0,
         "description": "Type of the network"
       },
       "subnets": {
         "type": {
-          "$ref": "#/397"
+          "$ref": "#/273"
         },
         "flags": 0,
         "description": "Subnet - list of subnets under the virtual network"
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/404"
+          "$ref": "#/280"
         },
         "flags": 2,
         "description": "Provisioning state of the gallery image."
       },
       "resourceName": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "name of the object to be used in moc"
       },
       "status": {
         "type": {
-          "$ref": "#/405"
+          "$ref": "#/281"
         },
         "flags": 2,
         "description": "VirtualNetworkStatus defines the observed state of virtual networks"
@@ -5013,34 +3647,34 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/368"
+        "$ref": "#/244"
       },
       {
-        "$ref": "#/369"
+        "$ref": "#/245"
       },
       {
-        "$ref": "#/370"
+        "$ref": "#/246"
       },
       {
-        "$ref": "#/371"
+        "$ref": "#/247"
       },
       {
-        "$ref": "#/372"
+        "$ref": "#/248"
       },
       {
-        "$ref": "#/373"
+        "$ref": "#/249"
       },
       {
-        "$ref": "#/374"
+        "$ref": "#/250"
       },
       {
-        "$ref": "#/375"
+        "$ref": "#/251"
       },
       {
-        "$ref": "#/376"
+        "$ref": "#/252"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -5050,14 +3684,14 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Name - The name of the resource that is unique within a resource group. This name can be used to access the resource."
       },
       "properties": {
         "type": {
-          "$ref": "#/379"
+          "$ref": "#/255"
         },
         "flags": 0,
         "description": "SubnetProperties - Properties of the subnet."
@@ -5070,49 +3704,49 @@
     "properties": {
       "addressPrefix": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Cidr for this subnet - IPv4, IPv6"
       },
       "addressPrefixes": {
         "type": {
-          "$ref": "#/380"
+          "$ref": "#/256"
         },
         "flags": 0,
         "description": "AddressPrefixes - List of address prefixes for the subnet."
       },
       "ipAllocationMethod": {
         "type": {
-          "$ref": "#/383"
+          "$ref": "#/259"
         },
         "flags": 0,
         "description": "IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'"
       },
       "ipConfigurationReferences": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/261"
         },
         "flags": 0,
         "description": "IPConfigurationReferences - list of IPConfigurationReferences"
       },
       "routeTable": {
         "type": {
-          "$ref": "#/386"
+          "$ref": "#/262"
         },
         "flags": 0,
         "description": "RouteTable for the subnet"
       },
       "ipPools": {
         "type": {
-          "$ref": "#/396"
+          "$ref": "#/272"
         },
         "flags": 0,
         "description": "network associated pool of IP Addresses"
       },
       "vlan": {
         "type": {
-          "$ref": "#/80"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "Vlan to use for the subnet"
@@ -5122,7 +3756,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -5137,13 +3771,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/381"
+        "$ref": "#/257"
       },
       {
-        "$ref": "#/382"
+        "$ref": "#/258"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -5153,7 +3787,7 @@
     "properties": {
       "ID": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "IPConfigurationID"
@@ -5163,7 +3797,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/384"
+      "$ref": "#/260"
     }
   },
   {
@@ -5172,28 +3806,28 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Etag - Gets a unique read-only string that changes whenever the resource is updated."
       },
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Name - READ-ONLY; Resource name."
       },
       "properties": {
         "type": {
-          "$ref": "#/387"
+          "$ref": "#/263"
         },
         "flags": 0,
         "description": "RouteTablePropertiesFormat route Table resource."
       },
       "type": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Type - READ-ONLY; Resource type."
@@ -5206,7 +3840,7 @@
     "properties": {
       "routes": {
         "type": {
-          "$ref": "#/390"
+          "$ref": "#/266"
         },
         "flags": 0,
         "description": "Routes - Collection of routes contained within a route table."
@@ -5219,14 +3853,14 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Name - name of the subnet"
       },
       "properties": {
         "type": {
-          "$ref": "#/389"
+          "$ref": "#/265"
         },
         "flags": 0,
         "description": "RoutePropertiesFormat - Properties of the route."
@@ -5239,14 +3873,14 @@
     "properties": {
       "addressPrefix": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "AddressPrefix - The destination CIDR to which the route applies."
       },
       "nextHopIpAddress": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "NextHopIPAddress - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance."
@@ -5256,7 +3890,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/388"
+      "$ref": "#/264"
     }
   },
   {
@@ -5265,28 +3899,28 @@
     "properties": {
       "ipPoolType": {
         "type": {
-          "$ref": "#/394"
+          "$ref": "#/270"
         },
         "flags": 0,
         "description": "ip pool type"
       },
       "start": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "start of the ip address pool"
       },
       "end": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "end of the ip address pool"
       },
       "info": {
         "type": {
-          "$ref": "#/395"
+          "$ref": "#/271"
         },
         "flags": 0
       }
@@ -5304,10 +3938,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/392"
+        "$ref": "#/268"
       },
       {
-        "$ref": "#/393"
+        "$ref": "#/269"
       }
     ]
   },
@@ -5317,14 +3951,14 @@
     "properties": {
       "used": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "no. of ip addresses allocated from the ip pool"
       },
       "available": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 2,
         "description": "no. of ip addresses available in the ip pool"
@@ -5334,13 +3968,13 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/391"
+      "$ref": "#/267"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/378"
+      "$ref": "#/254"
     }
   },
   {
@@ -5371,25 +4005,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/398"
+        "$ref": "#/274"
       },
       {
-        "$ref": "#/399"
+        "$ref": "#/275"
       },
       {
-        "$ref": "#/400"
+        "$ref": "#/276"
       },
       {
-        "$ref": "#/401"
+        "$ref": "#/277"
       },
       {
-        "$ref": "#/402"
+        "$ref": "#/278"
       },
       {
-        "$ref": "#/403"
+        "$ref": "#/279"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -5399,21 +4033,21 @@
     "properties": {
       "errorCode": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "VirtualNetwork provisioning error code"
       },
       "errorMessage": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "Descriptive error message"
       },
       "provisioningStatus": {
         "type": {
-          "$ref": "#/406"
+          "$ref": "#/282"
         },
         "flags": 0,
         "description": "The provisioning status of the virtual network"
@@ -5426,14 +4060,14 @@
     "properties": {
       "operationId": {
         "type": {
-          "$ref": "#/0"
+          "$ref": "#/2"
         },
         "flags": 0,
         "description": "The ID of the operation performed on the virtual network"
       },
       "status": {
         "type": {
-          "$ref": "#/410"
+          "$ref": "#/286"
         },
         "flags": 0,
         "description": "The status of the operation performed on the virtual network [Succeeded, Failed, InProgress]"
@@ -5456,16 +4090,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/407"
+        "$ref": "#/283"
       },
       {
-        "$ref": "#/408"
+        "$ref": "#/284"
       },
       {
-        "$ref": "#/409"
+        "$ref": "#/285"
       },
       {
-        "$ref": "#/0"
+        "$ref": "#/2"
       }
     ]
   },
@@ -5474,7 +4108,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/0"
+      "$ref": "#/2"
     }
   },
   {
@@ -5482,7 +4116,7 @@
     "name": "Microsoft.AzureStackHCI/virtualnetworks@2021-09-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/366"
+      "$ref": "#/242"
     },
     "flags": 0
   }
