@@ -2010,6 +2010,425 @@
   },
   {
     "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/databases/schemas/tables/columns"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2018-06-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/databases/schemas/tables/columns",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/136"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/137"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/139"
+        },
+        "flags": 2,
+        "description": "Resource properties."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "DatabaseColumnProperties",
+    "properties": {
+      "columnType": {
+        "type": {
+          "$ref": "#/174"
+        },
+        "flags": 0,
+        "description": "The column data type."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "image"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "text"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "uniqueidentifier"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "date"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "time"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "datetime2"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "datetimeoffset"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "tinyint"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "smallint"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "int"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "smalldatetime"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "real"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "money"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "datetime"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "float"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "sql_variant"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "ntext"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "bit"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "decimal"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "numeric"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "smallmoney"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "bigint"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "hierarchyid"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "geometry"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "geography"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "varbinary"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "varchar"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "binary"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "char"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "timestamp"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "nvarchar"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "nchar"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "xml"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "sysname"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/140"
+      },
+      {
+        "$ref": "#/141"
+      },
+      {
+        "$ref": "#/142"
+      },
+      {
+        "$ref": "#/143"
+      },
+      {
+        "$ref": "#/144"
+      },
+      {
+        "$ref": "#/145"
+      },
+      {
+        "$ref": "#/146"
+      },
+      {
+        "$ref": "#/147"
+      },
+      {
+        "$ref": "#/148"
+      },
+      {
+        "$ref": "#/149"
+      },
+      {
+        "$ref": "#/150"
+      },
+      {
+        "$ref": "#/151"
+      },
+      {
+        "$ref": "#/152"
+      },
+      {
+        "$ref": "#/153"
+      },
+      {
+        "$ref": "#/154"
+      },
+      {
+        "$ref": "#/155"
+      },
+      {
+        "$ref": "#/156"
+      },
+      {
+        "$ref": "#/157"
+      },
+      {
+        "$ref": "#/158"
+      },
+      {
+        "$ref": "#/159"
+      },
+      {
+        "$ref": "#/160"
+      },
+      {
+        "$ref": "#/161"
+      },
+      {
+        "$ref": "#/162"
+      },
+      {
+        "$ref": "#/163"
+      },
+      {
+        "$ref": "#/164"
+      },
+      {
+        "$ref": "#/165"
+      },
+      {
+        "$ref": "#/166"
+      },
+      {
+        "$ref": "#/167"
+      },
+      {
+        "$ref": "#/168"
+      },
+      {
+        "$ref": "#/169"
+      },
+      {
+        "$ref": "#/170"
+      },
+      {
+        "$ref": "#/171"
+      },
+      {
+        "$ref": "#/172"
+      },
+      {
+        "$ref": "#/173"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/databases/schemas/tables/columns@2018-06-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/138"
+    },
+    "flags": 1
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/databases/schemas"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2018-06-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/databases/schemas",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/176"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/177"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/databases/schemas@2018-06-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/178"
+    },
+    "flags": 1
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/databases/schemas/tables"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2018-06-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/databases/schemas/tables",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/180"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/181"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/databases/schemas/tables@2018-06-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/182"
+    },
+    "flags": 1
+  },
+  {
+    "$type": "StringLiteralType",
     "value": "Microsoft.Sql/managedInstances/operations"
   },
   {
@@ -2036,21 +2455,21 @@
       },
       "type": {
         "type": {
-          "$ref": "#/136"
+          "$ref": "#/184"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/137"
+          "$ref": "#/185"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/187"
         },
         "flags": 2,
         "description": "Resource properties."
@@ -2098,7 +2517,7 @@
       },
       "state": {
         "type": {
-          "$ref": "#/146"
+          "$ref": "#/194"
         },
         "flags": 2,
         "description": "The operation state."
@@ -2154,14 +2573,14 @@
       },
       "operationParameters": {
         "type": {
-          "$ref": "#/147"
+          "$ref": "#/195"
         },
         "flags": 2,
         "description": "The operation parameters."
       },
       "operationSteps": {
         "type": {
-          "$ref": "#/149"
+          "$ref": "#/197"
         },
         "flags": 2,
         "description": "The operation steps."
@@ -2196,22 +2615,22 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/140"
+        "$ref": "#/188"
       },
       {
-        "$ref": "#/141"
+        "$ref": "#/189"
       },
       {
-        "$ref": "#/142"
+        "$ref": "#/190"
       },
       {
-        "$ref": "#/143"
+        "$ref": "#/191"
       },
       {
-        "$ref": "#/144"
+        "$ref": "#/192"
       },
       {
-        "$ref": "#/145"
+        "$ref": "#/193"
       },
       {
         "$ref": "#/0"
@@ -2224,14 +2643,14 @@
     "properties": {
       "currentParameters": {
         "type": {
-          "$ref": "#/148"
+          "$ref": "#/196"
         },
         "flags": 2,
         "description": "The current parameters."
       },
       "requestedParameters": {
         "type": {
-          "$ref": "#/148"
+          "$ref": "#/196"
         },
         "flags": 2,
         "description": "The requested parameters."
@@ -2288,7 +2707,7 @@
       },
       "stepsList": {
         "type": {
-          "$ref": "#/158"
+          "$ref": "#/206"
         },
         "flags": 2,
         "description": "The operation steps list."
@@ -2313,7 +2732,7 @@
       },
       "status": {
         "type": {
-          "$ref": "#/157"
+          "$ref": "#/205"
         },
         "flags": 0
       }
@@ -2347,22 +2766,22 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/151"
+        "$ref": "#/199"
       },
       {
-        "$ref": "#/152"
+        "$ref": "#/200"
       },
       {
-        "$ref": "#/153"
+        "$ref": "#/201"
       },
       {
-        "$ref": "#/154"
+        "$ref": "#/202"
       },
       {
-        "$ref": "#/155"
+        "$ref": "#/203"
       },
       {
-        "$ref": "#/156"
+        "$ref": "#/204"
       },
       {
         "$ref": "#/0"
@@ -2372,7 +2791,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/150"
+      "$ref": "#/198"
     }
   },
   {
@@ -2380,7 +2799,167 @@
     "name": "Microsoft.Sql/managedInstances/operations@2018-06-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/138"
+      "$ref": "#/186"
+    },
+    "flags": 1
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/managedInstances/databases/schemas/tables/columns"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2018-06-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/managedInstances/databases/schemas/tables/columns",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/208"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/209"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/139"
+        },
+        "flags": 2,
+        "description": "Resource properties."
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/managedInstances/databases/schemas/tables/columns@2018-06-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/210"
+    },
+    "flags": 1
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/managedInstances/databases/schemas"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2018-06-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/managedInstances/databases/schemas",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/212"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/213"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/managedInstances/databases/schemas@2018-06-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/214"
+    },
+    "flags": 1
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/managedInstances/databases/schemas/tables"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2018-06-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/managedInstances/databases/schemas/tables",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/216"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/217"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/managedInstances/databases/schemas/tables@2018-06-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/218"
     },
     "flags": 1
   },
@@ -2392,7 +2971,7 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/160"
+        "$ref": "#/220"
       },
       {
         "$ref": "#/0"
@@ -2420,28 +2999,28 @@
       },
       "name": {
         "type": {
-          "$ref": "#/161"
+          "$ref": "#/221"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/162"
+          "$ref": "#/222"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/163"
+          "$ref": "#/223"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/165"
+          "$ref": "#/225"
         },
         "flags": 2,
         "description": "Resource properties."
@@ -2489,7 +3068,7 @@
       },
       "unrestorableFiles": {
         "type": {
-          "$ref": "#/166"
+          "$ref": "#/226"
         },
         "flags": 2,
         "description": "List of unrestorable files."
@@ -2535,7 +3114,7 @@
     "name": "Microsoft.Sql/managedInstances/databases/restoreDetails@2018-06-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/164"
+      "$ref": "#/224"
     },
     "flags": 1
   }

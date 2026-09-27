@@ -1,14 +1,10 @@
 [
   {
-    "$type": "StringLiteralType",
-    "value": "Default"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/databases/dataMaskingPolicies"
-  },
-  {
     "$type": "StringType"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/advisors"
   },
   {
     "$type": "StringLiteralType",
@@ -16,11 +12,11 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies",
+    "name": "Microsoft.Sql/servers/advisors",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
@@ -41,99 +37,139 @@
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/3"
+          "$ref": "#/2"
         },
         "flags": 10,
         "description": "The resource api version"
       },
-      "properties": {
+      "kind": {
         "type": {
-          "$ref": "#/5"
+          "$ref": "#/0"
         },
-        "flags": 0,
-        "description": "The properties of the data masking policy."
+        "flags": 2,
+        "description": "Resource kind."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "The location of the data masking policy."
+        "description": "Resource location."
       },
-      "kind": {
+      "properties": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/4"
         },
-        "flags": 2,
-        "description": "The kind of data masking policy. Metadata, used for Azure portal."
+        "flags": 0,
+        "description": "Resource properties."
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "DataMaskingPolicyProperties",
+    "name": "AdvisorProperties",
     "properties": {
-      "dataMaskingState": {
+      "advisorStatus": {
         "type": {
-          "$ref": "#/8"
+          "$ref": "#/9"
+        },
+        "flags": 2,
+        "description": "Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'."
+      },
+      "autoExecuteValue": {
+        "type": {
+          "$ref": "#/13"
         },
         "flags": 1,
-        "description": "The state of the data masking policy."
+        "description": "Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'"
       },
-      "exemptPrincipals": {
+      "recommendationsStatus": {
         "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries."
-      },
-      "applicationPrincipals": {
-        "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "The list of the application principals. This is a legacy parameter and is no longer used."
+        "description": "Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available), LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc."
       },
-      "maskingLevel": {
+      "lastChecked": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "The masking level. This is a legacy parameter and is no longer used."
+        "description": "Gets the time when the current resource was analyzed for recommendations by this advisor."
       }
     }
   },
   {
     "$type": "StringLiteralType",
-    "value": "Disabled"
+    "value": "GA"
   },
   {
     "$type": "StringLiteralType",
-    "value": "Enabled"
+    "value": "PublicPreview"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "LimitedPublicPreview"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "PrivatePreview"
   },
   {
     "$type": "UnionType",
     "elements": [
+      {
+        "$ref": "#/5"
+      },
       {
         "$ref": "#/6"
       },
       {
         "$ref": "#/7"
+      },
+      {
+        "$ref": "#/8"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Enabled"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Disabled"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Default"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/10"
+      },
+      {
+        "$ref": "#/11"
+      },
+      {
+        "$ref": "#/12"
       }
     ]
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies@2014-04-01",
+    "name": "Microsoft.Sql/servers/advisors@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/4"
+      "$ref": "#/3"
     },
     "flags": 0
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
+    "value": "Microsoft.Sql/servers/databases/advisors"
   },
   {
     "$type": "StringLiteralType",
@@ -141,242 +177,71 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules",
+    "name": "Microsoft.Sql/servers/databases/advisors",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/10"
+          "$ref": "#/15"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
-        "type": {
-          "$ref": "#/11"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/13"
-        },
-        "flags": 0,
-        "description": "The properties of the resource."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The location of the data masking rule."
-      },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The kind of Data Masking Rule. Metadata, used for Azure portal."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "DataMaskingRuleProperties",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The rule Id."
-      },
-      "aliasName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "The alias name. This is a legacy parameter and is no longer used."
-      },
-      "ruleState": {
         "type": {
           "$ref": "#/16"
         },
-        "flags": 0,
-        "description": "The rule state. Used to delete a rule. To delete an existing rule, specify the schemaName, tableName, columnName, maskingFunction, and specify ruleState as disabled. However, if the rule doesn't already exist, the rule will be created with ruleState set to enabled, regardless of the provided value of ruleState."
+        "flags": 10,
+        "description": "The resource api version"
       },
-      "schemaName": {
+      "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
-        "flags": 1,
-        "description": "The schema name on which the data masking rule is applied."
+        "flags": 2,
+        "description": "Resource kind."
       },
-      "tableName": {
+      "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
-        "flags": 1,
-        "description": "The table name on which the data masking rule is applied."
+        "flags": 2,
+        "description": "Resource location."
       },
-      "columnName": {
+      "properties": {
         "type": {
-          "$ref": "#/2"
-        },
-        "flags": 1,
-        "description": "The column name on which the data masking rule is applied."
-      },
-      "maskingFunction": {
-        "type": {
-          "$ref": "#/23"
-        },
-        "flags": 1,
-        "description": "The masking function that is used for the data masking rule."
-      },
-      "numberFrom": {
-        "type": {
-          "$ref": "#/2"
+          "$ref": "#/4"
         },
         "flags": 0,
-        "description": "The numberFrom property of the masking rule. Required if maskingFunction is set to Number, otherwise this parameter will be ignored."
-      },
-      "numberTo": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "The numberTo property of the data masking rule. Required if maskingFunction is set to Number, otherwise this parameter will be ignored."
-      },
-      "prefixSize": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "If maskingFunction is set to Text, the number of characters to show unmasked in the beginning of the string. Otherwise, this parameter will be ignored."
-      },
-      "suffixSize": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "If maskingFunction is set to Text, the number of characters to show unmasked at the end of the string. Otherwise, this parameter will be ignored."
-      },
-      "replacementString": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "If maskingFunction is set to Text, the character to use for masking the unexposed part of the string. Otherwise, this parameter will be ignored."
+        "description": "Resource properties."
       }
     }
   },
   {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/14"
-      },
-      {
-        "$ref": "#/15"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Default"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "CCN"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Email"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Number"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "SSN"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Text"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/17"
-      },
-      {
-        "$ref": "#/18"
-      },
-      {
-        "$ref": "#/19"
-      },
-      {
-        "$ref": "#/20"
-      },
-      {
-        "$ref": "#/21"
-      },
-      {
-        "$ref": "#/22"
-      }
-    ]
-  },
-  {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules@2014-04-01",
+    "name": "Microsoft.Sql/servers/databases/advisors@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/12"
+      "$ref": "#/17"
     },
     "flags": 0
   },
   {
     "$type": "StringLiteralType",
-    "value": "Default"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/25"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/databases/geoBackupPolicies"
+    "value": "Microsoft.Sql/servers"
   },
   {
     "$type": "StringLiteralType",
@@ -384,104 +249,308 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+    "name": "Microsoft.Sql/servers",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/26"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/27"
+          "$ref": "#/19"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/28"
+          "$ref": "#/20"
         },
         "flags": 10,
         "description": "The resource api version"
       },
-      "properties": {
-        "type": {
-          "$ref": "#/30"
-        },
-        "flags": 1,
-        "description": "The properties of the geo backup policy."
-      },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "Kind of geo backup policy.  This is metadata used for the Azure portal experience."
+        "description": "Kind of sql server.  This is metadata used for the Azure portal experience."
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/22"
+        },
+        "flags": 0,
+        "description": "Represents the properties of the resource."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
-        "flags": 2,
-        "description": "Backup policy location."
+        "flags": 1,
+        "description": "Resource location."
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/30"
+        },
+        "flags": 0,
+        "description": "Resource tags."
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "GeoBackupPolicyProperties",
+    "name": "ServerProperties",
     "properties": {
-      "state": {
+      "fullyQualifiedDomainName": {
         "type": {
-          "$ref": "#/33"
-        },
-        "flags": 1,
-        "description": "The state of the geo backup policy."
-      },
-      "storageType": {
-        "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "The storage type of the geo backup policy."
+        "description": "The fully qualified domain name of the server."
+      },
+      "version": {
+        "type": {
+          "$ref": "#/25"
+        },
+        "flags": 0,
+        "description": "The version of the server."
+      },
+      "administratorLogin": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "Administrator username for the server. Can only be specified when the server is being created (and is required for creation)."
+      },
+      "administratorLoginPassword": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 4,
+        "description": "The administrator login password (required for server creation)."
+      },
+      "externalAdministratorSid": {
+        "type": {
+          "$ref": "#/26"
+        },
+        "flags": 2,
+        "description": "The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators."
+      },
+      "externalAdministratorLogin": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators"
+      },
+      "state": {
+        "type": {
+          "$ref": "#/29"
+        },
+        "flags": 2,
+        "description": "The state of the server."
       }
     }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2.0"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "12.0"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/23"
+      },
+      {
+        "$ref": "#/24"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "minLength": 36,
+    "maxLength": 36,
+    "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Ready"
   },
   {
     "$type": "StringLiteralType",
     "value": "Disabled"
   },
   {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/27"
+      },
+      {
+        "$ref": "#/28"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "TrackedResourceTags",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/0"
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers@2014-04-01",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/21"
+    },
+    "flags": 0
+  },
+  {
     "$type": "StringLiteralType",
-    "value": "Enabled"
+    "value": "default"
   },
   {
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/31"
+        "$ref": "#/32"
       },
       {
-        "$ref": "#/32"
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/connectionPolicies"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2014-04-01"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/connectionPolicies",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/33"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/34"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/35"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "kind": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Metadata used for the Azure portal experience."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Resource location."
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/37"
+        },
+        "flags": 0,
+        "description": "The properties of the server secure connection policy."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "ServerConnectionPolicyProperties",
+    "properties": {
+      "connectionType": {
+        "type": {
+          "$ref": "#/41"
+        },
+        "flags": 1,
+        "description": "The server connection type."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Default"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Proxy"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Redirect"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/38"
+      },
+      {
+        "$ref": "#/39"
+      },
+      {
+        "$ref": "#/40"
       }
     ]
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/databases/geoBackupPolicies@2014-04-01",
+    "name": "Microsoft.Sql/servers/connectionPolicies@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/29"
+      "$ref": "#/36"
     },
     "flags": 0
   },
@@ -499,56 +568,56 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/35"
+          "$ref": "#/43"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/36"
+          "$ref": "#/44"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Kind of database.  This is metadata used for the Azure portal experience."
       },
       "properties": {
         "type": {
-          "$ref": "#/38"
+          "$ref": "#/46"
         },
         "flags": 0,
         "description": "The properties representing the resource."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "Resource location."
       },
       "tags": {
         "type": {
-          "$ref": "#/309"
+          "$ref": "#/316"
         },
         "flags": 0,
         "description": "Resource tags."
@@ -561,182 +630,182 @@
     "properties": {
       "collation": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The collation of the database. If createMode is not Default, this value is ignored."
       },
       "creationDate": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The creation date of the database (ISO8601 format)."
       },
       "containmentState": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "The containment state of the database."
       },
       "currentServiceObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "The current service level objective ID of the database. This is the ID of the service level objective that is currently active."
       },
       "databaseId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "The ID of the database."
       },
       "earliestRestoreDate": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "This records the earliest start date and time that restore is available for this database (ISO8601 format)."
       },
       "createMode": {
         "type": {
-          "$ref": "#/49"
+          "$ref": "#/56"
         },
         "flags": 4,
         "description": "Specifies the mode of database creation.\n\nDefault: regular database creation.\n\nCopy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.\n\nOnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.\n\nPointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.\n\nRecovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.\n\nRestore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.\n\nRestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.\n\nCopy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition."
       },
       "sourceDatabaseId": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 4,
         "description": "Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created."
       },
       "sourceDatabaseDeletionDate": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 4,
         "description": "Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted."
       },
       "restorePointInTime": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 4,
         "description": "Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value."
       },
       "recoveryServicesRecoveryPointResourceId": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 4,
         "description": "Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from."
       },
       "edition": {
         "type": {
-          "$ref": "#/64"
+          "$ref": "#/71"
         },
         "flags": 0,
         "description": "The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.\r\n\r\nThe list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:\r\n\r\n```azurecli\r\naz sql db list-editions -l <location> -o table\r\n````\r\n\r\n```powershell\r\nGet-AzSqlServerServiceObjective -Location <location>\r\n````"
       },
       "maxSizeBytes": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: \"Capabilities_ListByLocation.\""
       },
       "requestedServiceObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 0,
         "description": "The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.\r\n\r\nThe list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API."
       },
       "requestedServiceObjectiveName": {
         "type": {
-          "$ref": "#/130"
+          "$ref": "#/137"
         },
         "flags": 0,
         "description": "The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. \r\n\r\nThe list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:\r\n\r\n```azurecli\r\naz sql db list-editions -l <location> -o table\r\n````\r\n\r\n```powershell\r\nGet-AzSqlServerServiceObjective -Location <location>\r\n````"
       },
       "serviceLevelObjective": {
         "type": {
-          "$ref": "#/196"
+          "$ref": "#/203"
         },
         "flags": 2,
         "description": "The current service level objective of the database."
       },
       "status": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The status of the database."
       },
       "elasticPoolName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition."
       },
       "defaultSecondaryLocation": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The default secondary region for this database."
       },
       "serviceTierAdvisors": {
         "type": {
-          "$ref": "#/267"
+          "$ref": "#/274"
         },
         "flags": 2,
         "description": "The list of service tier advisors for this database. Expanded property"
       },
       "transparentDataEncryption": {
         "type": {
-          "$ref": "#/273"
+          "$ref": "#/280"
         },
         "flags": 2,
         "description": "The transparent data encryption info for this database."
       },
       "recommendedIndex": {
         "type": {
-          "$ref": "#/302"
+          "$ref": "#/309"
         },
         "flags": 2,
         "description": "The recommended indices for this database."
       },
       "failoverGroupId": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The resource identifier of the failover group containing this database."
       },
       "readScale": {
         "type": {
-          "$ref": "#/305"
+          "$ref": "#/312"
         },
         "flags": 0,
         "description": "Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition."
       },
       "sampleName": {
         "type": {
-          "$ref": "#/307"
+          "$ref": "#/314"
         },
         "flags": 4,
         "description": "Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition."
       },
       "zoneRedundant": {
         "type": {
-          "$ref": "#/308"
+          "$ref": "#/315"
         },
         "flags": 0,
         "description": "Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones."
@@ -745,12 +814,6 @@
   },
   {
     "$type": "IntegerType"
-  },
-  {
-    "$type": "StringType",
-    "minLength": 36,
-    "maxLength": 36,
-    "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"
   },
   {
     "$type": "StringLiteralType",
@@ -788,31 +851,31 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/41"
-      },
-      {
-        "$ref": "#/42"
-      },
-      {
-        "$ref": "#/43"
-      },
-      {
-        "$ref": "#/44"
-      },
-      {
-        "$ref": "#/45"
-      },
-      {
-        "$ref": "#/46"
-      },
-      {
-        "$ref": "#/47"
-      },
-      {
         "$ref": "#/48"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/49"
+      },
+      {
+        "$ref": "#/50"
+      },
+      {
+        "$ref": "#/51"
+      },
+      {
+        "$ref": "#/52"
+      },
+      {
+        "$ref": "#/53"
+      },
+      {
+        "$ref": "#/54"
+      },
+      {
+        "$ref": "#/55"
+      },
+      {
+        "$ref": "#/0"
       }
     ]
   },
@@ -876,27 +939,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/50"
-      },
-      {
-        "$ref": "#/51"
-      },
-      {
-        "$ref": "#/52"
-      },
-      {
-        "$ref": "#/53"
-      },
-      {
-        "$ref": "#/54"
-      },
-      {
-        "$ref": "#/55"
-      },
-      {
-        "$ref": "#/56"
-      },
-      {
         "$ref": "#/57"
       },
       {
@@ -918,7 +960,28 @@
         "$ref": "#/63"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/64"
+      },
+      {
+        "$ref": "#/65"
+      },
+      {
+        "$ref": "#/66"
+      },
+      {
+        "$ref": "#/67"
+      },
+      {
+        "$ref": "#/68"
+      },
+      {
+        "$ref": "#/69"
+      },
+      {
+        "$ref": "#/70"
+      },
+      {
+        "$ref": "#/0"
       }
     ]
   },
@@ -1185,27 +1248,6 @@
   {
     "$type": "UnionType",
     "elements": [
-      {
-        "$ref": "#/65"
-      },
-      {
-        "$ref": "#/66"
-      },
-      {
-        "$ref": "#/67"
-      },
-      {
-        "$ref": "#/68"
-      },
-      {
-        "$ref": "#/69"
-      },
-      {
-        "$ref": "#/70"
-      },
-      {
-        "$ref": "#/71"
-      },
       {
         "$ref": "#/72"
       },
@@ -1381,7 +1423,28 @@
         "$ref": "#/129"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/130"
+      },
+      {
+        "$ref": "#/131"
+      },
+      {
+        "$ref": "#/132"
+      },
+      {
+        "$ref": "#/133"
+      },
+      {
+        "$ref": "#/134"
+      },
+      {
+        "$ref": "#/135"
+      },
+      {
+        "$ref": "#/136"
+      },
+      {
+        "$ref": "#/0"
       }
     ]
   },
@@ -1649,27 +1712,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/131"
-      },
-      {
-        "$ref": "#/132"
-      },
-      {
-        "$ref": "#/133"
-      },
-      {
-        "$ref": "#/134"
-      },
-      {
-        "$ref": "#/135"
-      },
-      {
-        "$ref": "#/136"
-      },
-      {
-        "$ref": "#/137"
-      },
-      {
         "$ref": "#/138"
       },
       {
@@ -1844,7 +1886,28 @@
         "$ref": "#/195"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/196"
+      },
+      {
+        "$ref": "#/197"
+      },
+      {
+        "$ref": "#/198"
+      },
+      {
+        "$ref": "#/199"
+      },
+      {
+        "$ref": "#/200"
+      },
+      {
+        "$ref": "#/201"
+      },
+      {
+        "$ref": "#/202"
+      },
+      {
+        "$ref": "#/0"
       }
     ]
   },
@@ -1854,28 +1917,28 @@
     "properties": {
       "properties": {
         "type": {
-          "$ref": "#/198"
+          "$ref": "#/205"
         },
         "flags": 2,
         "description": "The properties representing the resource."
       },
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource ID."
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource name."
       },
       "type": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource type."
@@ -1888,133 +1951,133 @@
     "properties": {
       "observationPeriodStart": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The observation period start (ISO8601 format)."
       },
       "observationPeriodEnd": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The observation period start (ISO8601 format)."
       },
       "activeTimeRatio": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "The activeTimeRatio for service tier advisor."
       },
       "minDtu": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets or sets minDtu for service tier advisor."
       },
       "avgDtu": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets or sets avgDtu for service tier advisor."
       },
       "maxDtu": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets or sets maxDtu for service tier advisor."
       },
       "maxSizeInGB": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets or sets maxSizeInGB for service tier advisor."
       },
       "serviceLevelObjectiveUsageMetrics": {
         "type": {
-          "$ref": "#/266"
+          "$ref": "#/273"
         },
         "flags": 2,
         "description": "Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor."
       },
       "currentServiceLevelObjective": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Gets or sets currentServiceLevelObjective for service tier advisor."
       },
       "currentServiceLevelObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "Gets or sets currentServiceLevelObjectiveId for service tier advisor."
       },
       "usageBasedRecommendationServiceLevelObjective": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor."
       },
       "usageBasedRecommendationServiceLevelObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor."
       },
       "databaseSizeBasedRecommendationServiceLevelObjective": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor."
       },
       "databaseSizeBasedRecommendationServiceLevelObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor."
       },
       "disasterPlanBasedRecommendationServiceLevelObjective": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor."
       },
       "disasterPlanBasedRecommendationServiceLevelObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor."
       },
       "overallRecommendationServiceLevelObjective": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Gets or sets overallRecommendationServiceLevelObjective for service tier advisor."
       },
       "overallRecommendationServiceLevelObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor."
       },
       "confidence": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets or sets confidence for service tier advisor."
@@ -2027,21 +2090,21 @@
     "properties": {
       "serviceLevelObjective": {
         "type": {
-          "$ref": "#/265"
+          "$ref": "#/272"
         },
         "flags": 2,
         "description": "The serviceLevelObjective for SLO usage metric."
       },
       "serviceLevelObjectiveId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 2,
         "description": "The serviceLevelObjectiveId for SLO usage metric."
       },
       "inRangeTimeRatio": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets or sets inRangeTimeRatio for SLO usage metric."
@@ -2312,27 +2375,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/200"
-      },
-      {
-        "$ref": "#/201"
-      },
-      {
-        "$ref": "#/202"
-      },
-      {
-        "$ref": "#/203"
-      },
-      {
-        "$ref": "#/204"
-      },
-      {
-        "$ref": "#/205"
-      },
-      {
-        "$ref": "#/206"
-      },
-      {
         "$ref": "#/207"
       },
       {
@@ -2507,20 +2549,41 @@
         "$ref": "#/264"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/265"
+      },
+      {
+        "$ref": "#/266"
+      },
+      {
+        "$ref": "#/267"
+      },
+      {
+        "$ref": "#/268"
+      },
+      {
+        "$ref": "#/269"
+      },
+      {
+        "$ref": "#/270"
+      },
+      {
+        "$ref": "#/271"
+      },
+      {
+        "$ref": "#/0"
       }
     ]
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/199"
+      "$ref": "#/206"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/197"
+      "$ref": "#/204"
     }
   },
   {
@@ -2529,35 +2592,35 @@
     "properties": {
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource location."
       },
       "properties": {
         "type": {
-          "$ref": "#/269"
+          "$ref": "#/276"
         },
         "flags": 0,
         "description": "Represents the properties of the resource."
       },
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource ID."
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource name."
       },
       "type": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource type."
@@ -2570,7 +2633,7 @@
     "properties": {
       "status": {
         "type": {
-          "$ref": "#/272"
+          "$ref": "#/279"
         },
         "flags": 0,
         "description": "The status of the database transparent data encryption."
@@ -2589,17 +2652,17 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/270"
+        "$ref": "#/277"
       },
       {
-        "$ref": "#/271"
+        "$ref": "#/278"
       }
     ]
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/268"
+      "$ref": "#/275"
     }
   },
   {
@@ -2608,28 +2671,28 @@
     "properties": {
       "properties": {
         "type": {
-          "$ref": "#/275"
+          "$ref": "#/282"
         },
         "flags": 2,
         "description": "The properties representing the resource."
       },
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource ID."
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource name."
       },
       "type": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource type."
@@ -2642,84 +2705,84 @@
     "properties": {
       "action": {
         "type": {
-          "$ref": "#/279"
+          "$ref": "#/286"
         },
         "flags": 2,
         "description": "The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance."
       },
       "state": {
         "type": {
-          "$ref": "#/291"
+          "$ref": "#/298"
         },
         "flags": 2,
         "description": "The current recommendation state."
       },
       "created": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The UTC datetime showing when this resource was created (ISO8601 format)."
       },
       "lastModified": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The UTC datetime of when was this resource last changed (ISO8601 format)."
       },
       "indexType": {
         "type": {
-          "$ref": "#/296"
+          "$ref": "#/303"
         },
         "flags": 2,
         "description": "The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)"
       },
       "schema": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The schema where table to build index over resides"
       },
       "table": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The table on which to build index."
       },
       "columns": {
         "type": {
-          "$ref": "#/297"
+          "$ref": "#/304"
         },
         "flags": 2,
         "description": "Columns over which to build index"
       },
       "includedColumns": {
         "type": {
-          "$ref": "#/298"
+          "$ref": "#/305"
         },
         "flags": 2,
         "description": "The list of column names to be included in the index"
       },
       "indexScript": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The full build index script"
       },
       "estimatedImpact": {
         "type": {
-          "$ref": "#/300"
+          "$ref": "#/307"
         },
         "flags": 2,
         "description": "The estimated impact of doing recommended index action."
       },
       "reportedImpact": {
         "type": {
-          "$ref": "#/301"
+          "$ref": "#/308"
         },
         "flags": 2,
         "description": "The values reported after index action is complete."
@@ -2742,13 +2805,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/276"
+        "$ref": "#/283"
       },
       {
-        "$ref": "#/277"
+        "$ref": "#/284"
       },
       {
-        "$ref": "#/278"
+        "$ref": "#/285"
       }
     ]
   },
@@ -2800,27 +2863,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/280"
-      },
-      {
-        "$ref": "#/281"
-      },
-      {
-        "$ref": "#/282"
-      },
-      {
-        "$ref": "#/283"
-      },
-      {
-        "$ref": "#/284"
-      },
-      {
-        "$ref": "#/285"
-      },
-      {
-        "$ref": "#/286"
-      },
-      {
         "$ref": "#/287"
       },
       {
@@ -2831,6 +2873,27 @@
       },
       {
         "$ref": "#/290"
+      },
+      {
+        "$ref": "#/291"
+      },
+      {
+        "$ref": "#/292"
+      },
+      {
+        "$ref": "#/293"
+      },
+      {
+        "$ref": "#/294"
+      },
+      {
+        "$ref": "#/295"
+      },
+      {
+        "$ref": "#/296"
+      },
+      {
+        "$ref": "#/297"
       }
     ]
   },
@@ -2854,29 +2917,29 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/292"
+        "$ref": "#/299"
       },
       {
-        "$ref": "#/293"
+        "$ref": "#/300"
       },
       {
-        "$ref": "#/294"
+        "$ref": "#/301"
       },
       {
-        "$ref": "#/295"
+        "$ref": "#/302"
       }
     ]
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/2"
+      "$ref": "#/0"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/2"
+      "$ref": "#/0"
     }
   },
   {
@@ -2885,28 +2948,28 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The name of the impact dimension."
       },
       "unit": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The unit in which estimated impact to dimension is measured."
       },
       "changeValueAbsolute": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "The absolute impact to dimension."
       },
       "changeValueRelative": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "The relative impact to dimension (null if not applicable)"
@@ -2916,19 +2979,19 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/299"
+      "$ref": "#/306"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/299"
+      "$ref": "#/306"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/274"
+      "$ref": "#/281"
     }
   },
   {
@@ -2943,10 +3006,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/303"
+        "$ref": "#/310"
       },
       {
-        "$ref": "#/304"
+        "$ref": "#/311"
       }
     ]
   },
@@ -2958,10 +3021,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/306"
+        "$ref": "#/313"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -2973,7 +3036,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/2"
+      "$ref": "#/0"
     }
   },
   {
@@ -2981,7 +3044,7 @@
     "name": "Microsoft.Sql/servers/databases@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/37"
+      "$ref": "#/45"
     },
     "flags": 0
   },
@@ -2993,10 +3056,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/311"
+        "$ref": "#/318"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -3014,35 +3077,35 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/312"
+          "$ref": "#/319"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/313"
+          "$ref": "#/320"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/314"
+          "$ref": "#/321"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/316"
+          "$ref": "#/323"
         },
         "flags": 4,
         "description": "Represents the properties of the resource."
@@ -3055,49 +3118,49 @@
     "properties": {
       "operationMode": {
         "type": {
-          "$ref": "#/317"
+          "$ref": "#/324"
         },
         "flags": 1,
         "description": "The type of import operation being performed. This is always Import."
       },
       "storageKeyType": {
         "type": {
-          "$ref": "#/320"
+          "$ref": "#/327"
         },
         "flags": 1,
         "description": "The type of the storage key to use."
       },
       "storageKey": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "The storage key to use.  If storage key type is SharedAccessKey, it must be preceded with a \"?.\""
       },
       "storageUri": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "The storage uri to use."
       },
       "administratorLogin": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "The name of the SQL administrator."
       },
       "administratorLoginPassword": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "The password of the SQL administrator."
       },
       "authenticationType": {
         "type": {
-          "$ref": "#/323"
+          "$ref": "#/330"
         },
         "flags": 0,
         "description": "The authentication type."
@@ -3120,10 +3183,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/318"
+        "$ref": "#/325"
       },
       {
-        "$ref": "#/319"
+        "$ref": "#/326"
       }
     ]
   },
@@ -3139,10 +3202,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/321"
+        "$ref": "#/328"
       },
       {
-        "$ref": "#/322"
+        "$ref": "#/329"
       }
     ]
   },
@@ -3151,7 +3214,806 @@
     "name": "Microsoft.Sql/servers/databases/extensions@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/315"
+      "$ref": "#/322"
+    },
+    "flags": 0
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "default"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/332"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/databases/securityAlertPolicies"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2014-04-01"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/333"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/334"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/335"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "The geo-location where the resource lives"
+      },
+      "kind": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Resource kind."
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/337"
+        },
+        "flags": 0,
+        "description": "Properties of the security alert policy."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "DatabaseSecurityAlertPolicyProperties",
+    "properties": {
+      "state": {
+        "type": {
+          "$ref": "#/341"
+        },
+        "flags": 1,
+        "description": "Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required."
+      },
+      "disabledAlerts": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action."
+      },
+      "emailAddresses": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "Specifies the semicolon-separated list of e-mail addresses to which the alert is sent."
+      },
+      "emailAccountAdmins": {
+        "type": {
+          "$ref": "#/344"
+        },
+        "flags": 0,
+        "description": "Specifies that the alert is sent to the account administrators."
+      },
+      "storageEndpoint": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required."
+      },
+      "storageAccountAccessKey": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 4,
+        "description": "Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required."
+      },
+      "retentionDays": {
+        "type": {
+          "$ref": "#/47"
+        },
+        "flags": 0,
+        "description": "Specifies the number of days to keep in the Threat Detection audit logs."
+      },
+      "useServerDefault": {
+        "type": {
+          "$ref": "#/347"
+        },
+        "flags": 0,
+        "description": "Specifies whether to use the default server policy."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "New"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Enabled"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Disabled"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/338"
+      },
+      {
+        "$ref": "#/339"
+      },
+      {
+        "$ref": "#/340"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Enabled"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Disabled"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/342"
+      },
+      {
+        "$ref": "#/343"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Enabled"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Disabled"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/345"
+      },
+      {
+        "$ref": "#/346"
+      }
+    ]
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/databases/securityAlertPolicies@2014-04-01",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/336"
+    },
+    "flags": 0
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Default"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/databases/dataMaskingPolicies"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2014-04-01"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/349"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/350"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/351"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/353"
+        },
+        "flags": 0,
+        "description": "The properties of the data masking policy."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The location of the data masking policy."
+      },
+      "kind": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The kind of data masking policy. Metadata, used for Azure portal."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "DataMaskingPolicyProperties",
+    "properties": {
+      "dataMaskingState": {
+        "type": {
+          "$ref": "#/356"
+        },
+        "flags": 1,
+        "description": "The state of the data masking policy."
+      },
+      "exemptPrincipals": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries."
+      },
+      "applicationPrincipals": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The list of the application principals. This is a legacy parameter and is no longer used."
+      },
+      "maskingLevel": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The masking level. This is a legacy parameter and is no longer used."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Disabled"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Enabled"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/354"
+      },
+      {
+        "$ref": "#/355"
+      }
+    ]
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies@2014-04-01",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/352"
+    },
+    "flags": 0
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2014-04-01"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/358"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/359"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/361"
+        },
+        "flags": 0,
+        "description": "The properties of the resource."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The location of the data masking rule."
+      },
+      "kind": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The kind of Data Masking Rule. Metadata, used for Azure portal."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "DataMaskingRuleProperties",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The rule Id."
+      },
+      "aliasName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "The alias name. This is a legacy parameter and is no longer used."
+      },
+      "ruleState": {
+        "type": {
+          "$ref": "#/364"
+        },
+        "flags": 0,
+        "description": "The rule state. Used to delete a rule. To delete an existing rule, specify the schemaName, tableName, columnName, maskingFunction, and specify ruleState as disabled. However, if the rule doesn't already exist, the rule will be created with ruleState set to enabled, regardless of the provided value of ruleState."
+      },
+      "schemaName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 1,
+        "description": "The schema name on which the data masking rule is applied."
+      },
+      "tableName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 1,
+        "description": "The table name on which the data masking rule is applied."
+      },
+      "columnName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 1,
+        "description": "The column name on which the data masking rule is applied."
+      },
+      "maskingFunction": {
+        "type": {
+          "$ref": "#/371"
+        },
+        "flags": 1,
+        "description": "The masking function that is used for the data masking rule."
+      },
+      "numberFrom": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "The numberFrom property of the masking rule. Required if maskingFunction is set to Number, otherwise this parameter will be ignored."
+      },
+      "numberTo": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "The numberTo property of the data masking rule. Required if maskingFunction is set to Number, otherwise this parameter will be ignored."
+      },
+      "prefixSize": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "If maskingFunction is set to Text, the number of characters to show unmasked in the beginning of the string. Otherwise, this parameter will be ignored."
+      },
+      "suffixSize": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "If maskingFunction is set to Text, the number of characters to show unmasked at the end of the string. Otherwise, this parameter will be ignored."
+      },
+      "replacementString": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 0,
+        "description": "If maskingFunction is set to Text, the character to use for masking the unexposed part of the string. Otherwise, this parameter will be ignored."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Disabled"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Enabled"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/362"
+      },
+      {
+        "$ref": "#/363"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Default"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "CCN"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Email"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Number"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "SSN"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Text"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/365"
+      },
+      {
+        "$ref": "#/366"
+      },
+      {
+        "$ref": "#/367"
+      },
+      {
+        "$ref": "#/368"
+      },
+      {
+        "$ref": "#/369"
+      },
+      {
+        "$ref": "#/370"
+      }
+    ]
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules@2014-04-01",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/360"
+    },
+    "flags": 0
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/disasterRecoveryConfiguration"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2014-04-01"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/disasterRecoveryConfiguration",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/373"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/374"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/376"
+        },
+        "flags": 2,
+        "description": "The properties representing the resource."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Location of the server that contains this disaster recovery configuration."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "DisasterRecoveryConfigurationProperties",
+    "properties": {
+      "status": {
+        "type": {
+          "$ref": "#/381"
+        },
+        "flags": 2,
+        "description": "The status of the disaster recovery configuration."
+      },
+      "autoFailover": {
+        "type": {
+          "$ref": "#/384"
+        },
+        "flags": 1,
+        "description": "Whether or not failover can be done automatically."
+      },
+      "failoverPolicy": {
+        "type": {
+          "$ref": "#/387"
+        },
+        "flags": 1,
+        "description": "How aggressive the automatic failover should be."
+      },
+      "partnerServerId": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 1,
+        "description": "Id of the partner server."
+      },
+      "logicalServerName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Logical name of the server."
+      },
+      "partnerLogicalServerName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Logical name of the partner server."
+      },
+      "role": {
+        "type": {
+          "$ref": "#/391"
+        },
+        "flags": 2,
+        "description": "The role of the current server in the disaster recovery configuration."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Creating"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Ready"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "FailingOver"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Dropping"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/377"
+      },
+      {
+        "$ref": "#/378"
+      },
+      {
+        "$ref": "#/379"
+      },
+      {
+        "$ref": "#/380"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Off"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "On"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/382"
+      },
+      {
+        "$ref": "#/383"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Manual"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Automatic"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/385"
+      },
+      {
+        "$ref": "#/386"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "None"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Primary"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Secondary"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/388"
+      },
+      {
+        "$ref": "#/389"
+      },
+      {
+        "$ref": "#/390"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/disasterRecoveryConfiguration@2014-04-01",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/375"
     },
     "flags": 0
   },
@@ -3169,56 +4031,56 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/325"
+          "$ref": "#/393"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/326"
+          "$ref": "#/394"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/328"
+          "$ref": "#/396"
         },
         "flags": 0,
         "description": "The properties representing the resource."
       },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Kind of elastic pool.  This is metadata used for the Azure portal experience."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "Resource location."
       },
       "tags": {
         "type": {
-          "$ref": "#/339"
+          "$ref": "#/407"
         },
         "flags": 0,
         "description": "Resource tags."
@@ -3231,56 +4093,56 @@
     "properties": {
       "creationDate": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The creation date of the elastic pool (ISO8601 format)."
       },
       "state": {
         "type": {
-          "$ref": "#/332"
+          "$ref": "#/400"
         },
         "flags": 2,
         "description": "The state of the elastic pool."
       },
       "edition": {
         "type": {
-          "$ref": "#/338"
+          "$ref": "#/406"
         },
         "flags": 0,
         "description": "The edition of the elastic pool."
       },
       "dtu": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "The total shared DTU for the database elastic pool."
       },
       "databaseDtuMax": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "The maximum DTU any one database can consume."
       },
       "databaseDtuMin": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "The minimum DTU all databases are guaranteed."
       },
       "storageMB": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "Gets storage limit for the database elastic pool in MB."
       },
       "zoneRedundant": {
         "type": {
-          "$ref": "#/308"
+          "$ref": "#/315"
         },
         "flags": 0,
         "description": "Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones."
@@ -3303,16 +4165,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/329"
+        "$ref": "#/397"
       },
       {
-        "$ref": "#/330"
+        "$ref": "#/398"
       },
       {
-        "$ref": "#/331"
+        "$ref": "#/399"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -3340,22 +4202,22 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/333"
+        "$ref": "#/401"
       },
       {
-        "$ref": "#/334"
+        "$ref": "#/402"
       },
       {
-        "$ref": "#/335"
+        "$ref": "#/403"
       },
       {
-        "$ref": "#/336"
+        "$ref": "#/404"
       },
       {
-        "$ref": "#/337"
+        "$ref": "#/405"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -3364,7 +4226,7 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/2"
+      "$ref": "#/0"
     }
   },
   {
@@ -3372,438 +4234,7 @@
     "name": "Microsoft.Sql/servers/elasticPools@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/327"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/communicationLinks"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2014-04-01"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/communicationLinks",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/341"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/342"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/344"
-        },
-        "flags": 0,
-        "description": "The properties of resource."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Communication link location."
-      },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Communication link kind.  This property is used for Azure Portal metadata."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ServerCommunicationLinkProperties",
-    "properties": {
-      "state": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The state."
-      },
-      "partnerServer": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 1,
-        "description": "The name of the partner server."
-      }
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/communicationLinks@2014-04-01",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/343"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "default"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/346"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/connectionPolicies"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2014-04-01"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/connectionPolicies",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/347"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/348"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/349"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Metadata used for the Azure portal experience."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource location."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/351"
-        },
-        "flags": 0,
-        "description": "The properties of the server secure connection policy."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "ServerConnectionPolicyProperties",
-    "properties": {
-      "connectionType": {
-        "type": {
-          "$ref": "#/355"
-        },
-        "flags": 1,
-        "description": "The server connection type."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Default"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Proxy"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Redirect"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/352"
-      },
-      {
-        "$ref": "#/353"
-      },
-      {
-        "$ref": "#/354"
-      }
-    ]
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/connectionPolicies@2014-04-01",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/350"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "default"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/357"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/databases/securityAlertPolicies"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2014-04-01"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/databases/securityAlertPolicies",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/358"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/359"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/360"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "The geo-location where the resource lives"
-      },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource kind."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/362"
-        },
-        "flags": 0,
-        "description": "Properties of the security alert policy."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "DatabaseSecurityAlertPolicyProperties",
-    "properties": {
-      "state": {
-        "type": {
-          "$ref": "#/366"
-        },
-        "flags": 1,
-        "description": "Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required."
-      },
-      "disabledAlerts": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action."
-      },
-      "emailAddresses": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "Specifies the semicolon-separated list of e-mail addresses to which the alert is sent."
-      },
-      "emailAccountAdmins": {
-        "type": {
-          "$ref": "#/369"
-        },
-        "flags": 0,
-        "description": "Specifies that the alert is sent to the account administrators."
-      },
-      "storageEndpoint": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required."
-      },
-      "storageAccountAccessKey": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 4,
-        "description": "Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required."
-      },
-      "retentionDays": {
-        "type": {
-          "$ref": "#/39"
-        },
-        "flags": 0,
-        "description": "Specifies the number of days to keep in the Threat Detection audit logs."
-      },
-      "useServerDefault": {
-        "type": {
-          "$ref": "#/372"
-        },
-        "flags": 0,
-        "description": "Specifies whether to use the default server policy."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "New"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/363"
-      },
-      {
-        "$ref": "#/364"
-      },
-      {
-        "$ref": "#/365"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/367"
-      },
-      {
-        "$ref": "#/368"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/370"
-      },
-      {
-        "$ref": "#/371"
-      }
-    ]
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/databases/securityAlertPolicies@2014-04-01",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/361"
+      "$ref": "#/395"
     },
     "flags": 0
   },
@@ -3821,49 +4252,49 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/374"
+          "$ref": "#/409"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/375"
+          "$ref": "#/410"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Kind of server that contains this firewall rule."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Location of the server that contains this firewall rule."
       },
       "properties": {
         "type": {
-          "$ref": "#/377"
+          "$ref": "#/412"
         },
         "flags": 0,
         "description": "The properties representing the resource."
@@ -3876,14 +4307,14 @@
     "properties": {
       "startIpAddress": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses."
       },
       "endIpAddress": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses."
@@ -3895,28 +4326,28 @@
     "name": "Microsoft.Sql/servers/firewallRules@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/376"
+      "$ref": "#/411"
     },
     "flags": 0
   },
   {
     "$type": "StringLiteralType",
-    "value": "current"
+    "value": "Default"
   },
   {
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/379"
+        "$ref": "#/414"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/databases/transparentDataEncryption"
+    "value": "Microsoft.Sql/servers/databases/geoBackupPolicies"
   },
   {
     "$type": "StringLiteralType",
@@ -3924,241 +4355,104 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+    "name": "Microsoft.Sql/servers/databases/geoBackupPolicies",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/380"
+          "$ref": "#/415"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/381"
+          "$ref": "#/416"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/382"
+          "$ref": "#/417"
         },
         "flags": 10,
         "description": "The resource api version"
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource location."
       },
       "properties": {
         "type": {
-          "$ref": "#/269"
+          "$ref": "#/419"
         },
-        "flags": 0,
-        "description": "Represents the properties of the resource."
-      }
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/databases/transparentDataEncryption@2014-04-01",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/383"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2014-04-01"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/385"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/386"
-        },
-        "flags": 10,
-        "description": "The resource api version"
+        "flags": 1,
+        "description": "The properties of the geo backup policy."
       },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "Kind of sql server.  This is metadata used for the Azure portal experience."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/388"
-        },
-        "flags": 0,
-        "description": "Represents the properties of the resource."
+        "description": "Kind of geo backup policy.  This is metadata used for the Azure portal experience."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
-        "flags": 1,
-        "description": "Resource location."
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/395"
-        },
-        "flags": 0,
-        "description": "Resource tags."
+        "flags": 2,
+        "description": "Backup policy location."
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "ServerProperties",
+    "name": "GeoBackupPolicyProperties",
     "properties": {
-      "fullyQualifiedDomainName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The fully qualified domain name of the server."
-      },
-      "version": {
-        "type": {
-          "$ref": "#/391"
-        },
-        "flags": 0,
-        "description": "The version of the server."
-      },
-      "administratorLogin": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "Administrator username for the server. Can only be specified when the server is being created (and is required for creation)."
-      },
-      "administratorLoginPassword": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 4,
-        "description": "The administrator login password (required for server creation)."
-      },
-      "externalAdministratorSid": {
-        "type": {
-          "$ref": "#/40"
-        },
-        "flags": 2,
-        "description": "The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators."
-      },
-      "externalAdministratorLogin": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators"
-      },
       "state": {
         "type": {
-          "$ref": "#/394"
+          "$ref": "#/422"
+        },
+        "flags": 1,
+        "description": "The state of the geo backup policy."
+      },
+      "storageType": {
+        "type": {
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "The state of the server."
+        "description": "The storage type of the geo backup policy."
       }
     }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2.0"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "12.0"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/389"
-      },
-      {
-        "$ref": "#/390"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Ready"
   },
   {
     "$type": "StringLiteralType",
     "value": "Disabled"
   },
   {
+    "$type": "StringLiteralType",
+    "value": "Enabled"
+  },
+  {
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/392"
+        "$ref": "#/420"
       },
       {
-        "$ref": "#/393"
+        "$ref": "#/421"
       }
     ]
   },
   {
-    "$type": "ObjectType",
-    "name": "TrackedResourceTags",
-    "properties": {},
-    "additionalProperties": {
-      "$ref": "#/2"
-    }
-  },
-  {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers@2014-04-01",
+    "name": "Microsoft.Sql/servers/databases/geoBackupPolicies@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/387"
+      "$ref": "#/418"
     },
     "flags": 0
   },
@@ -4180,35 +4474,35 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/397"
+          "$ref": "#/424"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/398"
+          "$ref": "#/425"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/399"
+          "$ref": "#/426"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/401"
+          "$ref": "#/428"
         },
         "flags": 0,
         "description": "The properties of the resource."
@@ -4221,28 +4515,28 @@
     "properties": {
       "administratorType": {
         "type": {
-          "$ref": "#/402"
+          "$ref": "#/429"
         },
         "flags": 1,
         "description": "The type of administrator."
       },
       "login": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "The server administrator login value."
       },
       "sid": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 1,
         "description": "The server administrator Sid (Secure ID)."
       },
       "tenantId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 1,
         "description": "The server Active Directory Administrator tenant id."
@@ -4258,13 +4552,13 @@
     "name": "Microsoft.Sql/servers/administrators@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/400"
+      "$ref": "#/427"
     },
     "flags": 0
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/advisors"
+    "value": "Microsoft.Sql/servers/communicationLinks"
   },
   {
     "$type": "StringLiteralType",
@@ -4272,459 +4566,165 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/advisors",
+    "name": "Microsoft.Sql/servers/communicationLinks",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/404"
+          "$ref": "#/431"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/405"
+          "$ref": "#/432"
         },
         "flags": 10,
         "description": "The resource api version"
       },
-      "kind": {
+      "properties": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/434"
         },
-        "flags": 2,
-        "description": "Resource kind."
+        "flags": 0,
+        "description": "The properties of resource."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Communication link location."
+      },
+      "kind": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Communication link kind.  This property is used for Azure Portal metadata."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "ServerCommunicationLinkProperties",
+    "properties": {
+      "state": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The state."
+      },
+      "partnerServer": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 1,
+        "description": "The name of the partner server."
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/communicationLinks@2014-04-01",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/433"
+    },
+    "flags": 0
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "current"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/436"
+      },
+      {
+        "$ref": "#/0"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/databases/transparentDataEncryption"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2014-04-01"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/437"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/438"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/439"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource location."
       },
       "properties": {
         "type": {
-          "$ref": "#/407"
+          "$ref": "#/276"
         },
         "flags": 0,
-        "description": "Resource properties."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "AdvisorProperties",
-    "properties": {
-      "advisorStatus": {
-        "type": {
-          "$ref": "#/412"
-        },
-        "flags": 2,
-        "description": "Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'."
-      },
-      "autoExecuteValue": {
-        "type": {
-          "$ref": "#/416"
-        },
-        "flags": 1,
-        "description": "Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'"
-      },
-      "recommendationsStatus": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available), LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc."
-      },
-      "lastChecked": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Gets the time when the current resource was analyzed for recommendations by this advisor."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "GA"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "PublicPreview"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "LimitedPublicPreview"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "PrivatePreview"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/408"
-      },
-      {
-        "$ref": "#/409"
-      },
-      {
-        "$ref": "#/410"
-      },
-      {
-        "$ref": "#/411"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Enabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Disabled"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Default"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/413"
-      },
-      {
-        "$ref": "#/414"
-      },
-      {
-        "$ref": "#/415"
-      }
-    ]
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/advisors@2014-04-01",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/406"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/databases/advisors"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2014-04-01"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/databases/advisors",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/418"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/419"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource kind."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource location."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/407"
-        },
-        "flags": 0,
-        "description": "Resource properties."
+        "description": "Represents the properties of the resource."
       }
     }
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/databases/advisors@2014-04-01",
+    "name": "Microsoft.Sql/servers/databases/transparentDataEncryption@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/420"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/disasterRecoveryConfiguration"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2014-04-01"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/disasterRecoveryConfiguration",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/422"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/423"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/425"
-        },
-        "flags": 2,
-        "description": "The properties representing the resource."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Location of the server that contains this disaster recovery configuration."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "DisasterRecoveryConfigurationProperties",
-    "properties": {
-      "status": {
-        "type": {
-          "$ref": "#/430"
-        },
-        "flags": 2,
-        "description": "The status of the disaster recovery configuration."
-      },
-      "autoFailover": {
-        "type": {
-          "$ref": "#/433"
-        },
-        "flags": 1,
-        "description": "Whether or not failover can be done automatically."
-      },
-      "failoverPolicy": {
-        "type": {
-          "$ref": "#/436"
-        },
-        "flags": 1,
-        "description": "How aggressive the automatic failover should be."
-      },
-      "partnerServerId": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 1,
-        "description": "Id of the partner server."
-      },
-      "logicalServerName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Logical name of the server."
-      },
-      "partnerLogicalServerName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Logical name of the partner server."
-      },
-      "role": {
-        "type": {
-          "$ref": "#/440"
-        },
-        "flags": 2,
-        "description": "The role of the current server in the disaster recovery configuration."
-      }
-    }
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Creating"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Ready"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "FailingOver"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Dropping"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/426"
-      },
-      {
-        "$ref": "#/427"
-      },
-      {
-        "$ref": "#/428"
-      },
-      {
-        "$ref": "#/429"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Off"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "On"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/431"
-      },
-      {
-        "$ref": "#/432"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Manual"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Automatic"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/434"
-      },
-      {
-        "$ref": "#/435"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "None"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Primary"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Secondary"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/437"
-      },
-      {
-        "$ref": "#/438"
-      },
-      {
-        "$ref": "#/439"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/disasterRecoveryConfiguration@2014-04-01",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/424"
+      "$ref": "#/440"
     },
     "flags": 0
   },
@@ -4739,7 +4739,7 @@
         "$ref": "#/442"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -4757,7 +4757,7 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
@@ -4785,14 +4785,14 @@
       },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource kind."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource location."
@@ -4812,77 +4812,77 @@
     "properties": {
       "auditingState": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The state of the policy."
       },
       "auditLogsTableName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The audit logs table name."
       },
       "eventTypesToAudit": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "Comma-separated list of event types to audit."
       },
       "fullAuditLogsTableName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The full audit logs table name."
       },
       "retentionDays": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The number of days to keep in the audit logs."
       },
       "storageAccountKey": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The key of the auditing storage account."
       },
       "storageAccountName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The table storage account name"
       },
       "storageAccountResourceGroupName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The table storage account resource group name"
       },
       "storageAccountSecondaryKey": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The secondary key of the auditing storage account."
       },
       "storageAccountSubscriptionId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 0,
         "description": "The table storage subscription Id."
       },
       "storageTableEndpoint": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The storage table endpoint."
@@ -4909,7 +4909,7 @@
         "$ref": "#/449"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -4927,7 +4927,7 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
@@ -4955,14 +4955,14 @@
       },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource kind."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource location."
@@ -4982,84 +4982,84 @@
     "properties": {
       "useServerDefault": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "Whether server default is enabled or disabled."
       },
       "auditingState": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The state of the policy."
       },
       "auditLogsTableName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The audit logs table name."
       },
       "eventTypesToAudit": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "Comma-separated list of event types to audit."
       },
       "fullAuditLogsTableName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The full audit logs table name."
       },
       "retentionDays": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The number of days to keep in the audit logs."
       },
       "storageAccountKey": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The key of the auditing storage account."
       },
       "storageAccountName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The table storage account name"
       },
       "storageAccountResourceGroupName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The table storage account resource group name"
       },
       "storageAccountSecondaryKey": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The secondary key of the auditing storage account."
       },
       "storageAccountSubscriptionId": {
         "type": {
-          "$ref": "#/40"
+          "$ref": "#/26"
         },
         "flags": 0,
         "description": "The table storage subscription Id."
       },
       "storageTableEndpoint": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The storage table endpoint."
@@ -5086,7 +5086,7 @@
         "$ref": "#/456"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -5104,7 +5104,7 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
@@ -5132,14 +5132,14 @@
       },
       "kind": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource kind."
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource location."
@@ -5159,49 +5159,49 @@
     "properties": {
       "securityEnabledAccess": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The state of security access."
       },
       "proxyDnsName": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The fully qualified host name of the auditing proxy."
       },
       "proxyPort": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The port number of the auditing proxy."
       },
       "visibility": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The visibility of the auditing proxy."
       },
       "useServerDefault": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "Whether server default is enabled or disabled."
       },
       "redirectionState": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The state of proxy redirection."
       },
       "state": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The connection policy state."
@@ -5219,7 +5219,7 @@
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/elasticPools/databases"
+    "value": "Microsoft.Sql/servers/recoverableDatabases"
   },
   {
     "$type": "StringLiteralType",
@@ -5227,18 +5227,18 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/elasticPools/databases",
+    "name": "Microsoft.Sql/servers/recoverableDatabases",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
@@ -5257,47 +5257,52 @@
         "flags": 10,
         "description": "The resource api version"
       },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Kind of database.  This is metadata used for the Azure portal experience."
-      },
       "properties": {
-        "type": {
-          "$ref": "#/38"
-        },
-        "flags": 2,
-        "description": "The properties representing the resource."
-      },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource location."
-      },
-      "tags": {
         "type": {
           "$ref": "#/466"
         },
         "flags": 2,
-        "description": "Resource tags."
+        "description": "The properties of a recoverable database"
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "TrackedResourceTags",
-    "properties": {},
-    "additionalProperties": {
-      "$ref": "#/2"
+    "name": "RecoverableDatabaseProperties",
+    "properties": {
+      "edition": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The edition of the database"
+      },
+      "serviceLevelObjective": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The service level objective name of the database"
+      },
+      "elasticPoolName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The elastic pool name of the database"
+      },
+      "lastAvailableBackupDate": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The last available backup date of the database (ISO8601 format)"
+      }
     }
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/elasticPools/databases@2014-04-01",
+    "name": "Microsoft.Sql/servers/recoverableDatabases@2014-04-01",
     "scopeType": 8,
     "body": {
       "$ref": "#/465"
@@ -5306,7 +5311,7 @@
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/recommendedElasticPools/databases"
+    "value": "Microsoft.Sql/servers/restorableDroppedDatabases"
   },
   {
     "$type": "StringLiteralType",
@@ -5314,18 +5319,18 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/recommendedElasticPools/databases",
+    "name": "Microsoft.Sql/servers/restorableDroppedDatabases",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
@@ -5344,47 +5349,87 @@
         "flags": 10,
         "description": "The resource api version"
       },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Kind of database.  This is metadata used for the Azure portal experience."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/38"
-        },
-        "flags": 2,
-        "description": "The properties representing the resource."
-      },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
-        "description": "Resource location."
+        "description": "The geo-location where the resource lives"
       },
-      "tags": {
+      "properties": {
         "type": {
           "$ref": "#/471"
         },
         "flags": 2,
-        "description": "Resource tags."
+        "description": "The properties of a restorable dropped database"
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "TrackedResourceTags",
-    "properties": {},
-    "additionalProperties": {
-      "$ref": "#/2"
+    "name": "RestorableDroppedDatabaseProperties",
+    "properties": {
+      "databaseName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The name of the database"
+      },
+      "edition": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The edition of the database"
+      },
+      "maxSizeBytes": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The max size in bytes of the database"
+      },
+      "serviceLevelObjective": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The service level objective name of the database"
+      },
+      "elasticPoolName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The elastic pool name of the database"
+      },
+      "creationDate": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The creation date of the database (ISO8601 format)"
+      },
+      "deletionDate": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The deletion date of the database (ISO8601 format)"
+      },
+      "earliestRestoreDate": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The earliest restore date of the database (ISO8601 format)"
+      }
     }
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/recommendedElasticPools/databases@2014-04-01",
+    "name": "Microsoft.Sql/servers/restorableDroppedDatabases@2014-04-01",
     "scopeType": 8,
     "body": {
       "$ref": "#/470"
@@ -5393,7 +5438,7 @@
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/serviceObjectives"
+    "value": "Microsoft.Sql/servers/elasticPools/databases"
   },
   {
     "$type": "StringLiteralType",
@@ -5401,18 +5446,18 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/serviceObjectives",
+    "name": "Microsoft.Sql/servers/elasticPools/databases",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
@@ -5431,59 +5476,47 @@
         "flags": 10,
         "description": "The resource api version"
       },
+      "kind": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Kind of database.  This is metadata used for the Azure portal experience."
+      },
       "properties": {
+        "type": {
+          "$ref": "#/46"
+        },
+        "flags": 2,
+        "description": "The properties representing the resource."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Resource location."
+      },
+      "tags": {
         "type": {
           "$ref": "#/476"
         },
         "flags": 2,
-        "description": "Represents the properties of the resource."
+        "description": "Resource tags."
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "ServiceObjectiveProperties",
-    "properties": {
-      "serviceObjectiveName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The name for the service objective."
-      },
-      "isDefault": {
-        "type": {
-          "$ref": "#/308"
-        },
-        "flags": 2,
-        "description": "Gets whether the service level objective is the default service objective."
-      },
-      "isSystem": {
-        "type": {
-          "$ref": "#/308"
-        },
-        "flags": 2,
-        "description": "Gets whether the service level objective is a system service objective."
-      },
-      "description": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The description for the service level objective."
-      },
-      "enabled": {
-        "type": {
-          "$ref": "#/308"
-        },
-        "flags": 2,
-        "description": "Gets whether the service level objective is enabled."
-      }
+    "name": "TrackedResourceTags",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/0"
     }
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/serviceObjectives@2014-04-01",
+    "name": "Microsoft.Sql/servers/elasticPools/databases@2014-04-01",
     "scopeType": 8,
     "body": {
       "$ref": "#/475"
@@ -5492,7 +5525,7 @@
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/recoverableDatabases"
+    "value": "Microsoft.Sql/servers/recommendedElasticPools/databases"
   },
   {
     "$type": "StringLiteralType",
@@ -5500,18 +5533,18 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/recoverableDatabases",
+    "name": "Microsoft.Sql/servers/recommendedElasticPools/databases",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
@@ -5530,52 +5563,47 @@
         "flags": 10,
         "description": "The resource api version"
       },
+      "kind": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Kind of database.  This is metadata used for the Azure portal experience."
+      },
       "properties": {
+        "type": {
+          "$ref": "#/46"
+        },
+        "flags": 2,
+        "description": "The properties representing the resource."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "Resource location."
+      },
+      "tags": {
         "type": {
           "$ref": "#/481"
         },
         "flags": 2,
-        "description": "The properties of a recoverable database"
+        "description": "Resource tags."
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "RecoverableDatabaseProperties",
-    "properties": {
-      "edition": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The edition of the database"
-      },
-      "serviceLevelObjective": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The service level objective name of the database"
-      },
-      "elasticPoolName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The elastic pool name of the database"
-      },
-      "lastAvailableBackupDate": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The last available backup date of the database (ISO8601 format)"
-      }
+    "name": "TrackedResourceTags",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/0"
     }
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/recoverableDatabases@2014-04-01",
+    "name": "Microsoft.Sql/servers/recommendedElasticPools/databases@2014-04-01",
     "scopeType": 8,
     "body": {
       "$ref": "#/480"
@@ -5584,7 +5612,7 @@
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/restorableDroppedDatabases"
+    "value": "Microsoft.Sql/servers/recommendedElasticPools"
   },
   {
     "$type": "StringLiteralType",
@@ -5592,18 +5620,18 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/restorableDroppedDatabases",
+    "name": "Microsoft.Sql/servers/recommendedElasticPools",
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
@@ -5622,136 +5650,9 @@
         "flags": 10,
         "description": "The resource api version"
       },
-      "location": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The geo-location where the resource lives"
-      },
       "properties": {
         "type": {
           "$ref": "#/486"
-        },
-        "flags": 2,
-        "description": "The properties of a restorable dropped database"
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "RestorableDroppedDatabaseProperties",
-    "properties": {
-      "databaseName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The name of the database"
-      },
-      "edition": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The edition of the database"
-      },
-      "maxSizeBytes": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The max size in bytes of the database"
-      },
-      "serviceLevelObjective": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The service level objective name of the database"
-      },
-      "elasticPoolName": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The elastic pool name of the database"
-      },
-      "creationDate": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The creation date of the database (ISO8601 format)"
-      },
-      "deletionDate": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The deletion date of the database (ISO8601 format)"
-      },
-      "earliestRestoreDate": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "The earliest restore date of the database (ISO8601 format)"
-      }
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.Sql/servers/restorableDroppedDatabases@2014-04-01",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/485"
-    },
-    "flags": 1
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.Sql/servers/recommendedElasticPools"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2014-04-01"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.Sql/servers/recommendedElasticPools",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/488"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/489"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/491"
         },
         "flags": 2,
         "description": "The properties representing the resource."
@@ -5764,77 +5665,77 @@
     "properties": {
       "databaseEdition": {
         "type": {
-          "$ref": "#/497"
+          "$ref": "#/492"
         },
         "flags": 2,
         "description": "The edition of the recommended elastic pool. The ElasticPoolEdition enumeration contains all the valid editions."
       },
       "dtu": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "The DTU for the recommended elastic pool."
       },
       "databaseDtuMin": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "The minimum DTU for the database."
       },
       "databaseDtuMax": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "The maximum DTU for the database."
       },
       "storageMB": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "Gets storage size in megabytes."
       },
       "observationPeriodStart": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The observation period start (ISO8601 format)."
       },
       "observationPeriodEnd": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The observation period start (ISO8601 format)."
       },
       "maxObservedDtu": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets maximum observed DTU."
       },
       "maxObservedStorageMB": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "Gets maximum observed storage in megabytes."
       },
       "databases": {
         "type": {
-          "$ref": "#/500"
+          "$ref": "#/495"
         },
         "flags": 2,
         "description": "The list of databases in this pool. Expanded property"
       },
       "metrics": {
         "type": {
-          "$ref": "#/502"
+          "$ref": "#/497"
         },
         "flags": 2,
         "description": "The list of databases housed in the server. Expanded property"
@@ -5865,74 +5766,60 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/492"
+        "$ref": "#/487"
       },
       {
-        "$ref": "#/493"
+        "$ref": "#/488"
       },
       {
-        "$ref": "#/494"
+        "$ref": "#/489"
       },
       {
-        "$ref": "#/495"
+        "$ref": "#/490"
       },
       {
-        "$ref": "#/496"
+        "$ref": "#/491"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
   {
     "$type": "ObjectType",
-    "name": "Database",
+    "name": "TrackedResource",
     "properties": {
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Kind of database.  This is metadata used for the Azure portal experience."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/38"
-        },
-        "flags": 0,
-        "description": "The properties representing the resource."
-      },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 1,
         "description": "Resource location."
       },
       "tags": {
         "type": {
-          "$ref": "#/499"
+          "$ref": "#/494"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource ID."
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource name."
       },
       "type": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Resource type."
@@ -5944,13 +5831,13 @@
     "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/2"
+      "$ref": "#/0"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/498"
+      "$ref": "#/493"
     }
   },
   {
@@ -5959,21 +5846,21 @@
     "properties": {
       "dateTime": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 0,
         "description": "The time of metric (ISO8601 format)."
       },
       "dtu": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "Gets or sets the DTUs (Database Transaction Units). See https://azure.microsoft.com/documentation/articles/sql-database-what-is-a-dtu/"
       },
       "sizeGB": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "Gets or sets size in gigabytes."
@@ -5983,7 +5870,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/501"
+      "$ref": "#/496"
     }
   },
   {
@@ -5991,7 +5878,7 @@
     "name": "Microsoft.Sql/servers/recommendedElasticPools@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/490"
+      "$ref": "#/485"
     },
     "flags": 1
   },
@@ -6009,42 +5896,42 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/504"
+          "$ref": "#/499"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/505"
+          "$ref": "#/500"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "location": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Location of the server that contains this firewall rule."
       },
       "properties": {
         "type": {
-          "$ref": "#/507"
+          "$ref": "#/502"
         },
         "flags": 2,
         "description": "The properties representing the resource."
@@ -6057,70 +5944,70 @@
     "properties": {
       "isTerminationAllowed": {
         "type": {
-          "$ref": "#/308"
+          "$ref": "#/315"
         },
         "flags": 2,
         "description": "Legacy value indicating whether termination is allowed.  Currently always returns true."
       },
       "replicationMode": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "Replication mode of this replication link."
       },
       "partnerServer": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The name of the server hosting the partner database."
       },
       "partnerDatabase": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The name of the partner database."
       },
       "partnerLocation": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The Azure Region of the partner database."
       },
       "role": {
         "type": {
-          "$ref": "#/513"
+          "$ref": "#/508"
         },
         "flags": 2,
         "description": "The role of the database in the replication link."
       },
       "partnerRole": {
         "type": {
-          "$ref": "#/519"
+          "$ref": "#/514"
         },
         "flags": 2,
         "description": "The role of the partner database in the replication link."
       },
       "startTime": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 2,
         "description": "The start time for the replication link."
       },
       "percentComplete": {
         "type": {
-          "$ref": "#/39"
+          "$ref": "#/47"
         },
         "flags": 2,
         "description": "The percentage of seeding complete for the replication link."
       },
       "replicationState": {
         "type": {
-          "$ref": "#/524"
+          "$ref": "#/519"
         },
         "flags": 2,
         "description": "The replication state for the replication link."
@@ -6151,19 +6038,19 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/508"
+        "$ref": "#/503"
       },
       {
-        "$ref": "#/509"
+        "$ref": "#/504"
       },
       {
-        "$ref": "#/510"
+        "$ref": "#/505"
       },
       {
-        "$ref": "#/511"
+        "$ref": "#/506"
       },
       {
-        "$ref": "#/512"
+        "$ref": "#/507"
       }
     ]
   },
@@ -6191,19 +6078,19 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/514"
+        "$ref": "#/509"
       },
       {
-        "$ref": "#/515"
+        "$ref": "#/510"
       },
       {
-        "$ref": "#/516"
+        "$ref": "#/511"
       },
       {
-        "$ref": "#/517"
+        "$ref": "#/512"
       },
       {
-        "$ref": "#/518"
+        "$ref": "#/513"
       }
     ]
   },
@@ -6227,19 +6114,19 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/520"
+        "$ref": "#/515"
       },
       {
-        "$ref": "#/521"
+        "$ref": "#/516"
       },
       {
-        "$ref": "#/522"
+        "$ref": "#/517"
       },
       {
-        "$ref": "#/523"
+        "$ref": "#/518"
       },
       {
-        "$ref": "#/2"
+        "$ref": "#/0"
       }
     ]
   },
@@ -6248,7 +6135,106 @@
     "name": "Microsoft.Sql/servers/databases/replicationLinks@2014-04-01",
     "scopeType": 8,
     "body": {
-      "$ref": "#/506"
+      "$ref": "#/501"
+    },
+    "flags": 1
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.Sql/servers/serviceObjectives"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2014-04-01"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.Sql/servers/serviceObjectives",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/521"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/522"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/524"
+        },
+        "flags": 2,
+        "description": "Represents the properties of the resource."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "ServiceObjectiveProperties",
+    "properties": {
+      "serviceObjectiveName": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The name for the service objective."
+      },
+      "isDefault": {
+        "type": {
+          "$ref": "#/315"
+        },
+        "flags": 2,
+        "description": "Gets whether the service level objective is the default service objective."
+      },
+      "isSystem": {
+        "type": {
+          "$ref": "#/315"
+        },
+        "flags": 2,
+        "description": "Gets whether the service level objective is a system service objective."
+      },
+      "description": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 2,
+        "description": "The description for the service level objective."
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/315"
+        },
+        "flags": 2,
+        "description": "Gets whether the service level objective is enabled."
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.Sql/servers/serviceObjectives@2014-04-01",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/523"
     },
     "flags": 1
   },
@@ -6266,14 +6252,14 @@
     "properties": {
       "id": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 10,
         "description": "The resource id"
       },
       "name": {
         "type": {
-          "$ref": "#/2"
+          "$ref": "#/0"
         },
         "flags": 9,
         "description": "The resource name"
@@ -6294,7 +6280,7 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/198"
+          "$ref": "#/205"
         },
         "flags": 2,
         "description": "The properties representing the resource."

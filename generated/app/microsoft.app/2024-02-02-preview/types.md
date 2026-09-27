@@ -180,13 +180,13 @@
 * **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.App/containerApps/revisions/replicas' (ReadOnly, DeployTimeConstant): The resource type
 
-## Resource Microsoft.App/containerApps/sourcecontrols@2024-02-02-preview (ReadOnly)
+## Resource Microsoft.App/containerApps/sourcecontrols@2024-02-02-preview
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
 * **apiVersion**: '2024-02-02-preview' (ReadOnly, DeployTimeConstant): The resource api version
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string (Required, DeployTimeConstant): The resource name
-* **properties**: [SourceControlProperties](#sourcecontrolproperties) (ReadOnly): SourceControl resource specific properties
+* **properties**: [SourceControlProperties](#sourcecontrolproperties): SourceControl resource specific properties
 * **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.App/containerApps/sourcecontrols' (ReadOnly, DeployTimeConstant): The resource type
 
@@ -505,7 +505,7 @@ a replacement for the Client Secret Certificate Thumbprint. It is also optional.
 a replacement for the Client Secret. It is also optional.
 * **clientSecretSettingName**: string: The app setting name that contains the client secret of the relying party application.
 * **openIdIssuer**: string: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
 This URI is a case-sensitive identifier for the token issuer.
 More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 
@@ -1408,9 +1408,7 @@ Note that URLs within the current domain are always implicitly allowed.
 ## ManagedEnvironmentProperties
 ### Properties
 * **appInsightsConfiguration**: [AppInsightsConfiguration](#appinsightsconfiguration): Environment level Application Insights configuration
-* **appLogsConfiguration**: [AppLogsConfiguration](#applogsconfiguration): Cluster configuration which enables the log daemon to export
-app logs to a destination. Currently only "log-analytics" is
-supported
+* **appLogsConfiguration**: [AppLogsConfiguration](#applogsconfiguration): Cluster configuration which enables the log daemon to export app logs to configured destination.
 * **customDomainConfiguration**: [CustomDomainConfiguration](#customdomainconfiguration): Custom domain configuration for the environment
 * **daprAIConnectionString**: string {sensitive}: Application Insights connection string used by Dapr to export Service to Service communication telemetry
 * **daprAIInstrumentationKey**: string {sensitive}: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry

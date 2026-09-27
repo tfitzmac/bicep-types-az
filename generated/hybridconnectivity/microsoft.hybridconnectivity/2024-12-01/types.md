@@ -87,9 +87,9 @@
 
 ## AwsCloudProfile
 ### Properties
-* **accountId**: string (Required, WriteOnly): Account id for the AWS account.
+* **accountId**: string (Required): Account id for the AWS account.
 * **excludedAccounts**: string[]: List of AWS accounts which need to be excluded.
-* **isOrganizationalAccount**: bool (WriteOnly): Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
+* **isOrganizationalAccount**: bool: Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
 
 ## EndpointAccessResource
 ### Properties
@@ -126,7 +126,7 @@
 
 ## ListIngressGatewayCredentialsRequest
 ### Properties
-* **serviceName**: 'SSH' | 'WAC' | string: The name of the service.
+* **serviceName**: 'SSH' | 'WAC' | string: The name of the service. If not provided, the request will by pass the generation of service configuration token.
 
 ## ManagedProxyRequest
 ### Properties
@@ -143,7 +143,7 @@
 ### Properties
 * **awsCloudProfile**: [AwsCloudProfile](#awscloudprofile) (Required): Cloud profile for AWS.
 * **connectorPrimaryIdentifier**: string (ReadOnly): Connector primary identifier.
-* **hostType**: 'AWS' | string (Required, WriteOnly): Host cloud the public cloud connector.
+* **hostType**: 'AWS' | string (Required): Host cloud the public cloud connector.
 * **provisioningState**: 'Canceled' | 'Failed' | 'Succeeded' | string (ReadOnly): The resource provisioning state.
 
 ## RelayNamespaceAccessProperties
@@ -153,7 +153,7 @@
 * **hybridConnectionName**: string (Required): Azure Relay hybrid connection name for the resource.
 * **namespaceName**: string {minLength: 1, maxLength: 200} (Required): The namespace name.
 * **namespaceNameSuffix**: string {minLength: 1, maxLength: 100} (Required): The suffix domain name of relay namespace.
-* **serviceConfigurationToken**: string {sensitive}: The token to access the enabled service.
+* **serviceConfigurationToken**: string: The token to access the enabled service.
 
 ## ServiceConfigurationProperties
 ### Properties
