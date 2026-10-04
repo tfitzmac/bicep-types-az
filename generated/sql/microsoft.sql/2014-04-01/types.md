@@ -293,16 +293,6 @@
 * **lastChecked**: string (ReadOnly): Gets the time when the current resource was analyzed for recommendations by this advisor.
 * **recommendationsStatus**: string (ReadOnly): Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available), LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
 
-## Database
-### Properties
-* **id**: string (ReadOnly): Resource ID.
-* **kind**: string (ReadOnly): Kind of database.  This is metadata used for the Azure portal experience.
-* **location**: string (Required): Resource location.
-* **name**: string (ReadOnly): Resource name.
-* **properties**: [DatabaseProperties](#databaseproperties): The properties representing the resource.
-* **tags**: [TrackedResourceTags](#trackedresourcetags): Resource tags.
-* **type**: string (ReadOnly): Resource type.
-
 ## DatabaseConnectionPolicyProperties
 ### Properties
 * **proxyDnsName**: string: The fully qualified host name of the auditing proxy.
@@ -487,7 +477,7 @@ Get-AzSqlServerServiceObjective -Location <location>
 * **databaseDtuMax**: int: The maximum DTU for the database.
 * **databaseDtuMin**: int: The minimum DTU for the database.
 * **databaseEdition**: 'Basic' | 'BusinessCritical' | 'GeneralPurpose' | 'Premium' | 'Standard' | string (ReadOnly): The edition of the recommended elastic pool. The ElasticPoolEdition enumeration contains all the valid editions.
-* **databases**: [Database](#database)[] (ReadOnly): The list of databases in this pool. Expanded property
+* **databases**: [TrackedResource](#trackedresource)[] (ReadOnly): The list of databases in this pool. Expanded property
 * **dtu**: int: The DTU for the recommended elastic pool.
 * **maxObservedDtu**: int (ReadOnly): Gets maximum observed DTU.
 * **maxObservedStorageMB**: int (ReadOnly): Gets maximum observed storage in megabytes.
@@ -631,6 +621,14 @@ Get-AzSqlServerServiceObjective -Location <location>
 * **inRangeTimeRatio**: int (ReadOnly): Gets or sets inRangeTimeRatio for SLO usage metric.
 * **serviceLevelObjective**: 'Basic' | 'DS100' | 'DS1000' | 'DS1200' | 'DS1500' | 'DS200' | 'DS2000' | 'DS300' | 'DS400' | 'DS500' | 'DS600' | 'DW100' | 'DW1000' | 'DW10000c' | 'DW1000c' | 'DW1200' | 'DW1500' | 'DW15000c' | 'DW1500c' | 'DW200' | 'DW2000' | 'DW2000c' | 'DW2500c' | 'DW300' | 'DW3000' | 'DW30000c' | 'DW3000c' | 'DW400' | 'DW500' | 'DW5000c' | 'DW600' | 'DW6000' | 'DW6000c' | 'DW7500c' | 'ElasticPool' | 'Free' | 'P1' | 'P11' | 'P15' | 'P2' | 'P3' | 'P4' | 'P6' | 'PRS1' | 'PRS2' | 'PRS4' | 'PRS6' | 'S0' | 'S1' | 'S12' | 'S2' | 'S3' | 'S4' | 'S6' | 'S7' | 'S9' | 'System' | 'System0' | 'System1' | 'System2' | 'System2L' | 'System3' | 'System3L' | 'System4' | 'System4L' | string (ReadOnly): The serviceLevelObjective for SLO usage metric.
 * **serviceLevelObjectiveId**: string {minLength: 36, maxLength: 36, pattern: "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"} (ReadOnly): The serviceLevelObjectiveId for SLO usage metric.
+
+## TrackedResource
+### Properties
+* **id**: string (ReadOnly): Resource ID.
+* **location**: string (Required): Resource location.
+* **name**: string (ReadOnly): Resource name.
+* **tags**: [TrackedResourceTags](#trackedresourcetags): Resource tags.
+* **type**: string (ReadOnly): Resource type.
 
 ## TrackedResourceTags
 ### Properties

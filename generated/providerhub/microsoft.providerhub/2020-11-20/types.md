@@ -317,10 +317,9 @@
 * **incidentRoutingService**: string
 * **incidentRoutingTeam**: string
 * **manifestOwners**: string[]
-* **resourceAccessPolicy**: 'AcisActionAllowed' | 'AcisReadAllowed' | 'NotSpecified'
+* **resourceAccessPolicy**: 'NotSpecified' | string
 * **resourceAccessRoles**: any[]
 * **schemaOwners**: string[]
-* **serviceTreeInfos**: [ServiceTreeInfo](#servicetreeinfo)[]
 
 ## ResourceProviderManifestPropertiesProviderAuthentication
 ### Properties
@@ -392,7 +391,6 @@
 * **resourceDeletionPolicy**: 'CascadeDeleteAll' | 'CascadeDeleteProxyOnlyChildren' | 'NotSpecified' | string
 * **resourceMovePolicy**: [ResourceTypeRegistrationPropertiesResourceMovePolicy](#resourcetyperegistrationpropertiesresourcemovepolicy)
 * **routingType**: 'CascadeExtension' | 'Default' | 'Extension' | 'Failover' | 'Fanout' | 'HostBased' | 'LocationBased' | 'ProxyOnly' | 'Tenant' | string
-* **serviceTreeInfos**: [ServiceTreeInfo](#servicetreeinfo)[]
 * **subscriptionLifecycleNotificationSpecifications**: [ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications](#resourcetyperegistrationpropertiessubscriptionlifecyclenotificationspecifications)
 * **subscriptionStateRules**: [SubscriptionStateRule](#subscriptionstaterule)[]
 * **swaggerSpecifications**: [SwaggerSpecification](#swaggerspecification)[]
@@ -441,11 +439,6 @@
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: [ExtendedErrorInfo](#extendederrorinfo)
-
-## ServiceTreeInfo
-### Properties
-* **componentId**: string
-* **serviceId**: string
 
 ## SkuCapability
 ### Properties
