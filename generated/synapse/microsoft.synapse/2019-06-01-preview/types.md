@@ -247,15 +247,6 @@
 * **properties**: [GeoBackupPolicyProperties](#geobackuppolicyproperties) (Required): The properties of the geo backup policy.
 * **type**: 'Microsoft.Synapse/workspaces/sqlPools/geoBackupPolicies' (ReadOnly, DeployTimeConstant): The resource type
 
-## Resource Microsoft.Synapse/workspaces/sqlPools/metadataSync@2019-06-01-preview
-* **Valid Scope(s)**: ResourceGroup
-### Properties
-* **apiVersion**: '2019-06-01-preview' (ReadOnly, DeployTimeConstant): The resource api version
-* **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: 'config' (Required, DeployTimeConstant): The resource name
-* **properties**: [MetadataSyncConfigProperties](#metadatasyncconfigproperties): Metadata Sync Config properties
-* **type**: 'Microsoft.Synapse/workspaces/sqlPools/metadataSync' (ReadOnly, DeployTimeConstant): The resource type
-
 ## Resource Microsoft.Synapse/workspaces/sqlPools/replicationLinks@2019-06-01-preview (ReadOnly)
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
@@ -851,11 +842,6 @@ For more information, see [Auditing to storage using Managed Identity authentica
 * **allowedAadTenantIdsForLinking**: string[]: Allowed Aad Tenant Ids For Linking
 * **linkedAccessCheckOnTargetResource**: bool: Linked Access Check On Target Resource
 * **preventDataExfiltration**: bool: Prevent Data Exfiltration
-
-## MetadataSyncConfigProperties
-### Properties
-* **enabled**: bool: Indicates whether the metadata sync is enabled or disabled
-* **syncIntervalInMinutes**: int: The Sync Interval in minutes.
 
 ## PrivateEndpoint
 ### Properties

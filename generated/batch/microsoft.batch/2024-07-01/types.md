@@ -7,8 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **identity**: [BatchAccountIdentity](#batchaccountidentity): The identity of the Batch account.
 * **location**: string (Required): The region in which to create the account.
-* **name**: string {minLength: 3, maxLength: 24, pattern: "^[a-z0-9]+$"} (Required, DeployTimeConstant): The resource name
+* **name**: string {minLength: 3, maxLength: 24, pattern: "^[a-zA-Z0-9]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [BatchAccountCreatePropertiesOrBatchAccountProperties](#batchaccountcreatepropertiesorbatchaccountproperties): The properties of the Batch account.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **tags**: [BatchAccountCreateParametersTags](#batchaccountcreateparameterstags): The user-specified tags associated with the account.
 * **type**: 'Microsoft.Batch/batchAccounts' (ReadOnly, DeployTimeConstant): The resource type
 
@@ -20,7 +21,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string {minLength: 1, maxLength: 64, pattern: "^[a-zA-Z0-9_-]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [ApplicationProperties](#applicationproperties): The properties associated with the Application.
-* **tags**: [AzureProxyResourceTags](#azureproxyresourcetags): The tags of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [ApplicationTags](#applicationtags): The tags of the resource.
 * **type**: 'Microsoft.Batch/batchAccounts/applications' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Batch/batchAccounts/applications/versions@2024-07-01
@@ -31,7 +33,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string {minLength: 1, maxLength: 64, pattern: "^[a-zA-Z0-9_-][a-zA-Z0-9_.-]*$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [ApplicationPackageProperties](#applicationpackageproperties): The properties associated with the Application Package.
-* **tags**: [AzureProxyResourceTags](#azureproxyresourcetags): The tags of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [ApplicationPackageTags](#applicationpackagetags): The tags of the resource.
 * **type**: 'Microsoft.Batch/batchAccounts/applications/versions' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Batch/batchAccounts/certificates@2024-07-01
@@ -42,6 +45,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string {minLength: 5, maxLength: 45, pattern: "^[\w]+-[\w]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [CertificateCreateOrUpdatePropertiesOrCertificateProperties](#certificatecreateorupdatepropertiesorcertificateproperties): The properties associated with the certificate.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **tags**: [AzureProxyResourceTags](#azureproxyresourcetags): The tags of the resource.
 * **type**: 'Microsoft.Batch/batchAccounts/certificates' (ReadOnly, DeployTimeConstant): The resource type
 
@@ -53,7 +57,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [DetectorResponseProperties](#detectorresponseproperties) (ReadOnly): The properties associated with the detector.
-* **tags**: [AzureProxyResourceTags](#azureproxyresourcetags) (ReadOnly): The tags of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [DetectorResponseTags](#detectorresponsetags) (ReadOnly): The tags of the resource.
 * **type**: 'Microsoft.Batch/batchAccounts/detectors' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Batch/batchAccounts/networkSecurityPerimeterConfigurations@2024-07-01 (ReadOnly)
@@ -61,7 +66,7 @@
 ### Properties
 * **apiVersion**: '2024-07-01' (ReadOnly, DeployTimeConstant): The resource api version
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: string {pattern: "^.*$"} (Required, DeployTimeConstant): The resource name
+* **name**: string {minLength: 1, maxLength: 512} (Required, DeployTimeConstant): The resource name
 * **properties**: [NetworkSecurityPerimeterConfigurationProperties](#networksecurityperimeterconfigurationproperties) (ReadOnly): Network security configuration properties.
 * **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Batch/batchAccounts/networkSecurityPerimeterConfigurations' (ReadOnly, DeployTimeConstant): The resource type
@@ -75,7 +80,8 @@
 * **identity**: [BatchPoolIdentity](#batchpoolidentity): The type of identity used for the Batch Pool.
 * **name**: string {minLength: 1, maxLength: 64, pattern: "^[a-zA-Z0-9_-]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [PoolProperties](#poolproperties): The properties associated with the pool.
-* **tags**: [AzureProxyResourceTags](#azureproxyresourcetags): The tags of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [PoolTags](#pooltags): The tags of the resource.
 * **type**: 'Microsoft.Batch/batchAccounts/pools' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Batch/batchAccounts/privateEndpointConnections@2024-07-01 (ReadOnly)
@@ -86,7 +92,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string {minLength: 1, maxLength: 101, pattern: "^[a-zA-Z0-9_-]+\.?[a-fA-F0-9-]*$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties) (ReadOnly): The properties associated with the private endpoint connection.
-* **tags**: [AzureProxyResourceTags](#azureproxyresourcetags) (ReadOnly): The tags of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [PrivateEndpointConnectionTags](#privateendpointconnectiontags) (ReadOnly): The tags of the resource.
 * **type**: 'Microsoft.Batch/batchAccounts/privateEndpointConnections' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Batch/batchAccounts/privateLinkResources@2024-07-01 (ReadOnly)
@@ -97,7 +104,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string {minLength: 1, maxLength: 101, pattern: "^[a-zA-Z0-9_-]+\.?[a-fA-F0-9-]*$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [PrivateLinkResourceProperties](#privatelinkresourceproperties) (ReadOnly): The properties associated with the private link resource.
-* **tags**: [AzureProxyResourceTags](#azureproxyresourcetags) (ReadOnly): The tags of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [PrivateLinkResourceTags](#privatelinkresourcetags) (ReadOnly): The tags of the resource.
 * **type**: 'Microsoft.Batch/batchAccounts/privateLinkResources' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Function listKeys (Microsoft.Batch/batchAccounts@2024-07-01)
@@ -137,16 +145,26 @@
 * **id**: string (Required): The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
 * **version**: string: If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.
 
+## ApplicationPackageTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
 ## ApplicationProperties
 ### Properties
 * **allowUpdates**: bool: A value indicating whether packages within the application may be overwritten using the same version string.
 * **defaultVersion**: string: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
 * **displayName**: string: The display name for the application.
 
+## ApplicationTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
 ## AutomaticOSUpgradePolicy
 ### Properties
 * **disableAutomaticRollback**: bool: Whether OS image rollback feature should be disabled.
-* **enableAutomaticOSUpgrade**: bool: Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/en-us/rest/api/batchmanagement/pool/create?tabs=HTTP#windowsconfiguration) cannot be set to true.
+* **enableAutomaticOSUpgrade**: bool: Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/rest/api/batchmanagement/pool/create?tabs=HTTP#windowsconfiguration) cannot be set to true.
 * **osRollingUpgradeDeferral**: bool: Defer OS upgrades on the TVMs if they are running tasks.
 * **useRollingUpgradePolicy**: bool: Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.
 
@@ -202,41 +220,6 @@
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## AzureProxyResourceTags
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
-## AzureProxyResourceTags
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
-## AzureProxyResourceTags
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
-## AzureProxyResourceTags
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
-## AzureProxyResourceTags
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
-## AzureProxyResourceTags
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
-## AzureProxyResourceTags
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
 ## BatchAccountCreateParametersTags
 ### Properties
 ### Additional Properties
@@ -260,7 +243,7 @@
 * **poolQuota**: int (ReadOnly): The pool quota for the Batch account.
 * **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[] (ReadOnly): List of private endpoint connections associated with the Batch account
 * **provisioningState**: 'Cancelled' | 'Creating' | 'Deleting' | 'Failed' | 'Invalid' | 'Succeeded' (ReadOnly): The provisioned state of the resource
-* **publicNetworkAccess**: 'Disabled' | 'Enabled' | 'SecuredByPerimeter': If not specified, the default value is 'enabled'.
+* **publicNetworkAccess**: 'Disabled' | 'Enabled' | 'SecuredByPerimeter': The network access type for operating on the resources in the Batch account.
 
 ## BatchAccountIdentity
 ### Properties
@@ -298,7 +281,7 @@
 * **password**: string {sensitive} (WriteOnly): This must not be specified if the certificate format is Cer.
 * **previousProvisioningState**: 'Deleting' | 'Failed' | 'Succeeded' (ReadOnly): The previous provisioned state of the resource
 * **previousProvisioningStateTransitionTime**: string (ReadOnly): The time at which the certificate entered its previous state.
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' (ReadOnly)
+* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' (ReadOnly): The provisioned state of the resource
 * **provisioningStateTransitionTime**: string (ReadOnly): The time at which the certificate entered its current state.
 * **publicData**: string (ReadOnly): The public key of the certificate.
 * **thumbprint**: string: This must match the thumbprint from the name.
@@ -345,17 +328,17 @@
 ### Properties
 * **caching**: 'None' | 'ReadOnly' | 'ReadWrite': Values are:
 
- none - The caching mode for the disk is not enabled.
- readOnly - The caching mode for the disk is read only.
- readWrite - The caching mode for the disk is read and write.
+none - The caching mode for the disk is not enabled.
+readOnly - The caching mode for the disk is read only.
+readWrite - The caching mode for the disk is read and write.
 
- The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 * **diskSizeGB**: int (Required): The initial disk size in GB when creating new data disk.
 * **lun**: int (Required): The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 * **storageAccountType**: 'Premium_LRS' | 'StandardSSD_LRS' | 'Standard_LRS': If omitted, the default is "Standard_LRS". Values are:
 
- Standard_LRS - The data disk should use standard locally redundant storage.
- Premium_LRS - The data disk should use premium locally redundant storage.
+Standard_LRS - The data disk should use standard locally redundant storage.
+Premium_LRS - The data disk should use premium locally redundant storage.
 
 ## DeleteCertificateError
 ### Properties
@@ -372,9 +355,14 @@
 ### Properties
 * **value**: string: A base64 encoded string that represents the content of a detector.
 
+## DetectorResponseTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
 ## DiffDiskSettings
 ### Properties
-* **placement**: 'CacheDisk': This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+* **placement**: 'CacheDisk': This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
 
 ## DiskEncryptionConfiguration
 ### Properties
@@ -405,7 +393,7 @@
 ## ImageReference
 ### Properties
 * **communityGalleryImageId**: string: This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
-* **id**: string: This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
+* **id**: string: This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
 * **offer**: string: For example, UbuntuServer or WindowsServer.
 * **publisher**: string: For example, Canonical or MicrosoftWindowsServer.
 * **sharedGalleryImageId**: string: This property is mutually exclusive with other properties and can be fetched from shared gallery image GET call.
@@ -414,7 +402,7 @@
 
 ## InboundNatPool
 ### Properties
-* **backendPort**: int (Required): This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
+* **backendPort**: int (Required): This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
 * **frontendPortRangeEnd**: int (Required): Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
 * **frontendPortRangeStart**: int (Required): Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
 * **name**: string (Required): The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.
@@ -430,9 +418,9 @@
 ### Properties
 * **keyIdentifier**: string: Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
 
- The Batch Account has a System Assigned identity
- The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
- The KeyVault has soft-delete and purge protection enabled
+The Batch Account has a System Assigned identity
+The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+The KeyVault has soft-delete and purge protection enabled
 
 ## KeyVaultReference
 ### Properties
@@ -468,7 +456,7 @@
 * **enableAcceleratedNetworking**: bool: Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
 * **endpointConfiguration**: [PoolEndpointConfiguration](#poolendpointconfiguration): The endpoint configuration for a pool.
 * **publicIPAddressConfiguration**: [PublicIPAddressConfiguration](#publicipaddressconfiguration): The public IP Address configuration of the networking configuration of a Pool.
-* **subnetId**: string: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. Enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. Also enable outbound connections to Azure Storage on port 443. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
+* **subnetId**: string: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication，including ports 29876 and 29877. Also enable outbound connections to Azure Storage on port 443. For more details see: https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
 
 ## NetworkProfile
 ### Properties
@@ -519,7 +507,7 @@
 * **caching**: 'None' | 'ReadOnly' | 'ReadWrite': The type of caching to enable for the disk.
 * **diskSizeGB**: int: The initial disk size in GB when creating new OS disk.
 * **ephemeralOSDiskSettings**: [DiffDiskSettings](#diffdisksettings): Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
-* **managedDisk**: [ManagedDisk](#manageddisk)
+* **managedDisk**: [ManagedDisk](#manageddisk): The managed disk parameters.
 * **writeAcceleratorEnabled**: bool: Specifies whether writeAccelerator should be enabled or disabled on the disk.
 
 ## PoolEndpointConfiguration
@@ -558,9 +546,14 @@ Warning: This property is deprecated and will be removed after February, 2024. P
 * **taskSlotsPerNode**: int: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
 * **upgradePolicy**: [UpgradePolicy](#upgradepolicy): Describes an upgrade policy - automatic, manual, or rolling.
 * **userAccounts**: [UserAccount](#useraccount)[]: The list of user accounts to be created on each node in the pool.
-* **vmSize**: string: For information about available VM sizes, see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+* **vmSize**: string: For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 
 ## PoolPropertiesResourceTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
+## PoolTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -572,24 +565,40 @@ Warning: This property is deprecated and will be removed after February, 2024. P
 ## PrivateEndpointConnection
 ### Properties
 * **etag**: string (ReadOnly): The ETag of the resource, used for concurrency statements.
-* **id**: string (ReadOnly): The ID of the resource.
-* **name**: string (ReadOnly): The name of the resource.
+* **id**: string (ReadOnly): Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+* **name**: string (ReadOnly): The name of the resource
 * **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties): The properties associated with the private endpoint connection.
-* **tags**: [AzureProxyResourceTags](#azureproxyresourcetags): The tags of the resource.
-* **type**: string (ReadOnly): The type of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [PrivateEndpointConnectionTags](#privateendpointconnectiontags): The tags of the resource.
+* **type**: string (ReadOnly): The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 
 ## PrivateEndpointConnectionProperties
 ### Properties
 * **groupIds**: string[] (ReadOnly): The value has one and only one group id.
 * **privateEndpoint**: [PrivateEndpoint](#privateendpoint) (ReadOnly): The private endpoint of the private endpoint connection.
-* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate): The private link service connection state of the private endpoint connection
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate): The private link service connection state of the private endpoint connection.
 * **provisioningState**: 'Cancelled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly): The provisioning state of the private endpoint connection.
+
+## PrivateEndpointConnectionTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
+## PrivateEndpointConnectionTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
 
 ## PrivateLinkResourceProperties
 ### Properties
 * **groupId**: string (ReadOnly): The group id is used to establish the private link connection.
 * **requiredMembers**: string[] (ReadOnly): The list of required members that are used to establish the private link connection.
 * **requiredZoneNames**: string[] (ReadOnly): The list of required zone names for the private DNS resource name
+
+## PrivateLinkResourceTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
 
 ## PrivateLinkServiceConnectionState
 ### Properties
@@ -739,8 +748,8 @@ Warning: This property is deprecated and will be removed after February, 2024. P
 * **imageReference**: [ImageReference](#imagereference) (Required): A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation.
 * **licenseType**: string: This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 
- Windows_Server - The on-premises license is for Windows Server.
- Windows_Client - The on-premises license is for Windows Client.
+Windows_Server - The on-premises license is for Windows Server.
+Windows_Client - The on-premises license is for Windows Client.
 * **nodeAgentSkuId**: string (Required): The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
 * **nodePlacementConfiguration**: [NodePlacementConfiguration](#nodeplacementconfiguration): This configuration will specify rules on how nodes in the pool will be physically allocated.
 * **osDisk**: [OSDisk](#osdisk): Contains configuration for ephemeral OSDisk settings.
