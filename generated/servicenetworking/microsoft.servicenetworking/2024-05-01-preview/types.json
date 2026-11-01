@@ -170,7 +170,7 @@
           "$ref": "#/12"
         },
         "flags": 0,
-        "description": "Contains reference to a WAF-type security policy that is applied at the Traffic Controller level."
+        "description": "Contains reference to a WAF-type security policy."
       }
     }
   },
@@ -746,7 +746,7 @@
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.ServiceNetworking/trafficControllers/securityPolicy"
+    "value": "Microsoft.ServiceNetworking/trafficControllers/securityPolicies"
   },
   {
     "$type": "StringLiteralType",
@@ -754,7 +754,7 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.ServiceNetworking/trafficControllers/securityPolicy",
+    "name": "Microsoft.ServiceNetworking/trafficControllers/securityPolicies",
     "properties": {
       "id": {
         "type": {
@@ -830,7 +830,7 @@
           "$ref": "#/71"
         },
         "flags": 0,
-        "description": "Web Application Firewall Policy of the Traffic Controller Security Policy"
+        "description": "Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set."
       },
       "provisioningState": {
         "type": {
@@ -936,7 +936,7 @@
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.ServiceNetworking/trafficControllers/securityPolicy@2024-05-01-preview",
+    "name": "Microsoft.ServiceNetworking/trafficControllers/securityPolicies@2024-05-01-preview",
     "scopeType": 8,
     "body": {
       "$ref": "#/67"

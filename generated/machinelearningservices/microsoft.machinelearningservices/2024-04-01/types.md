@@ -443,11 +443,6 @@
 * **tags**: [TrackedResourceTags](#trackedresourcetags): Resource tags.
 * **type**: 'Microsoft.MachineLearningServices/workspaces/serverlessEndpoints' (ReadOnly, DeployTimeConstant): The resource type
 
-## Function listKeys (Microsoft.MachineLearningServices/workspaces@2024-04-01)
-* **Resource**: Microsoft.MachineLearningServices/workspaces
-* **ApiVersion**: 2024-04-01
-* **Output**: [ListWorkspaceKeysResult](#listworkspacekeysresult)
-
 ## Function listKeys (Microsoft.MachineLearningServices/workspaces/computes@2024-04-01)
 * **Resource**: Microsoft.MachineLearningServices/workspaces/computes
 * **ApiVersion**: 2024-04-01
@@ -468,6 +463,11 @@
 * **ApiVersion**: 2024-04-01
 * **Output**: [EndpointAuthKeys](#endpointauthkeys)
 
+## Function listKeys (Microsoft.MachineLearningServices/workspaces@2024-04-01)
+* **Resource**: Microsoft.MachineLearningServices/workspaces
+* **ApiVersion**: 2024-04-01
+* **Output**: [ListWorkspaceKeysResult](#listworkspacekeysresult)
+
 ## Function listNodes (Microsoft.MachineLearningServices/workspaces/computes@2024-04-01)
 * **Resource**: Microsoft.MachineLearningServices/workspaces/computes
 * **ApiVersion**: 2024-04-01
@@ -483,15 +483,15 @@
 * **ApiVersion**: 2024-04-01
 * **Output**: [ListNotebookKeysResult](#listnotebookkeysresult)
 
-## Function listsecrets (Microsoft.MachineLearningServices/workspaces/connections@2024-04-01)
-* **Resource**: Microsoft.MachineLearningServices/workspaces/connections
-* **ApiVersion**: 2024-04-01
-* **Output**: [WorkspaceConnectionPropertiesV2BasicResource](#workspaceconnectionpropertiesv2basicresource)
-
 ## Function listSecrets (Microsoft.MachineLearningServices/workspaces/datastores@2024-04-01)
 * **Resource**: Microsoft.MachineLearningServices/workspaces/datastores
 * **ApiVersion**: 2024-04-01
 * **Output**: [DatastoreSecrets](#datastoresecrets)
+
+## Function listsecrets (Microsoft.MachineLearningServices/workspaces/connections@2024-04-01)
+* **Resource**: Microsoft.MachineLearningServices/workspaces/connections
+* **ApiVersion**: 2024-04-01
+* **Output**: [WorkspaceConnectionPropertiesV2BasicResource](#workspaceconnectionpropertiesv2basicresource)
 
 ## Function listStorageAccountKeys (Microsoft.MachineLearningServices/workspaces@2024-04-01)
 * **Resource**: Microsoft.MachineLearningServices/workspaces
@@ -506,7 +506,6 @@
 ## AcrDetails
 ### Properties
 * **systemCreatedAcrAccount**: [SystemCreatedAcrAccount](#systemcreatedacraccount): Details of system created ACR account to be used for the Registry
-* **userCreatedAcrAccount**: [UserCreatedAcrAccount](#usercreatedacraccount): Details of user created ACR account to be used for the Registry
 
 ## AksNetworkingConfiguration
 ### Properties
@@ -3443,7 +3442,6 @@ Configure this parameter with a higher value than 300 secs, if more time is need
 ## StorageAccountDetails
 ### Properties
 * **systemCreatedStorageAccount**: [SystemCreatedStorageAccount](#systemcreatedstorageaccount): Details of system created storage account to be used for the registry
-* **userCreatedStorageAccount**: [UserCreatedStorageAccount](#usercreatedstorageaccount): Details of user created storage account to be used for the registry
 
 ## SweepJobInputs
 ### Properties
@@ -3662,14 +3660,6 @@ The expression should follow NCronTab format.
 ### Properties
 * **clientId**: string {minLength: 36, maxLength: 36, pattern: "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"} (ReadOnly): The client ID of the assigned identity.
 * **principalId**: string {minLength: 36, maxLength: 36, pattern: "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"} (ReadOnly): The principal ID of the assigned identity.
-
-## UserCreatedAcrAccount
-### Properties
-* **armResourceId**: [ArmResourceId](#armresourceid): ARM ResourceId of a resource
-
-## UserCreatedStorageAccount
-### Properties
-* **armResourceId**: [ArmResourceId](#armresourceid): ARM ResourceId of a resource
 
 ## VirtualMachineImage
 ### Properties
