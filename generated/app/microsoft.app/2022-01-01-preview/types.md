@@ -181,7 +181,7 @@ a replacement for the Client Secret Certificate Thumbprint. It is also optional.
 a replacement for the Client Secret. It is also optional.
 * **clientSecretSettingName**: string: The app setting name that contains the client secret of the relying party application.
 * **openIdIssuer**: string: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
 This URI is a case-sensitive identifier for the token issuer.
 More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 
@@ -516,9 +516,7 @@ Note that URLs within the current domain are always implicitly allowed.
 
 ## ManagedEnvironmentProperties
 ### Properties
-* **appLogsConfiguration**: [AppLogsConfiguration](#applogsconfiguration): Cluster configuration which enables the log daemon to export
-app logs to a destination. Currently only "log-analytics" is
-supported
+* **appLogsConfiguration**: [AppLogsConfiguration](#applogsconfiguration): Cluster configuration which enables the log daemon to export app logs to configured destination.
 * **daprAIInstrumentationKey**: string: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 * **defaultDomain**: string (ReadOnly): Default Domain Name for the cluster
 * **deploymentErrors**: string (ReadOnly): Any errors that occurred during deployment or deployment validation

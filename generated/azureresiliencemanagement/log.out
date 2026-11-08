@@ -1,0 +1,53 @@
+AutoRest code generation utility [cli version: 3.7.1; node: v16.20.2]
+(C) 2018 Microsoft Corporation.
+https://aka.ms/autorest
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | PreCheck/PropertyRedeclaration | Schema 'OracleInAzureVmRecoveryConfig' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfig' differs more than just description : [enum.0 => 'OracleInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | PreCheck/PropertyRedeclaration | Schema 'OracleInAzureVmRecoveryConfigUpdate' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfigUpdate' differs more than just description : [enum.0 => 'OracleInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | PreCheck/PropertyRedeclaration | Schema 'SapAseInAzureVmRecoveryConfig' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfig' differs more than just description : [enum.0 => 'SapAseInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | PreCheck/PropertyRedeclaration | Schema 'SapAseInAzureVmRecoveryConfigUpdate' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfigUpdate' differs more than just description : [enum.0 => 'SapAseInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | PreCheck/PropertyRedeclaration | Schema 'SapHanaInAzureVmRecoveryConfig' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfig' differs more than just description : [enum.0 => 'SapHanaInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | PreCheck/PropertyRedeclaration | Schema 'SapHanaInAzureVmRecoveryConfigUpdate' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfigUpdate' differs more than just description : [enum.0 => 'SapHanaInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | PreCheck/PropertyRedeclaration | Schema 'SqlDatabaseInAzureVmRecoveryConfig' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfig' differs more than just description : [enum.0 => 'SqlDatabaseInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | PreCheck/PropertyRedeclaration | Schema 'SqlDatabaseInAzureVmRecoveryConfigUpdate' has a property 'workloadType' that is conflicting with a property in the parent schema 'WorkloadConfigUpdate' differs more than just description : [enum.0 => 'SqlDatabaseInAzureVm',enum.1 => '<removed>',enum.2 => '<removed>',enum.3 => '<removed>',enum.4 => '<removed>',enum.5 => '<removed>',x-ms-enum.name => '<removed>',x-ms-enum.modelAsString => 'false',x-ms-enum.values => '<removed>']
+warning | Skipping DrillRuns_ListReportDownloadUrl due to required header parameter "operationId"
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Skipping DrillRuns_ListReportDownloadUrl due to required header parameter "operationId"
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Skipping DrillRuns_ListReportDownloadUrl due to required header parameter "operationId"
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Skipping DrillRuns_ListReportDownloadUrl due to required header parameter "operationId"
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Skipping DrillRuns_ListReportDownloadUrl due to required header parameter "operationId"
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Unrecognized property type: any-object. Returning 'any'.
+warning | DeprecatedConfig | Using directive.0.suppress which is deprecated and will be removed in the future.
+warning | SkippedSemanticValidation | Semantic validation was skipped.
+warning | PreCheck/CheckDuplicateSchemas | Checking for duplicate schemas, this could take a (long) while.  Run with --verbose for more detail.
+warning | Unrecognized property type: any-object. Returning 'any'.
