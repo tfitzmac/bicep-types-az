@@ -7,7 +7,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **identity**: [Identity](#identity): The managed identity associated with the policy assignment.
 * **location**: string: The location of the policy assignment. Only required when utilizing managed identity.
-* **name**: string {pattern: "^[^<>*%&:\?.+/]*[^<>*%&:\?.+/ ]+$"} (Required, DeployTimeConstant): The resource name
+* **name**: string {pattern: "^[^<>%&:\?/]*[^<>%&:\?/ ]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [PolicyAssignmentProperties](#policyassignmentproperties): Properties for the policy assignment.
 * **systemData**: [SystemData](#systemdata) (ReadOnly): The system metadata relating to this resource.
 * **type**: 'Microsoft.Authorization/policyAssignments' (ReadOnly, DeployTimeConstant): The resource type
@@ -17,7 +17,7 @@
 ### Properties
 * **apiVersion**: '2023-04-01' (ReadOnly, DeployTimeConstant): The resource api version
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: string {pattern: "^[^<>*%&:\?.+/]*[^<>*%&:\?.+/ ]+$"} (Required, DeployTimeConstant): The resource name
+* **name**: string {pattern: "^[^<>%&:\?/]*[^<>%&:\?/ ]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [PolicyDefinitionProperties](#policydefinitionproperties): The policy definition properties.
 * **systemData**: [SystemData](#systemdata) (ReadOnly): The system metadata relating to this resource.
 * **type**: 'Microsoft.Authorization/policyDefinitions' (ReadOnly, DeployTimeConstant): The resource type
@@ -37,7 +37,7 @@
 ### Properties
 * **apiVersion**: '2023-04-01' (ReadOnly, DeployTimeConstant): The resource api version
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: string {pattern: "^[^<>*%&:\?.+/]*[^<>*%&:\?.+/ ]+$"} (Required, DeployTimeConstant): The resource name
+* **name**: string {pattern: "^[^<>%&:\?/]*[^<>%&:\?/ ]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [PolicySetDefinitionProperties](#policysetdefinitionproperties): The policy set definition properties.
 * **systemData**: [SystemData](#systemdata) (ReadOnly): The system metadata relating to this resource.
 * **type**: 'Microsoft.Authorization/policySetDefinitions' (ReadOnly, DeployTimeConstant): The resource type
@@ -131,7 +131,9 @@
 * **definitionVersion**: string: The version of the policy definition to use.
 * **description**: string: This message will be part of response in case of policy violation.
 * **displayName**: string: The display name of the policy assignment.
+* **effectiveDefinitionVersion**: string (ReadOnly): The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
 * **enforcementMode**: 'Default' | 'DoNotEnforce' | string: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+* **latestDefinitionVersion**: string (ReadOnly): The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
 * **metadata**: any: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 * **nonComplianceMessages**: [NonComplianceMessage](#noncompliancemessage)[]: The messages that describe why a resource is non-compliant with the policy.
 * **notScopes**: string[]: The policy's excluded scopes.
@@ -164,7 +166,9 @@
 ## PolicyDefinitionReference
 ### Properties
 * **definitionVersion**: string: The version of the policy definition to use.
+* **effectiveDefinitionVersion**: string (ReadOnly): The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
 * **groupNames**: string[]: The name of the groups that this policy definition reference belongs to.
+* **latestDefinitionVersion**: string (ReadOnly): The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
 * **parameters**: [ParameterValues](#parametervalues): The parameter values for the referenced policy rule. The keys are the parameter names.
 * **policyDefinitionId**: string (Required): The ID of the policy definition or policy set definition.
 * **policyDefinitionReferenceId**: string: A unique id (within the policy set definition) for this policy definition reference.

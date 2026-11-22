@@ -48,23 +48,23 @@
         "flags": 10,
         "description": "The resource api version"
       },
-      "identity": {
+      "properties": {
         "type": {
           "$ref": "#/5"
         },
         "flags": 1,
-        "description": "The managed service identity of the resource."
+        "description": "Properties of the storage task."
       },
-      "properties": {
+      "identity": {
         "type": {
-          "$ref": "#/14"
+          "$ref": "#/36"
         },
         "flags": 1,
-        "description": "Properties of the storage task."
+        "description": "The managed service identity of the resource."
       },
       "tags": {
         "type": {
-          "$ref": "#/42"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "Resource tags."
@@ -78,7 +78,7 @@
       },
       "systemData": {
         "type": {
-          "$ref": "#/43"
+          "$ref": "#/46"
         },
         "flags": 2,
         "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information."
@@ -87,122 +87,18 @@
   },
   {
     "$type": "ObjectType",
-    "name": "ManagedServiceIdentity",
-    "properties": {
-      "principalId": {
-        "type": {
-          "$ref": "#/6"
-        },
-        "flags": 2,
-        "description": "The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity."
-      },
-      "tenantId": {
-        "type": {
-          "$ref": "#/6"
-        },
-        "flags": 2,
-        "description": "The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity."
-      },
-      "type": {
-        "type": {
-          "$ref": "#/11"
-        },
-        "flags": 1,
-        "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed)."
-      },
-      "userAssignedIdentities": {
-        "type": {
-          "$ref": "#/13"
-        },
-        "flags": 0,
-        "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
-      }
-    }
-  },
-  {
-    "$type": "StringType",
-    "minLength": 36,
-    "maxLength": 36,
-    "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "None"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "SystemAssigned"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "UserAssigned"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "SystemAssigned,UserAssigned"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/7"
-      },
-      {
-        "$ref": "#/8"
-      },
-      {
-        "$ref": "#/9"
-      },
-      {
-        "$ref": "#/10"
-      },
-      {
-        "$ref": "#/2"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "UserAssignedIdentity",
-    "properties": {
-      "principalId": {
-        "type": {
-          "$ref": "#/6"
-        },
-        "flags": 2,
-        "description": "The principal ID of the assigned identity."
-      },
-      "clientId": {
-        "type": {
-          "$ref": "#/6"
-        },
-        "flags": 2,
-        "description": "The client ID of the assigned identity."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "UserAssignedIdentities",
-    "properties": {},
-    "additionalProperties": {
-      "$ref": "#/12"
-    }
-  },
-  {
-    "$type": "ObjectType",
     "name": "StorageTaskProperties",
     "properties": {
       "taskVersion": {
         "type": {
-          "$ref": "#/15"
+          "$ref": "#/6"
         },
         "flags": 2,
         "description": "Storage task version."
       },
       "enabled": {
         "type": {
-          "$ref": "#/16"
+          "$ref": "#/7"
         },
         "flags": 1,
         "description": "Storage Task is enabled when set to true and disabled when set to false"
@@ -216,14 +112,14 @@
       },
       "action": {
         "type": {
-          "$ref": "#/17"
+          "$ref": "#/8"
         },
         "flags": 1,
         "description": "The storage task action that is executed"
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/41"
+          "$ref": "#/35"
         },
         "flags": 2,
         "description": "Represents the provisioning state of the storage task."
@@ -251,14 +147,14 @@
     "properties": {
       "if": {
         "type": {
-          "$ref": "#/18"
+          "$ref": "#/9"
         },
         "flags": 1,
         "description": "The if block of storage task operation"
       },
       "else": {
         "type": {
-          "$ref": "#/32"
+          "$ref": "#/25"
         },
         "flags": 0,
         "description": "The else block of storage task operation"
@@ -278,7 +174,7 @@
       },
       "operations": {
         "type": {
-          "$ref": "#/31"
+          "$ref": "#/24"
         },
         "flags": 1,
         "description": "List of operations to execute when the condition predicate satisfies."
@@ -291,28 +187,28 @@
     "properties": {
       "name": {
         "type": {
-          "$ref": "#/27"
+          "$ref": "#/18"
         },
         "flags": 1,
         "description": "The operation to be performed on the object."
       },
       "parameters": {
         "type": {
-          "$ref": "#/28"
+          "$ref": "#/19"
         },
         "flags": 0,
         "description": "Key-value parameters for the operation."
       },
       "onSuccess": {
         "type": {
-          "$ref": "#/29"
+          "$ref": "#/21"
         },
         "flags": 0,
         "description": "Action to be taken when the operation is successful for a object."
       },
       "onFailure": {
         "type": {
-          "$ref": "#/30"
+          "$ref": "#/23"
         },
         "flags": 0,
         "description": "Action to be taken when the operation fails for a object."
@@ -351,25 +247,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/20"
+        "$ref": "#/11"
       },
       {
-        "$ref": "#/21"
+        "$ref": "#/12"
       },
       {
-        "$ref": "#/22"
+        "$ref": "#/13"
       },
       {
-        "$ref": "#/23"
+        "$ref": "#/14"
       },
       {
-        "$ref": "#/24"
+        "$ref": "#/15"
       },
       {
-        "$ref": "#/25"
+        "$ref": "#/16"
       },
       {
-        "$ref": "#/26"
+        "$ref": "#/17"
       },
       {
         "$ref": "#/2"
@@ -389,13 +285,35 @@
     "value": "continue"
   },
   {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/20"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
     "$type": "StringLiteralType",
     "value": "break"
   },
   {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/22"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/19"
+      "$ref": "#/10"
     }
   },
   {
@@ -404,7 +322,7 @@
     "properties": {
       "operations": {
         "type": {
-          "$ref": "#/33"
+          "$ref": "#/26"
         },
         "flags": 1,
         "description": "List of operations to execute in the else block"
@@ -414,7 +332,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/19"
+      "$ref": "#/10"
     }
   },
   {
@@ -424,6 +342,10 @@
   {
     "$type": "StringLiteralType",
     "value": "ValidateSubscriptionQuotaEnd"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Accepted"
   },
   {
     "$type": "StringLiteralType",
@@ -449,17 +371,93 @@
     "$type": "UnionType",
     "elements": [
       {
+        "$ref": "#/27"
+      },
+      {
+        "$ref": "#/28"
+      },
+      {
+        "$ref": "#/29"
+      },
+      {
+        "$ref": "#/30"
+      },
+      {
+        "$ref": "#/31"
+      },
+      {
+        "$ref": "#/32"
+      },
+      {
+        "$ref": "#/33"
+      },
+      {
         "$ref": "#/34"
       },
       {
-        "$ref": "#/35"
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "ManagedServiceIdentity",
+    "properties": {
+      "principalId": {
+        "type": {
+          "$ref": "#/37"
+        },
+        "flags": 2,
+        "description": "The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity."
       },
-      {
-        "$ref": "#/36"
+      "tenantId": {
+        "type": {
+          "$ref": "#/37"
+        },
+        "flags": 2,
+        "description": "The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity."
       },
-      {
-        "$ref": "#/37"
+      "type": {
+        "type": {
+          "$ref": "#/42"
+        },
+        "flags": 1,
+        "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed)."
       },
+      "userAssignedIdentities": {
+        "type": {
+          "$ref": "#/44"
+        },
+        "flags": 0,
+        "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+      }
+    }
+  },
+  {
+    "$type": "StringType",
+    "minLength": 36,
+    "maxLength": 36,
+    "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "None"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "SystemAssigned"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "UserAssigned"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "SystemAssigned,UserAssigned"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
       {
         "$ref": "#/38"
       },
@@ -468,8 +466,42 @@
       },
       {
         "$ref": "#/40"
+      },
+      {
+        "$ref": "#/41"
+      },
+      {
+        "$ref": "#/2"
       }
     ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "UserAssignedIdentity",
+    "properties": {
+      "principalId": {
+        "type": {
+          "$ref": "#/37"
+        },
+        "flags": 2,
+        "description": "The principal ID of the assigned identity."
+      },
+      "clientId": {
+        "type": {
+          "$ref": "#/37"
+        },
+        "flags": 2,
+        "description": "The client ID of the assigned identity."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "UserAssignedIdentities",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/43"
+    }
   },
   {
     "$type": "ObjectType",
@@ -492,7 +524,7 @@
       },
       "createdByType": {
         "type": {
-          "$ref": "#/48"
+          "$ref": "#/51"
         },
         "flags": 0,
         "description": "The type of identity that created the resource."
@@ -513,7 +545,7 @@
       },
       "lastModifiedByType": {
         "type": {
-          "$ref": "#/53"
+          "$ref": "#/56"
         },
         "flags": 0,
         "description": "The type of identity that last modified the resource."
@@ -547,16 +579,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/44"
-      },
-      {
-        "$ref": "#/45"
-      },
-      {
-        "$ref": "#/46"
-      },
-      {
         "$ref": "#/47"
+      },
+      {
+        "$ref": "#/48"
+      },
+      {
+        "$ref": "#/49"
+      },
+      {
+        "$ref": "#/50"
       },
       {
         "$ref": "#/2"
@@ -583,16 +615,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/49"
-      },
-      {
-        "$ref": "#/50"
-      },
-      {
-        "$ref": "#/51"
-      },
-      {
         "$ref": "#/52"
+      },
+      {
+        "$ref": "#/53"
+      },
+      {
+        "$ref": "#/54"
+      },
+      {
+        "$ref": "#/55"
       },
       {
         "$ref": "#/2"

@@ -163,7 +163,7 @@
 ### Properties
 * **apiVersion**: '2023-05-01' (ReadOnly, DeployTimeConstant): The resource api version
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: string {minLength: 3, maxLength: 24, pattern: "^[a-z0-9]{3,24}$"} (Required, DeployTimeConstant): The resource name
+* **name**: string {minLength: 3, maxLength: 24, pattern: "^[a-z][a-z0-9]{2,23}$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [StorageTaskAssignmentProperties](#storagetaskassignmentproperties) (Required): Properties of the storage task assignment.
 * **type**: 'Microsoft.Storage/storageAccounts/storageTaskAssignments' (ReadOnly, DeployTimeConstant): The resource type
 
@@ -924,12 +924,12 @@
 * **keyPolicy**: [KeyPolicy](#keypolicy): KeyPolicy assigned to the storage account.
 * **largeFileSharesState**: 'Disabled' | 'Enabled' | string: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
 * **lastGeoFailoverTime**: string (ReadOnly): Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-* **minimumTlsVersion**: 'TLS1_0' | 'TLS1_1' | 'TLS1_2' | 'TLS1_3' | string: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+* **minimumTlsVersion**: 'TLS1_0' | 'TLS1_1' | 'TLS1_2' | 'TLS1_3' | string: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
 * **networkAcls**: [NetworkRuleSet](#networkruleset): Network rule set
 * **primaryEndpoints**: [Endpoints](#endpoints) (ReadOnly): Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
 * **primaryLocation**: string (ReadOnly): Gets the location of the primary data center for the storage account.
 * **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[] (ReadOnly): List of private endpoint connection associated with the specified storage account
-* **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'ResolvingDNS' | 'Succeeded' | 'ValidateSubscriptionQuotaBegin' | 'ValidateSubscriptionQuotaEnd' (ReadOnly): Gets the status of the storage account at the time the operation was called.
+* **provisioningState**: 'Accepted' | 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'ResolvingDNS' | 'Succeeded' | 'ValidateSubscriptionQuotaBegin' | 'ValidateSubscriptionQuotaEnd' (ReadOnly): Gets the status of the storage account at the time the operation was called.
 * **publicNetworkAccess**: 'Disabled' | 'Enabled' | 'SecuredByPerimeter' | string: Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
 * **routingPreference**: [RoutingPreference](#routingpreference): Maintains information about the network routing choice opted by the user for data transfer
 * **sasPolicy**: [SasPolicy](#saspolicy): SasPolicy assigned to the storage account.
@@ -957,7 +957,7 @@
 * **description**: string (Required): Text that describes the purpose of the storage task assignment
 * **enabled**: bool (Required): Whether the storage task assignment is enabled or not
 * **executionContext**: [StorageTaskAssignmentExecutionContext](#storagetaskassignmentexecutioncontext) (Required): The storage task assignment execution context
-* **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'ResolvingDNS' | 'Succeeded' | 'ValidateSubscriptionQuotaBegin' | 'ValidateSubscriptionQuotaEnd' (ReadOnly): Represents the provisioning state of the storage task assignment.
+* **provisioningState**: 'Accepted' | 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'ResolvingDNS' | 'Succeeded' | 'ValidateSubscriptionQuotaBegin' | 'ValidateSubscriptionQuotaEnd' (ReadOnly): Represents the provisioning state of the storage task assignment.
 * **report**: [StorageTaskAssignmentReport](#storagetaskassignmentreport) (Required): The storage task assignment report
 * **runStatus**: [StorageTaskReportProperties](#storagetaskreportproperties): Run status of storage task assignment
 * **taskId**: string (Required): Id of the corresponding storage task
@@ -1032,7 +1032,7 @@
 * **interval**: int {minValue: 1}: Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
 * **intervalUnit**: 'Days': Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
 * **startFrom**: string: When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
-* **startOn**: string: When to start task execution. This is an optional field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+* **startOn**: string: When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
 
 ## UpdateHistoryProperty
 ### Properties

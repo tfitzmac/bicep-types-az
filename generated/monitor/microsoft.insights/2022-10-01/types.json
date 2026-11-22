@@ -49,26 +49,26 @@
         "flags": 1,
         "description": "The autoscale setting of the resource."
       },
-      "location": {
-        "type": {
-          "$ref": "#/0"
-        },
-        "flags": 1,
-        "description": "Resource location"
-      },
       "tags": {
         "type": {
           "$ref": "#/77"
         },
         "flags": 0,
-        "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters."
+        "description": "Resource tags."
+      },
+      "location": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 1,
+        "description": "The geo-location where the resource lives"
       },
       "systemData": {
         "type": {
           "$ref": "#/78"
         },
         "flags": 2,
-        "description": "The system metadata related to the response."
+        "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information."
       }
     }
   },
@@ -924,7 +924,7 @@
   },
   {
     "$type": "ObjectType",
-    "name": "ResourceTags",
+    "name": "TrackedResourceTags",
     "properties": {},
     "additionalProperties": {
       "$ref": "#/0"

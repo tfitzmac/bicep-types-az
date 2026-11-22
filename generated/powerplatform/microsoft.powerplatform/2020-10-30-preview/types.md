@@ -8,7 +8,7 @@
 * **location**: string (Required): The geo-location where the resource lives
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [AccountProperties](#accountproperties): The properties that define configuration for the account.
-* **systemData**: [SystemData](#systemdata) (ReadOnly): Metadata pertaining to creation and last modification of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **tags**: [TrackedResourceTags](#trackedresourcetags): Resource tags.
 * **type**: 'Microsoft.PowerPlatform/accounts' (ReadOnly, DeployTimeConstant): The resource type
 
@@ -22,7 +22,7 @@
 * **location**: string (Required): The geo-location where the resource lives
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [Properties](#properties): The properties that define configuration for the enterprise policy
-* **systemData**: [SystemData](#systemdata) (ReadOnly): Metadata pertaining to creation and last modification of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **tags**: [TrackedResourceTags](#trackedresourcetags): Resource tags.
 * **type**: 'Microsoft.PowerPlatform/enterprisePolicies' (ReadOnly, DeployTimeConstant): The resource type
 
@@ -33,7 +33,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties): Resource properties.
-* **systemData**: [SystemData](#systemdata) (ReadOnly): Metadata pertaining to creation and last modification of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.PowerPlatform/enterprisePolicies/privateEndpointConnections' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.PowerPlatform/enterprisePolicies/privateLinkResources@2020-10-30-preview (ReadOnly)
@@ -43,6 +43,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [PrivateLinkResourceProperties](#privatelinkresourceproperties) (ReadOnly): Resource properties.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.PowerPlatform/enterprisePolicies/privateLinkResources' (ReadOnly, DeployTimeConstant): The resource type
 
 ## AccountProperties
@@ -107,7 +108,7 @@
 
 ## PropertiesNetworkInjection
 ### Properties
-* **virtualNetworks**: [VirtualNetworkPropertiesList](#virtualnetworkpropertieslist): Network injection configuration
+* **virtualNetworks**: [VirtualNetworkProperties](#virtualnetworkproperties)[]: Network injection configuration
 
 ## SubnetProperties
 ### Properties
@@ -136,9 +137,4 @@
 ### Properties
 * **id**: string: Uri of the virtual network.
 * **subnet**: [SubnetProperties](#subnetproperties): Properties of a subnet.
-
-## VirtualNetworkPropertiesList
-### Properties
-* **nextLink**: string: Next page link if any.
-* **value**: [VirtualNetworkProperties](#virtualnetworkproperties)[]: Array of virtual networks.
 

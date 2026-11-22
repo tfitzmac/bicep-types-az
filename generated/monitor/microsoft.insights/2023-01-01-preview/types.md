@@ -8,28 +8,34 @@
 * **location**: string: The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
 * **name**: string {pattern: "^[-\w\._\(\)]+$"} (Required, DeployTimeConstant): The resource name
 * **properties**: [AlertRuleProperties](#alertruleproperties): The Activity Log Alert rule properties of the resource.
-* **tags**: [AzureResourceTags](#azureresourcetags): The tags of the resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
+* **tags**: [ActivityLogAlertResourceTags](#activitylogalertresourcetags): The tags of the resource.
 * **type**: 'Microsoft.Insights/activityLogAlerts' (ReadOnly, DeployTimeConstant): The resource type
-
-## ActionGroup
-### Properties
-* **actionGroupId**: string (Required): The resource ID of the Action Group. This cannot be null or empty.
-* **actionProperties**: [ActionGroupActionProperties](#actiongroupactionproperties): Predefined list of properties and configuration items for the action group.
-* **webhookProperties**: [ActionGroupWebhookProperties](#actiongroupwebhookproperties): the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-
-## ActionGroupActionProperties
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
-
-## ActionGroupWebhookProperties
-### Properties
-### Additional Properties
-* **Additional Properties Type**: string
 
 ## ActionList
 ### Properties
-* **actionGroups**: [ActionGroup](#actiongroup)[]: The list of the Action Groups.
+* **actionGroups**: [ActivityLogAlertActionGroup](#activitylogalertactiongroup)[]: The list of the Action Groups.
+
+## ActivityLogAlertActionGroup
+### Properties
+* **actionGroupId**: string (Required): The resource ID of the Action Group. This cannot be null or empty.
+* **actionProperties**: [ActivityLogAlertActionGroupActionProperties](#activitylogalertactiongroupactionproperties): Predefined list of properties and configuration items for the action group.
+* **webhookProperties**: [ActivityLogAlertActionGroupWebhookProperties](#activitylogalertactiongroupwebhookproperties): the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+
+## ActivityLogAlertActionGroupActionProperties
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
+## ActivityLogAlertActionGroupWebhookProperties
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
+## ActivityLogAlertResourceTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
 
 ## AlertRuleAllOfCondition
 ### Properties
@@ -59,8 +65,12 @@ The possible values for this field are (case-insensitive): 'resourceId', 'catego
 * **scopes**: string[]: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
 * **tenantScope**: string: The tenant GUID. Must be provided for tenant-level and management group events rules.
 
-## AzureResourceTags
+## SystemData
 ### Properties
-### Additional Properties
-* **Additional Properties Type**: string
+* **createdAt**: string: The timestamp of resource creation (UTC).
+* **createdBy**: string: The identity that created the resource.
+* **createdByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User' | string: The type of identity that created the resource.
+* **lastModifiedAt**: string: The timestamp of resource last modification (UTC)
+* **lastModifiedBy**: string: The identity that last modified the resource.
+* **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User' | string: The type of identity that last modified the resource.
 

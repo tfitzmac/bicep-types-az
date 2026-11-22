@@ -36,7 +36,7 @@
 * **tags**: [TrackedResourceTags](#trackedresourcetags): Resource tags.
 * **type**: 'Microsoft.ServiceNetworking/trafficControllers/frontends' (ReadOnly, DeployTimeConstant): The resource type
 
-## Resource Microsoft.ServiceNetworking/trafficControllers/securityPolicy@2024-05-01-preview
+## Resource Microsoft.ServiceNetworking/trafficControllers/securityPolicies@2024-05-01-preview
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
 * **apiVersion**: '2024-05-01-preview' (ReadOnly, DeployTimeConstant): The resource api version
@@ -46,7 +46,7 @@
 * **properties**: [SecurityPolicyProperties](#securitypolicyproperties): The resource-specific properties for this resource.
 * **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **tags**: [TrackedResourceTags](#trackedresourcetags): Resource tags.
-* **type**: 'Microsoft.ServiceNetworking/trafficControllers/securityPolicy' (ReadOnly, DeployTimeConstant): The resource type
+* **type**: 'Microsoft.ServiceNetworking/trafficControllers/securityPolicies' (ReadOnly, DeployTimeConstant): The resource type
 
 ## AssociationProperties
 ### Properties
@@ -69,13 +69,13 @@
 
 ## SecurityPolicyConfigurations
 ### Properties
-* **wafSecurityPolicy**: [WafSecurityPolicy](#wafsecuritypolicy): Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+* **wafSecurityPolicy**: [WafSecurityPolicy](#wafsecuritypolicy): Contains reference to a WAF-type security policy.
 
 ## SecurityPolicyProperties
 ### Properties
 * **policyType**: 'waf' | string (ReadOnly): Type of the Traffic Controller Security Policy
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Deleting' | 'Failed' | 'Provisioning' | 'Succeeded' | 'Updating' | string (ReadOnly): Provisioning State of Traffic Controller SecurityPolicy Resource
-* **wafPolicy**: [WafPolicy](#wafpolicy): Web Application Firewall Policy of the Traffic Controller Security Policy
+* **wafPolicy**: [WafPolicy](#wafpolicy): Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
 
 ## SystemData
 ### Properties
